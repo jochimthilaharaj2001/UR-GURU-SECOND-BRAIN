@@ -1,3 +1,5 @@
+> **2026-11-22 update — newer engineering direction:** Angular (both web channels), ASP.NET Core modular monolith, **MySQL 8.4 LTS**, Hetzner VPS (candidate), Docker/Nginx; LiveKit Build and PayHere Lite (team selections). The SQL Server/PostgreSQL alternatives and unconfirmed Angular language below are **superseded planning history**. See [current alignment](./TECHNICAL-ARCHITECTURE-BASELINE-2026-11-22.md). **OD-20 remains pending**.
+
 # Technology Stack — Decision Register
 
 **Status:** **PROPOSED**; **BRD v6.2.2 OD-20** requires final technology and environment approval.  

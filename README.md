@@ -1,3 +1,5 @@
+> **Architecture alignment update — 22 Nov 2026 (v2.2):** Engineering direction is Angular (Student/Teacher + separate Admin), ASP.NET Core modular monolith, **MySQL 8.4 LTS** (replacing earlier SQL Server/PostgreSQL candidates), and proposed Hetzner VPS + Docker/Nginx. Read [architecture reconciliation](04-TECHNICAL-ARCHITECTURE/TECHNICAL-ARCHITECTURE-BASELINE-2026-11-22.md) and [full architecture DOCX](04-TECHNICAL-ARCHITECTURE/UR_GURU_Complete_Technical_Architecture_v1.0.docx). **Design candidate, OD-20 sign-off pending**; previous references may remain as historical drafts.
+
 # UR GURU — Development Second Brain
 
 **Knowledge-base revision:** 2.1-corrected | **Updated:** 22 November 2026 | **Status:** CORRECTED / REVIEW REQUIRED (not a signed production baseline)

@@ -1,3 +1,5 @@
+> **2026-11-22 MySQL alignment:** MySQL 8.4 LTS is the user-selected *engineering candidate*, replacing older SQL Server/PostgreSQL assumptions. All table inventories, DBML, ERD diagrams, column definitions and constraints here remain **logical proposals**; they have **not** been certified as MySQL 8.4 physical DDL. Run compatibility, collation, FK/index, transactional concurrency and EF Core migration reviews before sign-off. [Technical alignment](../04-TECHNICAL-ARCHITECTURE/TECHNICAL-ARCHITECTURE-BASELINE-2026-11-22.md).
+
 > **22 Nov 2026 correction notice:** Refer to root README and BRD v6.2.2 for active scope. Earlier counts, approvals and legacy references below are historical until reconciled.
 
 # 07 — DATABASE DESIGN | UR GURU v6.2.2

@@ -1,3 +1,5 @@
+> **Latest technical design reference (22 Nov 2026):** [Full Technical Architecture v1.0](./UR_GURU_Complete_Technical_Architecture_v1.0.docx) and [MySQL/Hetzner alignment & open gates](./TECHNICAL-ARCHITECTURE-BASELINE-2026-11-22.md). These supersede earlier *engineering candidate choices* only, not the BRD or unsigned approvals.
+
 # 04 — TECHNICAL ARCHITECTURE (UR GURU)
 
 > **Document status:** **PROPOSED IMPLEMENTATION DESIGN — NOT APPROVED FOR PRODUCTION**  

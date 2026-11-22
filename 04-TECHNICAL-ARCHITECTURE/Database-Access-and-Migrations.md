@@ -1,3 +1,5 @@
+> **MySQL update (22 Nov 2026):** User selected MySQL 8.4 LTS for engineering planning. Treat SQL Server/PostgreSQL references below as historical alternatives. No physical schema, migration, driver, collation or index design is approved until MySQL-specific tests and OD-20 sign-off. [Alignment details](./TECHNICAL-ARCHITECTURE-BASELINE-2026-11-22.md).
+
 # Database Access, Ownership & Migrations
 
 **Status:** PROPOSED; physical relational engine, naming, ERD v1.2 implementation and migrations **PENDING OD-20**.  

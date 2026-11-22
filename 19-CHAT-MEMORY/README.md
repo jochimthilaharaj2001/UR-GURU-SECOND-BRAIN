@@ -1,3 +1,5 @@
+> **2026-11-22 role-description correction:** `DEV_4` SQL Server reference below is legacy; **MySQL 8.4 LTS** is the selected engineering candidate. `DEV_5` “Exam Munnodi” is the old feature name; current brand **XACT**. Team assignments and dates remain historical planning until reconfirmed. See [architecture alignment](../04-TECHNICAL-ARCHITECTURE/TECHNICAL-ARCHITECTURE-BASELINE-2026-11-22.md).
+
 # UR GURU — Team Chat Memory & Development Handbook
 **Folder:** `19-CHAT-MEMORY/`  
 **Purpose:** Each developer's daily work log, decisions, blockers, and AI context — stored separately per member.  

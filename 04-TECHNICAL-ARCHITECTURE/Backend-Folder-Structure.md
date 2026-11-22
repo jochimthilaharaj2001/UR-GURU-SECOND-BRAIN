@@ -1,3 +1,5 @@
+> **2026-11-22 note:** The new full architecture DOCX provides an *alternative illustrative folder naming scheme*. This repository existing modular-monolith layout remains a valid candidate; **do not create both layouts**. Tech lead must approve one consistent physical solution structure before scaffolding. See [alignment](./TECHNICAL-ARCHITECTURE-BASELINE-2026-11-22.md).
+
 # Proposed Backend Folder Structure — C# ASP.NET Core Modular Monolith
 
 **Status:** **Illustrative source architecture; OD-20 approval pending.** Paths are recommendations, not existing code. Module and project split can be adjusted after repository review.

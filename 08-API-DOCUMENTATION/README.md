@@ -1,3 +1,5 @@
+> **2026-11-22 architecture alignment:** API transport/DTO contracts must remain database-independent. Backend implementation now targets MySQL 8.4 LTS as a planning selection; existing TBD request/response contracts and approval gates are **not** resolved by this change. [Architecture reference](../04-TECHNICAL-ARCHITECTURE/TECHNICAL-ARCHITECTURE-BASELINE-2026-11-22.md).
+
 > **22 Nov 2026 correction notice:** Refer to root README and BRD v6.2.2 for active scope. Earlier counts, approvals and legacy references below are historical until reconciled.
 
 # UR GURU — 08-API-DOCUMENTATION

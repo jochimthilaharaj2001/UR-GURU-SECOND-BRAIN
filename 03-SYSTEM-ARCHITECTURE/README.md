@@ -1,3 +1,5 @@
+> **Engineering direction update (22 Nov 2026):** Existing logical diagrams are retained. Deployment-specific selection (MySQL + Hetzner + Angular + ASP.NET Core) is documented in [Section 04](../04-TECHNICAL-ARCHITECTURE/TECHNICAL-ARCHITECTURE-BASELINE-2026-11-22.md); diagrams are not automatically a physical deployment plan.
+
 # 03 — SYSTEM ARCHITECTURE (UR GURU)
 
 > **Status:** Architecture documentation draft based on **UR GURU Full Corrected BRD v6.2.2 (19 November 2026)**. The BRD is a **consolidated review candidate — stakeholder sign-off pending**. Diagrams here are *logical views*, **not** a production infrastructure approval or finalized ERD.

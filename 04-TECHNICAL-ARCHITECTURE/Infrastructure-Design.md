@@ -1,3 +1,5 @@
+> **Hosting update (22 Nov 2026):** Hetzner Cloud VPS + Ubuntu + Docker Compose + Nginx is the startup **candidate**; not an approved production deployment. Verify region, budget, security, monitoring, off-server backup and restore. [Current architecture](./TECHNICAL-ARCHITECTURE-BASELINE-2026-11-22.md).
+
 # Infrastructure & Deployment Design — Logical Proposal
 
 **Status:** PROPOSED; cloud, vendor, service tier, locations, capacity and SLAs **PENDING OD-16/20**.  

@@ -1,3 +1,5 @@
+> **2026-11-22 deployment direction:** Hetzner VPS (candidate), Ubuntu, Docker Compose, Nginx, Angular web deployments, ASP.NET Core API, private MySQL 8.4 LTS; LiveKit/PayHere/R2 external. This is **not a deployed environment** or approved production runbook. See [deployment candidate](./HETZNER-MYSQL-DEPLOYMENT-CANDIDATE.md).
+
 # 14-DEPLOYMENT
 
 **Purpose:** Repeatable release, rollback, recovery and operations.

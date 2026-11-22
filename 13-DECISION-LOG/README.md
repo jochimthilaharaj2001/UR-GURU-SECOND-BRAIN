@@ -1,3 +1,5 @@
+> **New architecture decision candidate (22 Nov 2026):** MySQL 8.4 LTS selected by user for planning, Hetzner VPS recommended, Angular/ASP.NET Core direction retained; **OD-20 / OD-16 approval remains pending**. [Decision note](./TECHNICAL-ARCHITECTURE-DECISION-CANDIDATE.md).
+
 > **22 Nov 2026 correction notice:** Refer to root README and BRD v6.2.2 for active scope. Earlier counts, approvals and legacy references below are historical until reconciled.
 
 # 13-DECISION-LOG
