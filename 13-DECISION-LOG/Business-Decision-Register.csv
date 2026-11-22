@@ -1,0 +1,21 @@
+﻿Decision_ID,Topic,Options,Decision,Status,Owner,Approver,Date,Evidence_Link
+OD-01,Teacher evidence and screening,Requires approved policy/contract and trade-off review,,Pending formal sign-off,Product / Legal / Operations,,,02-BRD-AND-REQUIREMENTS/UR_GURU_Full_Corrected_BRD_v6.2.2.pdf
+OD-02,"Demo rights, review, public preview and analytics",Requires approved policy/contract and trade-off review,,Pending formal sign-off,Product / Legal / Operations,,,02-BRD-AND-REQUIREMENTS/UR_GURU_Full_Corrected_BRD_v6.2.2.pdf
+OD-03,Commission/tax/revenue recognition,Requires approved policy/contract and trade-off review,,Pending formal sign-off,Sponsor / Finance,,,02-BRD-AND-REQUIREMENTS/UR_GURU_Full_Corrected_BRD_v6.2.2.pdf
+OD-04,"Refunds, disputes, earnings, payouts",Requires approved policy/contract and trade-off review,,Pending formal sign-off,Finance / Legal,,,02-BRD-AND-REQUIREMENTS/UR_GURU_Full_Corrected_BRD_v6.2.2.pdf
+OD-05,Payment provider and capability verification,Requires approved policy/contract and trade-off review,Discussion preference: PayHere Lite; pending verification,Pending formal sign-off,Finance / Engineering,,,02-BRD-AND-REQUIREMENTS/UR_GURU_Full_Corrected_BRD_v6.2.2.pdf
+OD-06,"Live/video provider, recording, cost",Requires approved policy/contract and trade-off review,Discussion preference: LiveKit Build; pending verification,Pending formal sign-off,Engineering / Product / Finance,,,02-BRD-AND-REQUIREMENTS/UR_GURU_Full_Corrected_BRD_v6.2.2.pdf
+OD-07,Question and translation rights,Requires approved policy/contract and trade-off review,,Pending formal sign-off,Legal / Academic,,,02-BRD-AND-REQUIREMENTS/UR_GURU_Full_Corrected_BRD_v6.2.2.pdf
+OD-08,Five-year question inventory coverage,Requires approved policy/contract and trade-off review,,Pending formal sign-off,Academic Lead,,,02-BRD-AND-REQUIREMENTS/UR_GURU_Full_Corrected_BRD_v6.2.2.pdf
+OD-09,Academic keys/video QA/regrade,Requires approved policy/contract and trade-off review,,Pending formal sign-off,Academic Lead,,,02-BRD-AND-REQUIREMENTS/UR_GURU_Full_Corrected_BRD_v6.2.2.pdf
+OD-10,Mock timer/marks/limits/reveal,Requires approved policy/contract and trade-off review,,Pending formal sign-off,Academic / Product,,,02-BRD-AND-REQUIREMENTS/UR_GURU_Full_Corrected_BRD_v6.2.2.pdf
+OD-11,Difficulty/topic quotas and translation QA,Requires approved policy/contract and trade-off review,,Pending formal sign-off,Academic,,,02-BRD-AND-REQUIREMENTS/UR_GURU_Full_Corrected_BRD_v6.2.2.pdf
+OD-12,Explanation video compensation/rights,Requires approved policy/contract and trade-off review,,Pending formal sign-off,Finance / Legal,,,02-BRD-AND-REQUIREMENTS/UR_GURU_Full_Corrected_BRD_v6.2.2.pdf
+OD-13,XACT free allowance and pricing,Requires approved policy/contract and trade-off review,,Pending formal sign-off,Sponsor / Finance,,,02-BRD-AND-REQUIREMENTS/UR_GURU_Full_Corrected_BRD_v6.2.2.pdf
+OD-14,Future native/institutions/teacher Pro,Requires approved policy/contract and trade-off review,,Pending formal sign-off,Sponsor / Product,,,02-BRD-AND-REQUIREMENTS/UR_GURU_Full_Corrected_BRD_v6.2.2.pdf
+OD-15,Minors/guardian consent/PDPA/retention,Requires approved policy/contract and trade-off review,,Pending formal sign-off,Legal / Safeguarding,,,02-BRD-AND-REQUIREMENTS/UR_GURU_Full_Corrected_BRD_v6.2.2.pdf
+OD-16,"Staffing, release, budget, SLA",Requires approved policy/contract and trade-off review,,Pending formal sign-off,Sponsor / PM / Engineering,,,02-BRD-AND-REQUIREMENTS/UR_GURU_Full_Corrected_BRD_v6.2.2.pdf
+OD-17,XACT brand and Bio/Maths launch,Requires approved policy/contract and trade-off review,,Pending formal sign-off,Product Owner,,,02-BRD-AND-REQUIREMENTS/UR_GURU_Full_Corrected_BRD_v6.2.2.pdf
+OD-18,R1/R2 sequence versus XACT pilot,Requires approved policy/contract and trade-off review,,Pending formal sign-off,Sponsor / Product Owner,,,02-BRD-AND-REQUIREMENTS/UR_GURU_Full_Corrected_BRD_v6.2.2.pdf
+OD-19,NIC verification necessity and alternatives,Requires approved policy/contract and trade-off review,,Pending formal sign-off,Product / Legal,,,02-BRD-AND-REQUIREMENTS/UR_GURU_Full_Corrected_BRD_v6.2.2.pdf
+OD-20,Frontend/backend/database/env/ERD approval,Requires approved policy/contract and trade-off review,,Pending formal sign-off,Engineering / Sponsor,,,02-BRD-AND-REQUIREMENTS/UR_GURU_Full_Corrected_BRD_v6.2.2.pdf

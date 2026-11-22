@@ -1,0 +1,406 @@
+﻿ProposedEntity,Column,LogicalTypeCandidate,KeyCategory,NullabilityCandidate,Module,SourceBR,Status,ReviewNotes
+UserAccount,UserAccountId,UUID candidate,PK,NOT NULL,Identity,BR-01/02/14/21,PROPOSED,Surrogate key; can change at physical design approval
+UserAccount,Email,varchar(255),Attribute,REVIEW REQUIRED,Identity,BR-01/02/14/21,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+UserAccount,Phone,varchar(120),Attribute,REVIEW REQUIRED,Identity,BR-01/02/14/21,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+UserAccount,PasswordHash,text,Attribute,REVIEW REQUIRED,Identity,BR-01/02/14/21,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+UserAccount,AccountStatus,varchar(120),Attribute,REVIEW REQUIRED,Identity,BR-01/02/14/21,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+UserAccount,CreatedAt,timestamp,Attribute,REVIEW REQUIRED,Identity,BR-01/02/14/21,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+UserRole,UserRoleId,UUID candidate,PK,NOT NULL,Identity,BR-01/14,PROPOSED,Surrogate key; can change at physical design approval
+UserRole,UserId,UUID candidate,FK candidate,NOT NULL candidate,Identity,BR-01/14,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+UserRole,RoleCode,varchar(120),Attribute,REVIEW REQUIRED,Identity,BR-01/14,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+UserRole,GrantedAt,timestamp,Attribute,REVIEW REQUIRED,Identity,BR-01/14,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+UserRole,RevokedAt,timestamp,Attribute,REVIEW REQUIRED,Identity,BR-01/14,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+StudentProfile,StudentProfileId,UUID candidate,PK,NOT NULL,Identity,BR-01/21,PROPOSED,Surrogate key; can change at physical design approval
+StudentProfile,UserId,UUID candidate,FK candidate,NOT NULL candidate,Identity,BR-01/21,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+StudentProfile,GradeLevel,int,Attribute,REVIEW REQUIRED,Identity,BR-01/21,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+StudentProfile,StreamId,UUID candidate,FK candidate,NOT NULL candidate,Identity,BR-01/21,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+StudentProfile,PreferredMediumCode,varchar(120),Attribute,REVIEW REQUIRED,Identity,BR-01/21,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+StudentProfile,Status,varchar(120),Attribute,REVIEW REQUIRED,Identity,BR-01/21,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+TeacherProfile,TeacherProfileId,UUID candidate,PK,NOT NULL,Identity,BR-02/03,PROPOSED,Surrogate key; can change at physical design approval
+TeacherProfile,UserId,UUID candidate,FK candidate,NOT NULL candidate,Identity,BR-02/03,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+TeacherProfile,PublicName,varchar(255),Attribute,REVIEW REQUIRED,Identity,BR-02/03,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+TeacherProfile,Bio,text,Attribute,REVIEW REQUIRED,Identity,BR-02/03,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+TeacherProfile,VerificationStatus,varchar(120),Attribute,REVIEW REQUIRED,Identity,BR-02/03,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+TeacherProfile,Status,varchar(120),Attribute,REVIEW REQUIRED,Identity,BR-02/03,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+TeacherVerification,TeacherVerificationId,UUID candidate,PK,NOT NULL,Identity,BR-02,PROPOSED,Surrogate key; can change at physical design approval
+TeacherVerification,TeacherId,UUID candidate,FK candidate,NOT NULL candidate,Identity,BR-02,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+TeacherVerification,ReviewStatus,varchar(120),Attribute,REVIEW REQUIRED,Identity,BR-02,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+TeacherVerification,EvidenceAssetId,UUID candidate,FK candidate,REVIEW REQUIRED,Identity,BR-02,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+TeacherVerification,ReviewerUserId,UUID candidate,FK candidate,REVIEW REQUIRED,Identity,BR-02,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+TeacherVerification,ReviewedAt,timestamp,Attribute,REVIEW REQUIRED,Identity,BR-02,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+GuardianContact,GuardianContactId,UUID candidate,PK,NOT NULL,Identity,BR-21,PROPOSED,Surrogate key; can change at physical design approval
+GuardianContact,StudentId,UUID candidate,FK candidate,NOT NULL candidate,Identity,BR-21,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+GuardianContact,ContactName,varchar(255),Attribute,REVIEW REQUIRED,Identity,BR-21,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+GuardianContact,ContactPhone,varchar(120),Attribute,REVIEW REQUIRED,Identity,BR-21,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+GuardianContact,RelationshipCode,varchar(120),Attribute,REVIEW REQUIRED,Identity,BR-21,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+GuardianContact,ContactStatus,varchar(120),Attribute,REVIEW REQUIRED,Identity,BR-21,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+ConsentRecord,ConsentRecordId,UUID candidate,PK,NOT NULL,Identity,BR-21,PROPOSED,Surrogate key; can change at physical design approval
+ConsentRecord,StudentId,UUID candidate,FK candidate,NOT NULL candidate,Identity,BR-21,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+ConsentRecord,GuardianContactId,UUID candidate,FK candidate,REVIEW REQUIRED,Identity,BR-21,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+ConsentRecord,PurposeCode,varchar(120),Attribute,REVIEW REQUIRED,Identity,BR-21,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+ConsentRecord,PolicyVersion,text,Attribute,REVIEW REQUIRED,Identity,BR-21,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+ConsentRecord,GrantedAt,timestamp,Attribute,REVIEW REQUIRED,Identity,BR-21,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+ConsentRecord,RevokedAt,timestamp,Attribute,REVIEW REQUIRED,Identity,BR-21,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+ConsentRecord,EvidenceAssetId,UUID candidate,FK candidate,REVIEW REQUIRED,Identity,BR-21,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+IdentityCheck,IdentityCheckId,UUID candidate,PK,NOT NULL,Identity,BR-22,PROPOSED,Surrogate key; can change at physical design approval
+IdentityCheck,UserId,UUID candidate,FK candidate,NOT NULL candidate,Identity,BR-22,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+IdentityCheck,MethodCode,varchar(120),Attribute,REVIEW REQUIRED,Identity,BR-22,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+IdentityCheck,ProviderReference,varchar(255),Attribute,REVIEW REQUIRED,Identity,BR-22,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+IdentityCheck,VerificationStatus,varchar(120),Attribute,REVIEW REQUIRED,Identity,BR-22,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+IdentityCheck,VerifiedAt,timestamp,Attribute,REVIEW REQUIRED,Identity,BR-22,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+AcademicStream,AcademicStreamId,UUID candidate,PK,NOT NULL,Catalogue,BR-01/23,PROPOSED,Surrogate key; can change at physical design approval
+AcademicStream,StreamCode,varchar(120),Attribute,REVIEW REQUIRED,Catalogue,BR-01/23,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+AcademicStream,Name,varchar(255),Attribute,REVIEW REQUIRED,Catalogue,BR-01/23,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+AcademicStream,LaunchStatus,varchar(120),Attribute,REVIEW REQUIRED,Catalogue,BR-01/23,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+Subject,SubjectId,UUID candidate,PK,NOT NULL,Catalogue,BR-01/23,PROPOSED,Surrogate key; can change at physical design approval
+Subject,SubjectCode,varchar(255),Attribute,REVIEW REQUIRED,Catalogue,BR-01/23,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+Subject,Name,varchar(255),Attribute,REVIEW REQUIRED,Catalogue,BR-01/23,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+Subject,Status,varchar(120),Attribute,REVIEW REQUIRED,Catalogue,BR-01/23,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+StreamSubject,StreamSubjectId,UUID candidate,PK,NOT NULL,Catalogue,BR-01,PROPOSED,Surrogate key; can change at physical design approval
+StreamSubject,StreamId,UUID candidate,FK candidate,NOT NULL candidate,Catalogue,BR-01,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+StreamSubject,SubjectId,UUID candidate,FK candidate,NOT NULL candidate,Catalogue,BR-01,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+StreamSubject,EligibilityStatus,varchar(120),Attribute,REVIEW REQUIRED,Catalogue,BR-01,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+SyllabusVersion,SyllabusVersionId,UUID candidate,PK,NOT NULL,Catalogue,BR-18/23,PROPOSED,Surrogate key; can change at physical design approval
+SyllabusVersion,SubjectId,UUID candidate,FK candidate,NOT NULL candidate,Catalogue,BR-18/23,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+SyllabusVersion,VersionCode,varchar(120),Attribute,REVIEW REQUIRED,Catalogue,BR-18/23,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+SyllabusVersion,EffectiveFrom,timestamp,Attribute,REVIEW REQUIRED,Catalogue,BR-18/23,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+SyllabusVersion,Status,varchar(120),Attribute,REVIEW REQUIRED,Catalogue,BR-18/23,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+Topic,TopicId,UUID candidate,PK,NOT NULL,Catalogue,BR-18/23,PROPOSED,Surrogate key; can change at physical design approval
+Topic,SyllabusVersionId,UUID candidate,FK candidate,NOT NULL candidate,Catalogue,BR-18/23,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+Topic,ParentTopicId,UUID candidate,FK candidate,REVIEW REQUIRED,Catalogue,BR-18/23,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+Topic,TopicCode,varchar(120),Attribute,REVIEW REQUIRED,Catalogue,BR-18/23,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+Topic,TopicName,varchar(255),Attribute,REVIEW REQUIRED,Catalogue,BR-18/23,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+Topic,Status,varchar(120),Attribute,REVIEW REQUIRED,Catalogue,BR-18/23,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+CatalogueTranslation,CatalogueTranslationId,UUID candidate,PK,NOT NULL,Catalogue,BR-23,PROPOSED,Surrogate key; can change at physical design approval
+CatalogueTranslation,EntityType,varchar(120),Attribute,REVIEW REQUIRED,Catalogue,BR-23,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+CatalogueTranslation,EntityId,uuid,Attribute,REVIEW REQUIRED,Catalogue,BR-23,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+CatalogueTranslation,MediumCode,varchar(120),Attribute,REVIEW REQUIRED,Catalogue,BR-23,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+CatalogueTranslation,DisplayText,text,Attribute,REVIEW REQUIRED,Catalogue,BR-23,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+CatalogueTranslation,ReviewStatus,varchar(120),Attribute,REVIEW REQUIRED,Catalogue,BR-23,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+StudentSubject,StudentSubjectId,UUID candidate,PK,NOT NULL,Catalogue,BR-01,PROPOSED,Surrogate key; can change at physical design approval
+StudentSubject,StudentId,UUID candidate,FK candidate,NOT NULL candidate,Catalogue,BR-01,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+StudentSubject,SubjectId,UUID candidate,FK candidate,NOT NULL candidate,Catalogue,BR-01,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+StudentSubject,AcademicYear,int,Attribute,REVIEW REQUIRED,Catalogue,BR-01,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+StudentSubject,SelectedAt,timestamp,Attribute,REVIEW REQUIRED,Catalogue,BR-01,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+StudentSubject,Status,varchar(120),Attribute,REVIEW REQUIRED,Catalogue,BR-01,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+TeacherSubject,TeacherSubjectId,UUID candidate,PK,NOT NULL,Catalogue,BR-02/03,PROPOSED,Surrogate key; can change at physical design approval
+TeacherSubject,TeacherId,UUID candidate,FK candidate,NOT NULL candidate,Catalogue,BR-02/03,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+TeacherSubject,SubjectId,UUID candidate,FK candidate,NOT NULL candidate,Catalogue,BR-02/03,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+TeacherSubject,MediumCode,varchar(120),Attribute,REVIEW REQUIRED,Catalogue,BR-02/03,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+TeacherSubject,AuthorizationStatus,varchar(120),Attribute,REVIEW REQUIRED,Catalogue,BR-02/03,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+ClassOffering,ClassOfferingId,UUID candidate,PK,NOT NULL,Marketplace,BR-03/04/05,PROPOSED,Surrogate key; can change at physical design approval
+ClassOffering,TeacherId,UUID candidate,FK candidate,NOT NULL candidate,Marketplace,BR-03/04/05,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+ClassOffering,SubjectId,UUID candidate,FK candidate,NOT NULL candidate,Marketplace,BR-03/04/05,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+ClassOffering,Title,varchar(255),Attribute,REVIEW REQUIRED,Marketplace,BR-03/04/05,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+ClassOffering,MediumCode,varchar(120),Attribute,REVIEW REQUIRED,Marketplace,BR-03/04/05,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+ClassOffering,PriceAmount,"decimal(19,4)",Attribute,REVIEW REQUIRED,Marketplace,BR-03/04/05,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+ClassOffering,CurrencyCode,varchar(120),Attribute,REVIEW REQUIRED,Marketplace,BR-03/04/05,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+ClassOffering,DemoPreviewEnabled,boolean,Attribute,REVIEW REQUIRED,Marketplace,BR-03/04/05,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+ClassOffering,Status,varchar(120),Attribute,REVIEW REQUIRED,Marketplace,BR-03/04/05,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+ClassBatch,ClassBatchId,UUID candidate,PK,NOT NULL,Marketplace,BR-05,PROPOSED,Surrogate key; can change at physical design approval
+ClassBatch,ClassOfferingId,UUID candidate,FK candidate,NOT NULL candidate,Marketplace,BR-05,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+ClassBatch,Capacity,int,Attribute,REVIEW REQUIRED,Marketplace,BR-05,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+ClassBatch,StartAt,timestamp,Attribute,REVIEW REQUIRED,Marketplace,BR-05,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+ClassBatch,EndAt,timestamp,Attribute,REVIEW REQUIRED,Marketplace,BR-05,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+ClassBatch,TimeZoneId,uuid,Attribute,REVIEW REQUIRED,Marketplace,BR-05,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+ClassBatch,Status,varchar(120),Attribute,REVIEW REQUIRED,Marketplace,BR-05,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+ClassSchedule,ClassScheduleId,UUID candidate,PK,NOT NULL,Marketplace,BR-05,PROPOSED,Surrogate key; can change at physical design approval
+ClassSchedule,BatchId,UUID candidate,FK candidate,NOT NULL candidate,Marketplace,BR-05,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+ClassSchedule,DayOfWeek,int,Attribute,REVIEW REQUIRED,Marketplace,BR-05,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+ClassSchedule,LocalStartTime,varchar(120),Attribute,REVIEW REQUIRED,Marketplace,BR-05,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+ClassSchedule,DurationMinutes,int,Attribute,REVIEW REQUIRED,Marketplace,BR-05,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+ClassSchedule,TimeZoneId,uuid,Attribute,REVIEW REQUIRED,Marketplace,BR-05,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+LiveSession,LiveSessionId,UUID candidate,PK,NOT NULL,Marketplace,BR-05,PROPOSED,Surrogate key; can change at physical design approval
+LiveSession,BatchId,UUID candidate,FK candidate,NOT NULL candidate,Marketplace,BR-05,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+LiveSession,ScheduledStartAt,timestamp,Attribute,REVIEW REQUIRED,Marketplace,BR-05,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+LiveSession,ScheduledEndAt,timestamp,Attribute,REVIEW REQUIRED,Marketplace,BR-05,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+LiveSession,ProviderSessionRef,varchar(120),Attribute,REVIEW REQUIRED,Marketplace,BR-05,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+LiveSession,Status,varchar(120),Attribute,REVIEW REQUIRED,Marketplace,BR-05,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+Enrollment,EnrollmentId,UUID candidate,PK,NOT NULL,Marketplace,BR-05/06,PROPOSED,Surrogate key; can change at physical design approval
+Enrollment,StudentId,UUID candidate,FK candidate,NOT NULL candidate,Marketplace,BR-05/06,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+Enrollment,BatchId,UUID candidate,FK candidate,NOT NULL candidate,Marketplace,BR-05/06,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+Enrollment,OrderLineId,UUID candidate,FK candidate,REVIEW REQUIRED,Marketplace,BR-05/06,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+Enrollment,EnrollmentStatus,varchar(120),Attribute,REVIEW REQUIRED,Marketplace,BR-05/06,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+Enrollment,EnrolledAt,timestamp,Attribute,REVIEW REQUIRED,Marketplace,BR-05/06,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+Attendance,AttendanceId,UUID candidate,PK,NOT NULL,Marketplace,BR-05,PROPOSED,Surrogate key; can change at physical design approval
+Attendance,LiveSessionId,UUID candidate,FK candidate,NOT NULL candidate,Marketplace,BR-05,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+Attendance,StudentId,UUID candidate,FK candidate,NOT NULL candidate,Marketplace,BR-05,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+Attendance,JoinedAt,timestamp,Attribute,REVIEW REQUIRED,Marketplace,BR-05,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+Attendance,LeftAt,timestamp,Attribute,REVIEW REQUIRED,Marketplace,BR-05,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+Attendance,AttendanceStatus,varchar(120),Attribute,REVIEW REQUIRED,Marketplace,BR-05,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+DemoVideo,DemoVideoId,UUID candidate,PK,NOT NULL,Marketplace,BR-04,PROPOSED,Surrogate key; can change at physical design approval
+DemoVideo,ClassOfferingId,UUID candidate,FK candidate,NOT NULL candidate,Marketplace,BR-04,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+DemoVideo,MediaAssetId,UUID candidate,FK candidate,NOT NULL candidate,Marketplace,BR-04,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+DemoVideo,ReviewerUserId,UUID candidate,FK candidate,REVIEW REQUIRED,Marketplace,BR-04,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+DemoVideo,Title,varchar(255),Attribute,REVIEW REQUIRED,Marketplace,BR-04,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+DemoVideo,MediumCode,varchar(120),Attribute,REVIEW REQUIRED,Marketplace,BR-04,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+DemoVideo,ReviewStatus,varchar(120),Attribute,REVIEW REQUIRED,Marketplace,BR-04,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+DemoVideo,DurationSeconds,int,Attribute,REVIEW REQUIRED,Marketplace,BR-04,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+DemoVideo,CreatedAt,timestamp,Attribute,REVIEW REQUIRED,Marketplace,BR-04,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+DemoVideo,PublishedAt,timestamp,Attribute,REVIEW REQUIRED,Marketplace,BR-04,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+DemoVideo,UpdatedAt,timestamp,Attribute,REVIEW REQUIRED,Marketplace,BR-04,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+MediaAsset,MediaAssetId,UUID candidate,PK,NOT NULL,Media,BR-04/07/20,PROPOSED,Surrogate key; can change at physical design approval
+MediaAsset,StorageKeyRef,varchar(255),Attribute,REVIEW REQUIRED,Media,BR-04/07/20,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+MediaAsset,ContentType,varchar(120),Attribute,REVIEW REQUIRED,Media,BR-04/07/20,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+MediaAsset,ByteSize,int,Attribute,REVIEW REQUIRED,Media,BR-04/07/20,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+MediaAsset,ProcessingStatus,varchar(120),Attribute,REVIEW REQUIRED,Media,BR-04/07/20,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+MediaAsset,RightsStatus,varchar(120),Attribute,REVIEW REQUIRED,Media,BR-04/07/20,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+MediaAsset,CreatedByUserId,UUID candidate,FK candidate,REVIEW REQUIRED,Media,BR-04/07/20,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+ContentReviewEvent,ContentReviewEventId,UUID candidate,PK,NOT NULL,Media,BR-04/20,PROPOSED,Surrogate key; can change at physical design approval
+ContentReviewEvent,MediaAssetId,UUID candidate,FK candidate,REVIEW REQUIRED,Media,BR-04/20,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+ContentReviewEvent,ReviewObjectType,varchar(120),Attribute,REVIEW REQUIRED,Media,BR-04/20,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+ContentReviewEvent,ReviewObjectId,uuid,Attribute,REVIEW REQUIRED,Media,BR-04/20,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+ContentReviewEvent,ReviewerUserId,UUID candidate,FK candidate,NOT NULL candidate,Media,BR-04/20,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+ContentReviewEvent,DecisionCode,varchar(120),Attribute,REVIEW REQUIRED,Media,BR-04/20,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+ContentReviewEvent,RecordedAt,timestamp,Attribute,REVIEW REQUIRED,Media,BR-04/20,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+LearningResource,LearningResourceId,UUID candidate,PK,NOT NULL,Media,BR-07,PROPOSED,Surrogate key; can change at physical design approval
+LearningResource,ClassOfferingId,UUID candidate,FK candidate,NOT NULL candidate,Media,BR-07,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+LearningResource,Title,varchar(255),Attribute,REVIEW REQUIRED,Media,BR-07,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+LearningResource,MediumCode,varchar(120),Attribute,REVIEW REQUIRED,Media,BR-07,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+LearningResource,VisibilityStatus,varchar(120),Attribute,REVIEW REQUIRED,Media,BR-07,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+ResourceVersion,ResourceVersionId,UUID candidate,PK,NOT NULL,Media,BR-07,PROPOSED,Surrogate key; can change at physical design approval
+ResourceVersion,LearningResourceId,UUID candidate,FK candidate,NOT NULL candidate,Media,BR-07,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+ResourceVersion,MediaAssetId,UUID candidate,FK candidate,NOT NULL candidate,Media,BR-07,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+ResourceVersion,VersionNumber,int,Attribute,REVIEW REQUIRED,Media,BR-07,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+ResourceVersion,PublishedAt,timestamp,Attribute,REVIEW REQUIRED,Media,BR-07,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+ResourceVersion,Status,varchar(120),Attribute,REVIEW REQUIRED,Media,BR-07,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+OrderHeader,OrderHeaderId,UUID candidate,PK,NOT NULL,Commerce,BR-06,PROPOSED,Surrogate key; can change at physical design approval
+OrderHeader,StudentId,UUID candidate,FK candidate,NOT NULL candidate,Commerce,BR-06,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+OrderHeader,CurrencyCode,varchar(120),Attribute,REVIEW REQUIRED,Commerce,BR-06,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+OrderHeader,GrossAmount,"decimal(19,4)",Attribute,REVIEW REQUIRED,Commerce,BR-06,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+OrderHeader,OrderStatus,varchar(120),Attribute,REVIEW REQUIRED,Commerce,BR-06,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+OrderHeader,CreatedAt,timestamp,Attribute,REVIEW REQUIRED,Commerce,BR-06,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+OrderLine,OrderLineId,UUID candidate,PK,NOT NULL,Commerce,BR-06,PROPOSED,Surrogate key; can change at physical design approval
+OrderLine,OrderId,UUID candidate,FK candidate,NOT NULL candidate,Commerce,BR-06,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+OrderLine,ProductType,varchar(120),Attribute,REVIEW REQUIRED,Commerce,BR-06,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+OrderLine,ProductRefId,uuid,Attribute,REVIEW REQUIRED,Commerce,BR-06,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+OrderLine,Quantity,int,Attribute,REVIEW REQUIRED,Commerce,BR-06,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+OrderLine,UnitAmount,"decimal(19,4)",Attribute,REVIEW REQUIRED,Commerce,BR-06,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+OrderLine,TotalAmount,"decimal(19,4)",Attribute,REVIEW REQUIRED,Commerce,BR-06,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+PaymentAttempt,PaymentAttemptId,UUID candidate,PK,NOT NULL,Commerce,BR-06,PROPOSED,Surrogate key; can change at physical design approval
+PaymentAttempt,OrderId,UUID candidate,FK candidate,NOT NULL candidate,Commerce,BR-06,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+PaymentAttempt,ProviderCode,varchar(120),Attribute,REVIEW REQUIRED,Commerce,BR-06,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+PaymentAttempt,ProviderReference,varchar(255),Attribute,REVIEW REQUIRED,Commerce,BR-06,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+PaymentAttempt,Amount,"decimal(19,4)",Attribute,REVIEW REQUIRED,Commerce,BR-06,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+PaymentAttempt,VerificationStatus,varchar(120),Attribute,REVIEW REQUIRED,Commerce,BR-06,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+PaymentAttempt,CreatedAt,timestamp,Attribute,REVIEW REQUIRED,Commerce,BR-06,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+PaymentProviderEvent,PaymentProviderEventId,UUID candidate,PK,NOT NULL,Commerce,BR-06,PROPOSED,Surrogate key; can change at physical design approval
+PaymentProviderEvent,PaymentAttemptId,UUID candidate,FK candidate,NOT NULL candidate,Commerce,BR-06,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+PaymentProviderEvent,ProviderCode,varchar(120),Attribute,REVIEW REQUIRED,Commerce,BR-06,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+PaymentProviderEvent,ProviderEventId,uuid,Attribute,REVIEW REQUIRED,Commerce,BR-06,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+PaymentProviderEvent,PayloadHash,varchar(255),Attribute,REVIEW REQUIRED,Commerce,BR-06,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+PaymentProviderEvent,ReceivedAt,timestamp,Attribute,REVIEW REQUIRED,Commerce,BR-06,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+PaymentProviderEvent,HandledAt,timestamp,Attribute,REVIEW REQUIRED,Commerce,BR-06,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+Entitlement,EntitlementId,UUID candidate,PK,NOT NULL,Commerce,BR-06,PROPOSED,Surrogate key; can change at physical design approval
+Entitlement,StudentId,UUID candidate,FK candidate,NOT NULL candidate,Commerce,BR-06,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+Entitlement,OrderLineId,UUID candidate,FK candidate,NOT NULL candidate,Commerce,BR-06,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+Entitlement,ResourceType,varchar(120),Attribute,REVIEW REQUIRED,Commerce,BR-06,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+Entitlement,ResourceRefId,uuid,Attribute,REVIEW REQUIRED,Commerce,BR-06,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+Entitlement,ValidFrom,timestamp,Attribute,REVIEW REQUIRED,Commerce,BR-06,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+Entitlement,ValidTo,timestamp,Attribute,REVIEW REQUIRED,Commerce,BR-06,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+Entitlement,Status,varchar(120),Attribute,REVIEW REQUIRED,Commerce,BR-06,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+LedgerEntry,LedgerEntryId,UUID candidate,PK,NOT NULL,Commerce,BR-06,PROPOSED,Surrogate key; can change at physical design approval
+LedgerEntry,OrderId,UUID candidate,FK candidate,NOT NULL candidate,Commerce,BR-06,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+LedgerEntry,EntryType,varchar(120),Attribute,REVIEW REQUIRED,Commerce,BR-06,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+LedgerEntry,Amount,"decimal(19,4)",Attribute,REVIEW REQUIRED,Commerce,BR-06,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+LedgerEntry,CurrencyCode,varchar(120),Attribute,REVIEW REQUIRED,Commerce,BR-06,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+LedgerEntry,Direction,varchar(120),Attribute,REVIEW REQUIRED,Commerce,BR-06,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+LedgerEntry,RelatedEntryId,UUID candidate,FK candidate,REVIEW REQUIRED,Commerce,BR-06,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+LedgerEntry,RecordedAt,timestamp,Attribute,REVIEW REQUIRED,Commerce,BR-06,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+Refund,RefundId,UUID candidate,PK,NOT NULL,Commerce,BR-06,PROPOSED,Surrogate key; can change at physical design approval
+Refund,OrderLineId,UUID candidate,FK candidate,NOT NULL candidate,Commerce,BR-06,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+Refund,PaymentAttemptId,UUID candidate,FK candidate,NOT NULL candidate,Commerce,BR-06,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+Refund,RefundAmount,"decimal(19,4)",Attribute,REVIEW REQUIRED,Commerce,BR-06,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+Refund,DecisionStatus,varchar(120),Attribute,REVIEW REQUIRED,Commerce,BR-06,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+Refund,ProviderReference,varchar(255),Attribute,REVIEW REQUIRED,Commerce,BR-06,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+Refund,CreatedAt,timestamp,Attribute,REVIEW REQUIRED,Commerce,BR-06,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+TeacherEarning,TeacherEarningId,UUID candidate,PK,NOT NULL,Commerce,BR-06,PROPOSED,Surrogate key; can change at physical design approval
+TeacherEarning,TeacherId,UUID candidate,FK candidate,NOT NULL candidate,Commerce,BR-06,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+TeacherEarning,OrderLineId,UUID candidate,FK candidate,NOT NULL candidate,Commerce,BR-06,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+TeacherEarning,GrossBase,"decimal(19,4)",Attribute,REVIEW REQUIRED,Commerce,BR-06,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+TeacherEarning,CommissionAmount,"decimal(19,4)",Attribute,REVIEW REQUIRED,Commerce,BR-06,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+TeacherEarning,NetAmount,"decimal(19,4)",Attribute,REVIEW REQUIRED,Commerce,BR-06,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+TeacherEarning,EarningStatus,varchar(120),Attribute,REVIEW REQUIRED,Commerce,BR-06,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+TeacherPayout,TeacherPayoutId,UUID candidate,PK,NOT NULL,Commerce,BR-06,PROPOSED,Surrogate key; can change at physical design approval
+TeacherPayout,TeacherId,UUID candidate,FK candidate,NOT NULL candidate,Commerce,BR-06,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+TeacherPayout,PayoutAmount,"decimal(19,4)",Attribute,REVIEW REQUIRED,Commerce,BR-06,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+TeacherPayout,CurrencyCode,varchar(120),Attribute,REVIEW REQUIRED,Commerce,BR-06,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+TeacherPayout,Status,varchar(120),Attribute,REVIEW REQUIRED,Commerce,BR-06,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+TeacherPayout,ApprovedAt,timestamp,Attribute,REVIEW REQUIRED,Commerce,BR-06,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+TeacherPayout,ProviderReference,varchar(255),Attribute,REVIEW REQUIRED,Commerce,BR-06,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+PayoutItem,PayoutItemId,UUID candidate,PK,NOT NULL,Commerce,BR-06,PROPOSED,Surrogate key; can change at physical design approval
+PayoutItem,TeacherPayoutId,UUID candidate,FK candidate,NOT NULL candidate,Commerce,BR-06,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+PayoutItem,TeacherEarningId,UUID candidate,FK candidate,NOT NULL candidate,Commerce,BR-06,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+PayoutItem,AllocatedAmount,"decimal(19,4)",Attribute,REVIEW REQUIRED,Commerce,BR-06,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+PastPaperSource,PastPaperSourceId,UUID candidate,PK,NOT NULL,XACT Content,BR-18/23,PROPOSED,Surrogate key; can change at physical design approval
+PastPaperSource,SubjectId,UUID candidate,FK candidate,NOT NULL candidate,XACT Content,BR-18/23,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+PastPaperSource,PaperYear,int,Attribute,REVIEW REQUIRED,XACT Content,BR-18/23,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+PastPaperSource,PaperCode,varchar(120),Attribute,REVIEW REQUIRED,XACT Content,BR-18/23,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+PastPaperSource,MediumCode,varchar(120),Attribute,REVIEW REQUIRED,XACT Content,BR-18/23,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+PastPaperSource,Attribution,varchar(120),Attribute,REVIEW REQUIRED,XACT Content,BR-18/23,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+PastPaperSource,ReviewStatus,varchar(120),Attribute,REVIEW REQUIRED,XACT Content,BR-18/23,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+SourceRightsRecord,SourceRightsRecordId,UUID candidate,PK,NOT NULL,XACT Content,BR-18/23,PROPOSED,Surrogate key; can change at physical design approval
+SourceRightsRecord,PastPaperSourceId,UUID candidate,FK candidate,NOT NULL candidate,XACT Content,BR-18/23,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+SourceRightsRecord,RightsCode,varchar(120),Attribute,REVIEW REQUIRED,XACT Content,BR-18/23,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+SourceRightsRecord,EvidenceAssetId,UUID candidate,FK candidate,REVIEW REQUIRED,XACT Content,BR-18/23,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+SourceRightsRecord,ApprovedByUserId,UUID candidate,FK candidate,REVIEW REQUIRED,XACT Content,BR-18/23,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+SourceRightsRecord,ValidUntil,timestamp,Attribute,REVIEW REQUIRED,XACT Content,BR-18/23,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+QuestionConcept,QuestionConceptId,UUID candidate,PK,NOT NULL,XACT Content,BR-18,PROPOSED,Surrogate key; can change at physical design approval
+QuestionConcept,SubjectId,UUID candidate,FK candidate,NOT NULL candidate,XACT Content,BR-18,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+QuestionConcept,SyllabusVersionId,UUID candidate,FK candidate,NOT NULL candidate,XACT Content,BR-18,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+QuestionConcept,PrimaryTopicId,UUID candidate,FK candidate,NOT NULL candidate,XACT Content,BR-18,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+QuestionConcept,SourceId,UUID candidate,FK candidate,REVIEW REQUIRED,XACT Content,BR-18,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+QuestionConcept,DifficultyCode,varchar(120),Attribute,REVIEW REQUIRED,XACT Content,BR-18,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+QuestionConcept,Status,varchar(120),Attribute,REVIEW REQUIRED,XACT Content,BR-18,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+QuestionOption,QuestionOptionId,UUID candidate,PK,NOT NULL,XACT Content,BR-18/23,PROPOSED,Surrogate key; can change at physical design approval
+QuestionOption,QuestionConceptId,UUID candidate,FK candidate,NOT NULL candidate,XACT Content,BR-18/23,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+QuestionOption,OptionCode,varchar(120),Attribute,REVIEW REQUIRED,XACT Content,BR-18/23,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+QuestionOption,Status,varchar(120),Attribute,REVIEW REQUIRED,XACT Content,BR-18/23,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+QuestionTranslation,QuestionTranslationId,UUID candidate,PK,NOT NULL,XACT Content,BR-18/23,PROPOSED,Surrogate key; can change at physical design approval
+QuestionTranslation,QuestionConceptId,UUID candidate,FK candidate,NOT NULL candidate,XACT Content,BR-18/23,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+QuestionTranslation,MediumCode,varchar(120),Attribute,REVIEW REQUIRED,XACT Content,BR-18/23,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+QuestionTranslation,RevisionNumber,int,Attribute,REVIEW REQUIRED,XACT Content,BR-18/23,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+QuestionTranslation,QuestionText,text,Attribute,REVIEW REQUIRED,XACT Content,BR-18/23,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+QuestionTranslation,ReviewStatus,varchar(120),Attribute,REVIEW REQUIRED,XACT Content,BR-18/23,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+QuestionTranslation,IsActive,boolean,Attribute,REVIEW REQUIRED,XACT Content,BR-18/23,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+QuestionOptionTranslation,QuestionOptionTranslationId,UUID candidate,PK,NOT NULL,XACT Content,BR-18/23,PROPOSED,Surrogate key; can change at physical design approval
+QuestionOptionTranslation,QuestionTranslationId,UUID candidate,FK candidate,NOT NULL candidate,XACT Content,BR-18/23,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+QuestionOptionTranslation,QuestionOptionId,UUID candidate,FK candidate,NOT NULL candidate,XACT Content,BR-18/23,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+QuestionOptionTranslation,DisplayText,text,Attribute,REVIEW REQUIRED,XACT Content,BR-18/23,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+QuestionOptionTranslation,DisplayOrder,int,Attribute,REVIEW REQUIRED,XACT Content,BR-18/23,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+QuestionOptionTranslation,ReviewStatus,varchar(120),Attribute,REVIEW REQUIRED,XACT Content,BR-18/23,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+AnswerKeyVersion,AnswerKeyVersionId,UUID candidate,PK,NOT NULL,XACT Content,BR-11/18,PROPOSED,Surrogate key; can change at physical design approval
+AnswerKeyVersion,QuestionTranslationId,UUID candidate,FK candidate,NOT NULL candidate,XACT Content,BR-11/18,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+AnswerKeyVersion,QuestionOptionId,UUID candidate,FK candidate,NOT NULL candidate,XACT Content,BR-11/18,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+AnswerKeyVersion,VersionNumber,int,Attribute,REVIEW REQUIRED,XACT Content,BR-11/18,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+AnswerKeyVersion,ReviewStatus,varchar(120),Attribute,REVIEW REQUIRED,XACT Content,BR-11/18,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+AnswerKeyVersion,ApprovedAt,timestamp,Attribute,REVIEW REQUIRED,XACT Content,BR-11/18,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+QuestionReviewEvent,QuestionReviewEventId,UUID candidate,PK,NOT NULL,XACT Content,BR-18,PROPOSED,Surrogate key; can change at physical design approval
+QuestionReviewEvent,QuestionTranslationId,UUID candidate,FK candidate,NOT NULL candidate,XACT Content,BR-18,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+QuestionReviewEvent,ReviewerUserId,UUID candidate,FK candidate,NOT NULL candidate,XACT Content,BR-18,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+QuestionReviewEvent,DecisionCode,varchar(120),Attribute,REVIEW REQUIRED,XACT Content,BR-18,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+QuestionReviewEvent,Notes,text,Attribute,REVIEW REQUIRED,XACT Content,BR-18,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+QuestionReviewEvent,RecordedAt,timestamp,Attribute,REVIEW REQUIRED,XACT Content,BR-18,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+WrittenExplanationVersion,WrittenExplanationVersionId,UUID candidate,PK,NOT NULL,XACT Content,BR-18/20,PROPOSED,Surrogate key; can change at physical design approval
+WrittenExplanationVersion,QuestionTranslationId,UUID candidate,FK candidate,NOT NULL candidate,XACT Content,BR-18/20,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+WrittenExplanationVersion,RevisionNumber,int,Attribute,REVIEW REQUIRED,XACT Content,BR-18/20,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+WrittenExplanationVersion,Body,text,Attribute,REVIEW REQUIRED,XACT Content,BR-18/20,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+WrittenExplanationVersion,ReviewStatus,varchar(120),Attribute,REVIEW REQUIRED,XACT Content,BR-18/20,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+WrittenExplanationVersion,PublishedAt,timestamp,Attribute,REVIEW REQUIRED,XACT Content,BR-18/20,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+ExplanationVideo,ExplanationVideoId,UUID candidate,PK,NOT NULL,XACT Content,BR-20,PROPOSED,Surrogate key; can change at physical design approval
+ExplanationVideo,QuestionTranslationId,UUID candidate,FK candidate,NOT NULL candidate,XACT Content,BR-20,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+ExplanationVideo,TeacherId,UUID candidate,FK candidate,NOT NULL candidate,XACT Content,BR-20,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+ExplanationVideo,MediaAssetId,UUID candidate,FK candidate,NOT NULL candidate,XACT Content,BR-20,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+ExplanationVideo,ReviewStatus,varchar(120),Attribute,REVIEW REQUIRED,XACT Content,BR-20,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+ExplanationVideo,RightsStatus,varchar(120),Attribute,REVIEW REQUIRED,XACT Content,BR-20,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+ExplanationVideo,PublishedAt,timestamp,Attribute,REVIEW REQUIRED,XACT Content,BR-20,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+ScoringPolicyVersion,ScoringPolicyVersionId,UUID candidate,PK,NOT NULL,XACT Assessments,BR-11/18,PROPOSED,Surrogate key; can change at physical design approval
+ScoringPolicyVersion,PolicyCode,varchar(120),Attribute,REVIEW REQUIRED,XACT Assessments,BR-11/18,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+ScoringPolicyVersion,VersionNumber,int,Attribute,REVIEW REQUIRED,XACT Assessments,BR-11/18,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+ScoringPolicyVersion,RuleJson,text,Attribute,REVIEW REQUIRED,XACT Assessments,BR-11/18,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+ScoringPolicyVersion,ApprovedAt,timestamp,Attribute,REVIEW REQUIRED,XACT Assessments,BR-11/18,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+ScoringPolicyVersion,Status,varchar(120),Attribute,REVIEW REQUIRED,XACT Assessments,BR-11/18,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+MockExam,MockExamId,UUID candidate,PK,NOT NULL,XACT Assessments,BR-11/18,PROPOSED,Surrogate key; can change at physical design approval
+MockExam,StudentId,UUID candidate,FK candidate,NOT NULL candidate,XACT Assessments,BR-11/18,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+MockExam,SubjectId,UUID candidate,FK candidate,NOT NULL candidate,XACT Assessments,BR-11/18,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+MockExam,SyllabusVersionId,UUID candidate,FK candidate,NOT NULL candidate,XACT Assessments,BR-11/18,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+MockExam,MediumCode,varchar(120),Attribute,REVIEW REQUIRED,XACT Assessments,BR-11/18,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+MockExam,SelectionConfigJson,text,Attribute,REVIEW REQUIRED,XACT Assessments,BR-11/18,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+MockExam,DurationMinutes,int,Attribute,REVIEW REQUIRED,XACT Assessments,BR-11/18,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+MockExam,CreatedAt,timestamp,Attribute,REVIEW REQUIRED,XACT Assessments,BR-11/18,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+MockQuestionSnapshot,MockQuestionSnapshotId,UUID candidate,PK,NOT NULL,XACT Assessments,BR-11/18,PROPOSED,Surrogate key; can change at physical design approval
+MockQuestionSnapshot,MockExamId,UUID candidate,FK candidate,NOT NULL candidate,XACT Assessments,BR-11/18,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+MockQuestionSnapshot,QuestionTranslationId,UUID candidate,FK candidate,NOT NULL candidate,XACT Assessments,BR-11/18,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+MockQuestionSnapshot,AnswerKeyVersionId,UUID candidate,FK candidate,NOT NULL candidate,XACT Assessments,BR-11/18,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+MockQuestionSnapshot,DisplayOrder,int,Attribute,REVIEW REQUIRED,XACT Assessments,BR-11/18,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+MockQuestionSnapshot,SnapshotHash,varchar(255),Attribute,REVIEW REQUIRED,XACT Assessments,BR-11/18,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+ExamAttempt,ExamAttemptId,UUID candidate,PK,NOT NULL,XACT Assessments,BR-11/18/19,PROPOSED,Surrogate key; can change at physical design approval
+ExamAttempt,StudentId,UUID candidate,FK candidate,NOT NULL candidate,XACT Assessments,BR-11/18/19,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+ExamAttempt,MockExamId,UUID candidate,FK candidate,REVIEW REQUIRED,XACT Assessments,BR-11/18/19,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+ExamAttempt,AssignmentRecipientId,UUID candidate,FK candidate,REVIEW REQUIRED,XACT Assessments,BR-11/18/19,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+ExamAttempt,ScoringPolicyVersionId,UUID candidate,FK candidate,NOT NULL candidate,XACT Assessments,BR-11/18/19,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+ExamAttempt,StartedAt,timestamp,Attribute,REVIEW REQUIRED,XACT Assessments,BR-11/18/19,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+ExamAttempt,DeadlineAt,timestamp,Attribute,REVIEW REQUIRED,XACT Assessments,BR-11/18/19,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+ExamAttempt,FinalizedAt,timestamp,Attribute,REVIEW REQUIRED,XACT Assessments,BR-11/18/19,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+ExamAttempt,AttemptStatus,varchar(120),Attribute,REVIEW REQUIRED,XACT Assessments,BR-11/18/19,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+AttemptQuestionSnapshot,AttemptQuestionSnapshotId,UUID candidate,PK,NOT NULL,XACT Assessments,BR-11/18/19,PROPOSED,Surrogate key; can change at physical design approval
+AttemptQuestionSnapshot,ExamAttemptId,UUID candidate,FK candidate,NOT NULL candidate,XACT Assessments,BR-11/18/19,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+AttemptQuestionSnapshot,QuestionTranslationId,UUID candidate,FK candidate,NOT NULL candidate,XACT Assessments,BR-11/18/19,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+AttemptQuestionSnapshot,AnswerKeyVersionId,UUID candidate,FK candidate,NOT NULL candidate,XACT Assessments,BR-11/18/19,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+AttemptQuestionSnapshot,DisplayOrder,int,Attribute,REVIEW REQUIRED,XACT Assessments,BR-11/18/19,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+AttemptQuestionSnapshot,SnapshotHash,varchar(255),Attribute,REVIEW REQUIRED,XACT Assessments,BR-11/18/19,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+AttemptAnswer,AttemptAnswerId,UUID candidate,PK,NOT NULL,XACT Assessments,BR-11/18,PROPOSED,Surrogate key; can change at physical design approval
+AttemptAnswer,ExamAttemptId,UUID candidate,FK candidate,NOT NULL candidate,XACT Assessments,BR-11/18,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+AttemptAnswer,AttemptQuestionSnapshotId,UUID candidate,FK candidate,NOT NULL candidate,XACT Assessments,BR-11/18,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+AttemptAnswer,SelectedQuestionOptionId,UUID candidate,FK candidate,REVIEW REQUIRED,XACT Assessments,BR-11/18,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+AttemptAnswer,SavedAt,timestamp,Attribute,REVIEW REQUIRED,XACT Assessments,BR-11/18,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+AttemptAnswer,MarksAwarded,"decimal(19,4)",Attribute,REVIEW REQUIRED,XACT Assessments,BR-11/18,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+ExamResult,ExamResultId,UUID candidate,PK,NOT NULL,XACT Assessments,BR-11/18,PROPOSED,Surrogate key; can change at physical design approval
+ExamResult,ExamAttemptId,UUID candidate,FK candidate,NOT NULL candidate,XACT Assessments,BR-11/18,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+ExamResult,Score,"decimal(19,4)",Attribute,REVIEW REQUIRED,XACT Assessments,BR-11/18,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+ExamResult,CorrectCount,int,Attribute,REVIEW REQUIRED,XACT Assessments,BR-11/18,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+ExamResult,IncorrectCount,int,Attribute,REVIEW REQUIRED,XACT Assessments,BR-11/18,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+ExamResult,UnansweredCount,int,Attribute,REVIEW REQUIRED,XACT Assessments,BR-11/18,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+ExamResult,GradedAt,timestamp,Attribute,REVIEW REQUIRED,XACT Assessments,BR-11/18,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+ExamResult,RegradeVersion,int,Attribute,REVIEW REQUIRED,XACT Assessments,BR-11/18,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+TeacherPaper,TeacherPaperId,UUID candidate,PK,NOT NULL,XACT Assignments,BR-19,PROPOSED,Surrogate key; can change at physical design approval
+TeacherPaper,TeacherId,UUID candidate,FK candidate,NOT NULL candidate,XACT Assignments,BR-19,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+TeacherPaper,SubjectId,UUID candidate,FK candidate,NOT NULL candidate,XACT Assignments,BR-19,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+TeacherPaper,Title,varchar(255),Attribute,REVIEW REQUIRED,XACT Assignments,BR-19,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+TeacherPaper,Status,varchar(120),Attribute,REVIEW REQUIRED,XACT Assignments,BR-19,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+TeacherPaperVersion,TeacherPaperVersionId,UUID candidate,PK,NOT NULL,XACT Assignments,BR-19,PROPOSED,Surrogate key; can change at physical design approval
+TeacherPaperVersion,TeacherPaperId,UUID candidate,FK candidate,NOT NULL candidate,XACT Assignments,BR-19,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+TeacherPaperVersion,VersionNumber,int,Attribute,REVIEW REQUIRED,XACT Assignments,BR-19,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+TeacherPaperVersion,CreatedAt,timestamp,Attribute,REVIEW REQUIRED,XACT Assignments,BR-19,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+TeacherPaperVersion,PublishedAt,timestamp,Attribute,REVIEW REQUIRED,XACT Assignments,BR-19,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+TeacherPaperVersion,Status,varchar(120),Attribute,REVIEW REQUIRED,XACT Assignments,BR-19,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+TeacherPaperItem,TeacherPaperItemId,UUID candidate,PK,NOT NULL,XACT Assignments,BR-19,PROPOSED,Surrogate key; can change at physical design approval
+TeacherPaperItem,TeacherPaperVersionId,UUID candidate,FK candidate,NOT NULL candidate,XACT Assignments,BR-19,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+TeacherPaperItem,QuestionTranslationId,UUID candidate,FK candidate,NOT NULL candidate,XACT Assignments,BR-19,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+TeacherPaperItem,AnswerKeyVersionId,UUID candidate,FK candidate,NOT NULL candidate,XACT Assignments,BR-19,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+TeacherPaperItem,ItemOrder,int,Attribute,REVIEW REQUIRED,XACT Assignments,BR-19,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+Assignment,AssignmentId,UUID candidate,PK,NOT NULL,XACT Assignments,BR-19,PROPOSED,Surrogate key; can change at physical design approval
+Assignment,TeacherPaperVersionId,UUID candidate,FK candidate,NOT NULL candidate,XACT Assignments,BR-19,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+Assignment,TeacherId,UUID candidate,FK candidate,NOT NULL candidate,XACT Assignments,BR-19,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+Assignment,OpenAt,timestamp,Attribute,REVIEW REQUIRED,XACT Assignments,BR-19,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+Assignment,DueAt,timestamp,Attribute,REVIEW REQUIRED,XACT Assignments,BR-19,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+Assignment,AttemptLimit,int,Attribute,REVIEW REQUIRED,XACT Assignments,BR-19,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+Assignment,Status,varchar(120),Attribute,REVIEW REQUIRED,XACT Assignments,BR-19,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+AssignmentRecipient,AssignmentRecipientId,UUID candidate,PK,NOT NULL,XACT Assignments,BR-19,PROPOSED,Surrogate key; can change at physical design approval
+AssignmentRecipient,AssignmentId,UUID candidate,FK candidate,NOT NULL candidate,XACT Assignments,BR-19,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+AssignmentRecipient,StudentId,UUID candidate,FK candidate,NOT NULL candidate,XACT Assignments,BR-19,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+AssignmentRecipient,EnrollmentId,UUID candidate,FK candidate,REVIEW REQUIRED,XACT Assignments,BR-19,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+AssignmentRecipient,RecipientStatus,varchar(120),Attribute,REVIEW REQUIRED,XACT Assignments,BR-19,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+AssignmentRecipient,AssignedAt,timestamp,Attribute,REVIEW REQUIRED,XACT Assignments,BR-19,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+NotificationDelivery,NotificationDeliveryId,UUID candidate,PK,NOT NULL,Operations,BR-13/24,PROPOSED,Surrogate key; can change at physical design approval
+NotificationDelivery,RecipientUserId,UUID candidate,FK candidate,NOT NULL candidate,Operations,BR-13/24,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+NotificationDelivery,EventType,varchar(120),Attribute,REVIEW REQUIRED,Operations,BR-13/24,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+NotificationDelivery,ChannelCode,varchar(120),Attribute,REVIEW REQUIRED,Operations,BR-13/24,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+NotificationDelivery,DeliveryStatus,varchar(120),Attribute,REVIEW REQUIRED,Operations,BR-13/24,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+NotificationDelivery,SentAt,timestamp,Attribute,REVIEW REQUIRED,Operations,BR-13/24,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+OutboxMessage,OutboxMessageId,UUID candidate,PK,NOT NULL,Operations,BR-13/24,PROPOSED,Surrogate key; can change at physical design approval
+OutboxMessage,EventType,varchar(120),Attribute,REVIEW REQUIRED,Operations,BR-13/24,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+OutboxMessage,AggregateType,varchar(120),Attribute,REVIEW REQUIRED,Operations,BR-13/24,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+OutboxMessage,AggregateId,uuid,Attribute,REVIEW REQUIRED,Operations,BR-13/24,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+OutboxMessage,PayloadJson,text,Attribute,REVIEW REQUIRED,Operations,BR-13/24,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+OutboxMessage,PublishedAt,timestamp,Attribute,REVIEW REQUIRED,Operations,BR-13/24,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+OutboxMessage,RetryCount,int,Attribute,REVIEW REQUIRED,Operations,BR-13/24,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+AuditEvent,AuditEventId,UUID candidate,PK,NOT NULL,Operations,BR-14/21/24,PROPOSED,Surrogate key; can change at physical design approval
+AuditEvent,ActorUserId,UUID candidate,FK candidate,REVIEW REQUIRED,Operations,BR-14/21/24,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+AuditEvent,ActionCode,varchar(120),Attribute,REVIEW REQUIRED,Operations,BR-14/21/24,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+AuditEvent,ObjectType,varchar(120),Attribute,REVIEW REQUIRED,Operations,BR-14/21/24,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+AuditEvent,ObjectId,uuid,Attribute,REVIEW REQUIRED,Operations,BR-14/21/24,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+AuditEvent,TimestampUtc,timestamp,Attribute,REVIEW REQUIRED,Operations,BR-14/21/24,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+AuditEvent,EventJson,text,Attribute,REVIEW REQUIRED,Operations,BR-14/21/24,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+SafetyReport,SafetyReportId,UUID candidate,PK,NOT NULL,Operations,BR-21/24,PROPOSED,Surrogate key; can change at physical design approval
+SafetyReport,ReporterUserId,UUID candidate,FK candidate,NOT NULL candidate,Operations,BR-21/24,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+SafetyReport,SubjectUserId,UUID candidate,FK candidate,REVIEW REQUIRED,Operations,BR-21/24,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+SafetyReport,CaseStatus,varchar(120),Attribute,REVIEW REQUIRED,Operations,BR-21/24,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+SafetyReport,AssignedToUserId,UUID candidate,FK candidate,REVIEW REQUIRED,Operations,BR-21/24,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+SafetyReport,OpenedAt,timestamp,Attribute,REVIEW REQUIRED,Operations,BR-21/24,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+SupportTicket,SupportTicketId,UUID candidate,PK,NOT NULL,Operations,BR-24,PROPOSED,Surrogate key; can change at physical design approval
+SupportTicket,RequesterUserId,UUID candidate,FK candidate,NOT NULL candidate,Operations,BR-24,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+SupportTicket,CategoryCode,varchar(120),Attribute,REVIEW REQUIRED,Operations,BR-24,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+SupportTicket,TicketStatus,varchar(120),Attribute,REVIEW REQUIRED,Operations,BR-24,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+SupportTicket,AssignedToUserId,UUID candidate,FK candidate,REVIEW REQUIRED,Operations,BR-24,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file
+SupportTicket,CreatedAt,timestamp,Attribute,REVIEW REQUIRED,Operations,BR-24,PROPOSED,Exact type/nullable/source remains OD-20; do not migrate from this file

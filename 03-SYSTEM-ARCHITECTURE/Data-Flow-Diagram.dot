@@ -1,0 +1,43 @@
+digraph DFD {
+  graph [label="UR GURU  |  DATA FLOW  |  PROPOSED MODULAR MONOLITH  |  BRD v6.2.2", labelloc=t, fontsize=24, fontname="DejaVu Sans", fontcolor="#173e5e", pad="0.33", bgcolor="white", nodesep="0.48", ranksep="0.72", splines=polyline, outputorder=edgesfirst];
+  node [shape=box, style="rounded,filled", color="#d8e1ed", penwidth=1.2, fillcolor="#eef4fb", fontname="DejaVu Sans", fontsize=12, margin="0.17,0.11"];
+  edge [color="#8798ab", penwidth=1.3, arrowsize=0.7, fontsize=9, fontname="DejaVu Sans"];
+  student [label="STUDENT\nGrade 12/13", fillcolor="#dbeaff", color="#96bae5"];
+  teacher [label="APPROVED TEACHER", fillcolor="#dbeaff", color="#96bae5"];
+  reviewers [label="ADMIN / REVIEWERS\nacademic • finance • safety", fillcolor="#dbeaff", color="#96bae5"];
+  
+  // The five process nodes below are in-process modules in the proposed single ASP.NET Core host.
+  auth [label="1. IDENTITY + CATALOGUE\nrole & object access • consent\nStudentSubject (not enrollment)", fillcolor="#e7f5ef", color="#9bcbb8"];
+  marketplace [label="2. TEACHER + CLASS DISCOVERY\nClassOffering • optional free demo\nrights & review before publication", fillcolor="#e7f5ef", color="#9bcbb8"];
+  commerce [label="3. BATCH + PAID ACCESS\nOrder • verified payment\nEnrollment • Entitlement • Live", fillcolor="#e7f5ef", color="#9bcbb8"];
+  xact [label="4. XACT\nquestion versions • mock/assignment\nautosave • server scoring • results", fillcolor="#e7f5ef", color="#9bcbb8"];
+  audit [label="5. REVIEW + AUDIT\nnotification outbox • safety\ncontent & financial approvals", fillcolor="#e7f5ef", color="#9bcbb8"];
+  db [shape=cylinder, label="SHARED RELATIONAL STORE\nModule-owned data  |  DB TBD", fillcolor="#efe6fa", color="#beaad7"];
+  media [shape=cylinder, label="MEDIA OBJECT STORAGE\nprivate originals / approvals", fillcolor="#efe6fa", color="#beaad7"];
+  gateway [label="PAYMENT PROVIDER\nPENDING OD-05", fillcolor="#fff0db", color="#e5b979"];
+  classroom [label="LIVE PROVIDER\nPENDING OD-06", fillcolor="#fff0db", color="#e5b979"];
+  delivery [label="MEDIA DELIVERY\nprovider / rules pending", fillcolor="#fff0db", color="#e5b979"];
+  notify [label="MESSAGE CHANNEL\nvendor pending", fillcolor="#fff0db", color="#e5b979"];
+  
+  {rank=same; student teacher reviewers}
+  {rank=same; auth marketplace commerce xact audit}
+  {rank=same; db media}
+  {rank=same; gateway classroom delivery notify}
+  student -> auth [label="register / choose subjects"];
+  student -> marketplace [label="discover / watch OR skip"];
+  student -> commerce [label="batch / pay / join"];
+  student -> xact [label="practice / submit"];
+  teacher -> marketplace [label="class + demo upload"];
+  teacher -> xact [label="paper / videos"];
+  reviewers -> audit [label="approve / moderate"];
+  auth -> db; marketplace -> db; commerce -> db; xact -> db; audit -> db;
+  marketplace -> media [label="approved demo"];
+  xact -> media [label="explanation video"];
+  commerce -> media [label="class resources"];
+  commerce -> gateway [label="verify callback / refund"];
+  commerce -> classroom [label="authorized join token"];
+  media -> delivery [label="preview vs signed protected"];
+  audit -> notify [label="retries"];
+  note [shape=note, fillcolor="#fff6ea", color="#e5bb84", label="No demo-booking, demo-payment or watch-completion gate.\nDemo failure does NOT block enrollment.\nOnly server-verified payment grants paid access.", fontsize=11];
+  notify -> note [style=invis];
+}

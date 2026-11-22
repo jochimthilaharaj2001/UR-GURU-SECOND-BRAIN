@@ -1,0 +1,3 @@
+# Provider choice reconciliation — 22 November 2026
+
+**Discussion-level selections:** LiveKit Build for live classrooms; PayHere Lite for payments. **Not a signed technical/finance approval** under BRD OD-05, OD-06, OD-16 and OD-20. Validate API capability, gateway callback signature/replay protection, idempotent payment reconciliation, refunds, settlements, teacher payout mechanism, student privacy, region, concurrency, costs and provider terms. Never assume LiveKit Build is a managed cloud tier or that PayHere Lite automatically performs marketplace split payouts. Record test evidence and named approver before production.

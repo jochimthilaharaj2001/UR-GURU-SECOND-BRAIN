@@ -1,0 +1,82 @@
+﻿Rule ID,Requirement IDs,UAT IDs,Source,Mapping Status
+UG-RULE-001,BR-01,AC-01,"BRD §2–3 pp.3, §5 p.4",BRD-derived; pending implementation/test ID verification
+UG-RULE-002,"BR-01, BR-23",AC-01,BRD §2–3 p.3,BRD-derived; pending implementation/test ID verification
+UG-RULE-003,BR-01,"AC-01, AC-32","BRD §3 p.3, §6.1 p.5",BRD-derived; pending implementation/test ID verification
+UG-RULE-004,BR-01,"AC-01, AC-32","BRD §3 p.3, §6.1 p.5, §10 p.7",BRD-derived; pending implementation/test ID verification
+UG-RULE-005,"BR-01, BR-05",AC-32,"BRD §3 p.3, §10 p.8",BRD-derived; pending implementation/test ID verification
+UG-RULE-006,BR-01,AC-02,BRD §6.1 p.5,BRD-derived; pending implementation/test ID verification
+UG-RULE-007,BR-01,AC-02,BRD §13 p.9,BRD-derived; pending implementation/test ID verification
+UG-RULE-008,"BR-02, BR-03","AC-05, AC-06",BRD §6.2 p.5,BRD-derived; pending implementation/test ID verification
+UG-RULE-009,BR-02,AC-05,BRD §6.2 p.5,BRD-derived; pending implementation/test ID verification
+UG-RULE-010,"BR-02, BR-05",AC-05,"BRD §4 p.4, §6.2 p.5",BRD-derived; pending implementation/test ID verification
+UG-RULE-011,BR-03,AC-06,BRD §6.2 p.5,BRD-derived; pending implementation/test ID verification
+UG-RULE-012,BR-03,—,BRD §6.2 p.5,BRD-derived; pending implementation/test ID verification
+UG-RULE-013,"BR-02, BR-05",AC-05,BRD §6.2 p.5,BRD-derived; pending implementation/test ID verification
+UG-RULE-014,BR-04,"AC-07, AC-33","BRD §6.3 p.5, §10 p.8",BRD-derived; pending implementation/test ID verification
+UG-RULE-015,"BR-04, BR-05","AC-07, AC-33",BRD §6.3 p.5,BRD-derived; pending implementation/test ID verification
+UG-RULE-016,BR-04,AC-07,BRD §6.3 p.5,BRD-derived; pending implementation/test ID verification
+UG-RULE-017,BR-04,AC-31,BRD §6.3 p.5,BRD-derived; pending implementation/test ID verification
+UG-RULE-018,BR-04,AC-31,BRD §6.3 p.5,BRD-derived; pending implementation/test ID verification
+UG-RULE-019,"BR-04, BR-14",AC-31,BRD §6.3 p.5,BRD-derived; pending implementation/test ID verification
+UG-RULE-020,"BR-04, BR-07, BR-20","AC-11, AC-31",BRD §6.3 p.5,BRD-derived; pending implementation/test ID verification
+UG-RULE-021,"BR-04, BR-06","AC-07, AC-33","BRD §6.3 p.5, §7 p.6, §10 p.8",BRD-derived; pending implementation/test ID verification
+UG-RULE-022,BR-04,AC-07,"BRD §6.3 p.5, §14 p.10",BRD-derived; pending implementation/test ID verification
+UG-RULE-023,"BR-05, BR-06",AC-08,BRD §6.4 p.5,BRD-derived; pending implementation/test ID verification
+UG-RULE-024,BR-05,AC-08,BRD §6.4 p.5,BRD-derived; pending implementation/test ID verification
+UG-RULE-025,BR-05,AC-09,BRD §6.4 p.5,BRD-derived; pending implementation/test ID verification
+UG-RULE-026,BR-05,AC-10,BRD §6.4 p.6,BRD-derived; pending implementation/test ID verification
+UG-RULE-027,"BR-05, BR-06","AC-09, AC-14",BRD §6.4 p.6,BRD-derived; pending implementation/test ID verification
+UG-RULE-028,BR-07,AC-11,BRD §6.5 p.6,BRD-derived; pending implementation/test ID verification
+UG-RULE-029,BR-07,AC-11,BRD §6.5 p.6,BRD-derived; pending implementation/test ID verification
+UG-RULE-030,BR-06,AC-15,BRD §7 p.6,BRD-derived; pending implementation/test ID verification
+UG-RULE-031,BR-06,AC-12,BRD §7 p.6,BRD-derived; pending implementation/test ID verification
+UG-RULE-032,BR-06,"AC-12, AC-13",BRD §7 p.6,BRD-derived; pending implementation/test ID verification
+UG-RULE-033,BR-06,"AC-12, AC-13",BRD §7 p.6,BRD-derived; pending implementation/test ID verification
+UG-RULE-034,BR-06,AC-13,BRD §7 p.6,BRD-derived; pending implementation/test ID verification
+UG-RULE-035,BR-06,"AC-14, AC-15",BRD §7 p.6,BRD-derived; pending implementation/test ID verification
+UG-RULE-036,BR-06,AC-15,BRD §7 p.6,BRD-derived; pending implementation/test ID verification
+UG-RULE-037,BR-06,AC-14,BRD §7 p.6,BRD-derived; pending implementation/test ID verification
+UG-RULE-038,BR-06,AC-14,"BRD §7 p.6, §12 p.9",BRD-derived; pending implementation/test ID verification
+UG-RULE-039,"BR-04, BR-06",AC-33,BRD §7 p.6,BRD-derived; pending implementation/test ID verification
+UG-RULE-040,BR-06,AC-15,"BRD §7 p.6, §14 p.10",BRD-derived; pending implementation/test ID verification
+UG-RULE-041,BR-06,AC-15,BRD §14 p.10,BRD-derived; pending implementation/test ID verification
+UG-RULE-042,BR-18,AC-12,"BRD §7 p.6, §14 p.10",BRD-derived; pending implementation/test ID verification
+UG-RULE-043,BR-18,—,"BRD §1–2 p.2, Appendix B p.11",BRD-derived; pending implementation/test ID verification
+UG-RULE-044,"BR-18, BR-23",AC-16,BRD §8.1 p.6,BRD-derived; pending implementation/test ID verification
+UG-RULE-045,"BR-18, BR-23","AC-16, AC-17",BRD §8.1 p.6,BRD-derived; pending implementation/test ID verification
+UG-RULE-046,"BR-18, BR-23","AC-16, AC-17","BRD §3 p.3, §8.1 p.6",BRD-derived; pending implementation/test ID verification
+UG-RULE-047,BR-18,AC-16,BRD §8.1 p.6,BRD-derived; pending implementation/test ID verification
+UG-RULE-048,BR-18,"AC-20, AC-25",BRD §8.1–8.2 pp.6–7,BRD-derived; pending implementation/test ID verification
+UG-RULE-049,BR-18,AC-18,BRD §8.2 p.6,BRD-derived; pending implementation/test ID verification
+UG-RULE-050,BR-18,AC-18,BRD §8.2 p.6,BRD-derived; pending implementation/test ID verification
+UG-RULE-051,BR-18,AC-20,BRD §8.2 p.6,BRD-derived; pending implementation/test ID verification
+UG-RULE-052,BR-18,"AC-19, AC-20",BRD §8.2 pp.6–7,BRD-derived; pending implementation/test ID verification
+UG-RULE-053,BR-18,AC-19,BRD §8.2 p.7,BRD-derived; pending implementation/test ID verification
+UG-RULE-054,BR-18,"AC-19, AC-20","BRD §8.2 p.6, §13 p.10",BRD-derived; pending implementation/test ID verification
+UG-RULE-055,"BR-11, BR-18","AC-20, AC-22",BRD §8.2 p.7,BRD-derived; pending implementation/test ID verification
+UG-RULE-056,BR-11,—,BRD §8.2 p.7,BRD-derived; pending implementation/test ID verification
+UG-RULE-057,BR-19,"AC-23, AC-24",BRD §8.3 p.7,BRD-derived; pending implementation/test ID verification
+UG-RULE-058,BR-19,"AC-21, AC-23",BRD §8.3 p.7,BRD-derived; pending implementation/test ID verification
+UG-RULE-059,BR-19,AC-24,BRD §8.3 p.7,BRD-derived; pending implementation/test ID verification
+UG-RULE-060,BR-19,"AC-21, AC-25",BRD §8.3 p.7,BRD-derived; pending implementation/test ID verification
+UG-RULE-061,BR-20,AC-26,BRD §8.4 p.7,BRD-derived; pending implementation/test ID verification
+UG-RULE-062,BR-20,"AC-22, AC-26",BRD §8.4 p.7,BRD-derived; pending implementation/test ID verification
+UG-RULE-063,BR-18,"AC-18, AC-19",BRD §14 p.10,BRD-derived; pending implementation/test ID verification
+UG-RULE-064,"BR-14, BR-21",AC-21,BRD §4 p.4,BRD-derived; pending implementation/test ID verification
+UG-RULE-065,"BR-01, BR-07, BR-18","AC-11, AC-21","BRD §4 p.4, §6.5 p.6",BRD-derived; pending implementation/test ID verification
+UG-RULE-066,"BR-16, BR-21",AC-04,"BRD §4 p.4, §2 p.3",BRD-derived; pending implementation/test ID verification
+UG-RULE-067,BR-21,AC-04,BRD §6.1 p.5,BRD-derived; pending implementation/test ID verification
+UG-RULE-068,BR-22,AC-03,BRD §6.1 p.5,BRD-derived; pending implementation/test ID verification
+UG-RULE-069,"BR-02, BR-04","AC-06, AC-31","BRD §4 p.4, §6.2–6.3 p.5",BRD-derived; pending implementation/test ID verification
+UG-RULE-070,"BR-04, BR-18, BR-20","AC-16, AC-31","BRD §3 p.3, §8.1 p.6, §14 p.10",BRD-derived; pending implementation/test ID verification
+UG-RULE-071,"BR-04, BR-07, BR-20","AC-11, AC-31","BRD §6.3 p.5, §10 p.8",BRD-derived; pending implementation/test ID verification
+UG-RULE-072,"BR-06, BR-18, BR-21","AC-20, AC-25",BRD §10 p.8,BRD-derived; pending implementation/test ID verification
+UG-RULE-073,"BR-21, BR-24",AC-27,"BRD §4 p.4, §9 p.7",BRD-derived; pending implementation/test ID verification
+UG-RULE-074,BR-23,AC-28,"BRD §3 p.3, §11 p.8",BRD-derived; pending implementation/test ID verification
+UG-RULE-075,BR-13,AC-29,BRD §9 p.7,BRD-derived; pending implementation/test ID verification
+UG-RULE-076,BR-13,AC-29,"BRD §9 p.7, §13 p.10",BRD-derived; pending implementation/test ID verification
+UG-RULE-077,"BR-14, BR-24","AC-10, AC-25, AC-31",BRD §5–10 pp.4–8,BRD-derived; pending implementation/test ID verification
+UG-RULE-078,"BR-06, BR-14","AC-14, AC-15","BRD §4 p.4, §7 p.6",BRD-derived; pending implementation/test ID verification
+UG-RULE-079,"BR-21, BR-24",AC-27,"BRD §9 p.7, §12 p.9",BRD-derived; pending implementation/test ID verification
+UG-RULE-080,BR-24,AC-30,BRD §11 p.8,BRD-derived; pending implementation/test ID verification
+UG-RULE-081,BR-24,AC-30,BRD §11 p.8,BRD-derived; pending implementation/test ID verification

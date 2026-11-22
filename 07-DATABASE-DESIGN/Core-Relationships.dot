@@ -1,0 +1,23 @@
+digraph UR_GURU_Core {
+ graph [rankdir=LR, fontname="DejaVu Sans", fontsize=26, bgcolor="white", labelloc=t, label="UR GURU v6.2.2 — CORE RELATIONSHIPS (PROPOSED / NOT COMPLETE)", nodesep=0.65, ranksep=1.2, pad=0.5, splines=polyline];
+ node [shape=box, style="rounded,filled", fontname="DejaVu Sans", fontsize=19, fillcolor="#eaf1fc", color="#b7c8df", margin="0.22,0.18"];
+ edge [fontname="DejaVu Sans", fontsize=13, color="#45566b", penwidth=1.5, arrowsize=0.7];
+ StudentProfile; StudentSubject; Subject; ClassOffering; DemoVideo; ClassBatch; Enrollment; Entitlement;
+ QuestionConcept [fillcolor="#f1ecfc"]; QuestionTranslation [fillcolor="#f1ecfc"]; AnswerKeyVersion [fillcolor="#f1ecfc"]; MockExam [fillcolor="#f1ecfc"]; ExamAttempt [fillcolor="#f1ecfc"];
+ TeacherPaperVersion [fillcolor="#f1ecfc"]; AssignmentRecipient [fillcolor="#f1ecfc"];
+ StudentProfile -> StudentSubject [label="1 to many"];
+ Subject -> StudentSubject [label="1 to many"];
+ Subject -> ClassOffering [label="1 to many"];
+ ClassOffering -> DemoVideo [label="1 to 0..N OPTIONAL"];
+ ClassOffering -> ClassBatch [label="1 to many"];
+ ClassBatch -> Enrollment [label="1 to many"];
+ StudentProfile -> Enrollment [label="1 to many"];
+ Enrollment -> Entitlement [style=dotted, label="authorization via order"];
+ Subject -> QuestionConcept [label="1 to many"];
+ QuestionConcept -> QuestionTranslation [label="1 to versions"];
+ QuestionTranslation -> AnswerKeyVersion [label="1 to key versions"];
+ StudentProfile -> MockExam [label="1 to many"];
+ MockExam -> ExamAttempt [label="1 to many"];
+ TeacherPaperVersion -> AssignmentRecipient [style=dashed, label="via Assignment"];
+ AssignmentRecipient -> ExamAttempt [label="per learner"];
+}

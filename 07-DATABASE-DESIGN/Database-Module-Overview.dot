@@ -1,0 +1,21 @@
+digraph UR_GURU_DB {
+ graph [rankdir=TB, fontname="DejaVu Sans", fontsize=26, label="UR GURU v6.2.2 — PROPOSED DATA MODULES (OD-20 pending)", labelloc=t, bgcolor="white", nodesep=0.8, ranksep=0.9, pad=0.5];
+ node [shape=box, style="rounded,filled", fontname="DejaVu Sans", fontsize=21, color="#ced8e5", penwidth=2, margin="0.32,0.25"];
+ edge [color="#51647d", arrowsize=0.9, penwidth=1.7];
+ Identity [label="R0 · IDENTITY & CONSENT\nUser / Student / Teacher / GuardianContact", fillcolor="#e5efff"];
+ Catalogue [label="R0 · ACADEMIC CATALOGUE\nBio / Maths • Subject • Syllabus • StudentSubject", fillcolor="#e5efff"];
+ Marketplace [label="R1 · MARKETPLACE\nClassOffering • ClassBatch • Enrollment • DemoVideo", fillcolor="#e9f6ec"];
+ Media [label="R1/R2 · MEDIA & REVIEW\nMediaAsset • ResourceVersion • Approval", fillcolor="#e9f6ec"];
+ Commerce [label="R1 · COMMERCE\nOrders • PaymentAttempt • Entitlement • Ledger", fillcolor="#fff4e2"];
+ XContent [label="R2 · XACT CONTENT\nQuestionConcept • Translations • AnswerKeyVersion", fillcolor="#efeafb"];
+ XAssess [label="R2 · XACT ASSESSMENTS\nMockExam • Snapshot • Attempt • Score", fillcolor="#efeafb"];
+ XAssign [label="R2 · XACT TEACHER ASSIGNMENT\nPaperVersion • AssignmentRecipient", fillcolor="#efeafb"];
+ Operations [label="R0–R2 · OPERATIONS\nOutbox • Notifications • Audit • Safety", fillcolor="#f3f5f8"];
+ {rank=same; Identity; Catalogue}
+ {rank=same; Marketplace; Media; Commerce}
+ {rank=same; XContent; XAssess; XAssign}
+ Identity -> Marketplace; Catalogue -> Marketplace; Marketplace -> Commerce;
+ Catalogue -> XContent; XContent -> XAssess; XContent -> XAssign;
+ XAssign -> XAssess; Media -> Marketplace [dir=back]; Media -> XContent [dir=back];
+ Identity -> Operations [style=dashed]; Commerce -> Operations [style=dashed]; XAssess -> Operations [style=dashed];
+}

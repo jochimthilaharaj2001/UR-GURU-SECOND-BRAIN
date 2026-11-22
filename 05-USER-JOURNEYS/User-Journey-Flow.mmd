@@ -1,0 +1,26 @@
+flowchart TD
+    A[Student Grade 12 or 13] --> B[Register and verify]
+    B --> C[Select Bio or Maths stream and subjects]
+    C --> D[Student dashboard]
+    D --> E[Find approved teacher and class]
+    E --> F{Free demo available?}
+    F -- Yes --> G{Watch or skip?}
+    F -- No --> H[Choose available class batch]
+    G -- Watch --> I[View approved demo]
+    G -- Skip --> H
+    I --> H
+    H --> J[Checkout and verified payment]
+    J --> K[Enrollment and entitlement]
+    K --> L[Authorized live class and resources]
+    D --> M[XACT practice or custom mock]
+    M --> N[Server-owned attempt and scoring]
+    N --> O[Result and approved explanations]
+    T[Approved teacher] --> P[Create classes and optional demos]
+    P --> Q[Reviewer approval]
+    Q --> E
+    T --> R[Build versioned XACT paper]
+    R --> S[Assign authorized students]
+    S --> N
+    X[Admin and academic / finance reviewers] --> Q
+    X --> Y[Review refunds, content and safety]
+    Y --> Z[Audited decisions and notifications]

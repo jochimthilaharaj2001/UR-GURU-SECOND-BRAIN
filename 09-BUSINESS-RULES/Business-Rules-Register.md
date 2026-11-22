@@ -1,0 +1,117 @@
+# UR GURU Business Rules Register — Review Baseline V6.2.2
+
+> **Document status:** DEVELOPMENT REFERENCE — BRD V6.2.2 is a consolidated review candidate, **NOT stakeholder-approved**. All derived rules remain subject to sign-off. The technical design and implementation contracts are not frozen.
+
+## Status and IDs
+
+- **Source baseline:** `UR_GURU_Full_Corrected_BRD_v6.2.2.pdf`, dated 19 November 2026, complete consolidated review candidate, **not approved** (document control p.1; sign-off p.12).
+- **Business rule IDs:** `UG-RULE-001` onward. Do not mix with source functional requirement IDs `BR-01`–`BR-24` or historic `BR-001`–`BR-077`.
+- **Owner:** proposed role attribution only; not a signed approval.
+- **Rule state:** `Review baseline` means grounded in BRD but not approved; `Pending policy` identifies a blocked implementation parameter.
+- **API and database references:** incomplete design, intentionally not promoted to contract identifiers.
+
+## Coverage summary
+
+| Module | Rule count | Module documentation |
+|---|---:|---|
+| StudentTeacher | 13 | [Student-and-Teacher-Rules.md](Student-and-Teacher-Rules.md) |
+| Marketplace | 16 | [Class-Demo-and-Enrollment-Rules.md](Class-Demo-and-Enrollment-Rules.md) |
+| Finance | 13 | [Payments-Refunds-Payouts.md](Payments-Refunds-Payouts.md) |
+| XACT | 21 | [XACT-Assessment-and-Paper-Rules.md](XACT-Assessment-and-Paper-Rules.md) |
+| PrivacyContent | 11 | [Privacy-Consent-and-Content-Rules.md](Privacy-Consent-and-Content-Rules.md) |
+| Operations | 7 | [Admin-Notifications-and-Audit-Rules.md](Admin-Notifications-and-Audit-Rules.md) |
+
+## Full canonical review register
+
+| ID | Module | Requirement | Source | BRD ID | UAT | State |
+|---|---|---|---|---|---|---|
+| UG-RULE-001 | StudentTeacher | Student registration must support only G.C.E. A/L Grades 12 and 13; reject unsupported grades. | BRD §2–3 pp.3, §5 p.4 | BR-01 | AC-01 | Review baseline |
+| UG-RULE-002 | StudentTeacher | Initial selectable curriculum is Biological Science and Physical Science (Maths) only; other streams are future/uncommitted, not selectable as launch-available. | BRD §2–3 p.3 | BR-01, BR-23 | AC-01 | Review baseline |
+| UG-RULE-003 | StudentTeacher | Students may choose one or more supported subjects only if the stream, syllabus availability and academic year permit them. | BRD §3 p.3, §6.1 p.5 | BR-01 | AC-01, AC-32 | Review baseline |
+| UG-RULE-004 | StudentTeacher | Persist each student/subject/academic-year choice in StudentSubject with a uniqueness control against duplicate active selections. | BRD §3 p.3, §6.1 p.5, §10 p.7 | BR-01 | AC-01, AC-32 | Review baseline |
+| UG-RULE-005 | StudentTeacher | Subject selection is not paid class enrollment, and must never itself issue class access or an entitlement. | BRD §3 p.3, §10 p.8 | BR-01, BR-05 | AC-32 | Review baseline |
+| UG-RULE-006 | StudentTeacher | Account states include Pending Verification, Active, Locked, Suspended and Closed; recovery and logout must invalidate applicable sessions. | BRD §6.1 p.5 | BR-01 | AC-02 | Review baseline |
+| UG-RULE-007 | StudentTeacher | Registration and recovery must not reveal the existence of another person’s account through identity-enumeration responses. | BRD §13 p.9 | BR-01 | AC-02 | Review baseline |
+| UG-RULE-008 | StudentTeacher | Only approved, active teachers and their eligible public class offerings appear in discovery. | BRD §6.2 p.5 | BR-02, BR-03 | AC-05, AC-06 | Review baseline |
+| UG-RULE-009 | StudentTeacher | Teacher verification follows Draft → Submitted → Needs Information → Approved/Rejected/Suspended, recording actor, timestamp and reason for decisions. | BRD §6.2 p.5 | BR-02 | AC-05 | Review baseline |
+| UG-RULE-010 | StudentTeacher | Teachers cannot self-approve identity/qualification verification or publish paid offerings before approval. | BRD §4 p.4, §6.2 p.5 | BR-02, BR-05 | AC-05 | Review baseline |
+| UG-RULE-011 | StudentTeacher | Teacher listings may expose authorized subjects, medium, schedules, price and approved demo availability, not private evidence, rosters, payments or contacts. | BRD §6.2 p.5 | BR-03 | AC-06 | Review baseline |
+| UG-RULE-012 | StudentTeacher | Ratings remain disabled until a moderation, eligibility and anti-fraud policy is approved. | BRD §6.2 p.5 | BR-03 | — | Pending policy OD-01 |
+| UG-RULE-013 | StudentTeacher | Teacher suspension prevents unauthorized new publishing; treatment of existing paid students requires an approved continuity policy. | BRD §6.2 p.5 | BR-02, BR-05 | AC-05 | Pending policy OD-01/OD-04 |
+| UG-RULE-014 | Marketplace | Class demo is an optional free prerecorded preview linked to a teacher-owned ClassOffering, not a scheduled live trial booking. | BRD §6.3 p.5, §10 p.8 | BR-04 | AC-07, AC-33 | Review baseline |
+| UG-RULE-015 | Marketplace | Students may watch an approved demo or skip it; neither viewing nor completion can gate checkout, enrollment or live-class joining. | BRD §6.3 p.5 | BR-04, BR-05 | AC-07, AC-33 | Review baseline |
+| UG-RULE-016 | Marketplace | A ClassOffering may contain zero or more demo videos; missing, failed, withdrawn or pending demos must not block direct enrollment. | BRD §6.3 p.5 | BR-04 | AC-07 | Review baseline |
+| UG-RULE-017 | Marketplace | Approved, published, active demo media may be publicly previewed free; rejected, withdrawn or processing demos must not be playable. | BRD §6.3 p.5 | BR-04 | AC-31 | Review baseline |
+| UG-RULE-018 | Marketplace | Only approved teachers submit class-linked demos; content must record title, language/medium, media reference, duration, rights attestation and creator. | BRD §6.3 p.5 | BR-04 | AC-31 | Review baseline |
+| UG-RULE-019 | Marketplace | A demo uploader cannot approve their own demo; review and publish/withdraw actions require authorized reviewers and audit history. | BRD §6.3 p.5 | BR-04, BR-14 | AC-31 | Review baseline |
+| UG-RULE-020 | Marketplace | Demo video storage and preview delivery must be isolated from paid class resources and XACT explanation media. | BRD §6.3 p.5 | BR-04, BR-07, BR-20 | AC-11, AC-31 | Review baseline |
+| UG-RULE-021 | Marketplace | Demo preview must not create TrialBooking, OrderHeader, Enrollment, PaymentAttempt, paid Entitlement or reserve a batch seat. | BRD §6.3 p.5, §7 p.6, §10 p.8 | BR-04, BR-06 | AC-07, AC-33 | Review baseline |
+| UG-RULE-022 | Marketplace | Public demo viewer login requirement, viewing analytics, duration and rights policy are unresolved; do not require or track these without approval. | BRD §6.3 p.5, §14 p.10 | BR-04 | AC-07 | Pending policy OD-02 |
+| UG-RULE-023 | Marketplace | Transactional seat capacity applies only to actual paid enrollment; prevent duplicate seats, overbooking and double charges. | BRD §6.4 p.5 | BR-05, BR-06 | AC-08 | Review baseline |
+| UG-RULE-024 | Marketplace | Each class offering/batch must carry authorized teacher, subject, medium, syllabus, price, capacity, timezone, schedule, lifecycle window and status. | BRD §6.4 p.5 | BR-05 | AC-08 | Review baseline |
+| UG-RULE-025 | Marketplace | Join credentials for live provider must be short-lived and issued only to authorized users within configured join windows. | BRD §6.4 p.5 | BR-05 | AC-09 | Review baseline |
+| UG-RULE-026 | Marketplace | Attendance records join/leave details; authorized corrections require an audit trail. | BRD §6.4 p.6 | BR-05 | AC-10 | Review baseline |
+| UG-RULE-027 | Marketplace | Class cancellation/rescheduling must notify affected students and apply an approved credit/refund policy; do not promise automatic refunds. | BRD §6.4 p.6 | BR-05, BR-06 | AC-09, AC-14 | Pending policy OD-04 |
+| UG-RULE-028 | Marketplace | Class resources require validation/scanning and authorized class-linked access; revoked content must stop new distribution. | BRD §6.5 p.6 | BR-07 | AC-11 | Review baseline |
+| UG-RULE-029 | Marketplace | Private learning media must use protected object storage and short-lived backend-authorized links; guessed URLs must not bypass access. | BRD §6.5 p.6 | BR-07 | AC-11 | Review baseline |
+| UG-RULE-030 | Finance | Student tuition receipts are GMV; recognize UR GURU revenue separately as approved commission/direct fees only. | BRD §7 p.6 | BR-06 | AC-15 | Review baseline |
+| UG-RULE-031 | Finance | Checkout must disclose total/currency, charges, description, access period and applicable renewal/cancellation/refund terms before purchase. | BRD §7 p.6 | BR-06 | AC-12 | Review baseline |
+| UG-RULE-032 | Finance | An order contains auditable line items and payment attempts; client-side success redirect alone cannot grant paid access. | BRD §7 p.6 | BR-06 | AC-12, AC-13 | Review baseline |
+| UG-RULE-033 | Finance | Gateway notifications must be authenticated, server-verified, replay/idempotency protected before any entitlement is created. | BRD §7 p.6 | BR-06 | AC-12, AC-13 | Review baseline |
+| UG-RULE-034 | Finance | Repeated valid callbacks must result in one entitlement and correct, nonduplicated ledger postings. | BRD §7 p.6 | BR-06 | AC-13 | Review baseline |
+| UG-RULE-035 | Finance | Financial ledger is append-only; refunds, chargebacks and payout reversals create linked correcting entries, not silent edits. | BRD §7 p.6 | BR-06 | AC-14, AC-15 | Review baseline |
+| UG-RULE-036 | Finance | Teacher earnings derive only from eligible paid enrollments using the approved commission base; reserves/disputes affect payout status. | BRD §7 p.6 | BR-06 | AC-15 | Pending policy OD-03/OD-04 |
+| UG-RULE-037 | Finance | Partial refunds must reconcile only relevant entitlement and earning portions under the approved policy, not invariably revoke an entire class. | BRD §7 p.6 | BR-06 | AC-14 | Pending policy OD-04 |
+| UG-RULE-038 | Finance | Refund requests, authorized decisions, provider processing and resulting balance adjustments must be traceable. | BRD §7 p.6, §12 p.9 | BR-06 | AC-14 | Review baseline |
+| UG-RULE-039 | Finance | Free demo previews cannot be sold as paid products or trigger order, payment attempt or paid entitlement. | BRD §7 p.6 | BR-04, BR-06 | AC-33 | Review baseline |
+| UG-RULE-040 | Finance | Payout approval/reconciliation must be auditable; actual gateway payout and recurring capabilities depend on approved provider contracts. | BRD §7 p.6, §14 p.10 | BR-06 | AC-15 | Pending policy OD-04/OD-05 |
+| UG-RULE-041 | Finance | Exact tuition commission percentage, calculation base, taxes, fees and recognition policy are not fixed. | BRD §14 p.10 | BR-06 | AC-15 | Pending policy OD-03 |
+| UG-RULE-042 | Finance | XACT paid packs or subscriptions are proposals only; do not activate charges, prices or entitlements until sign-off. | BRD §7 p.6, §14 p.10 | BR-18 | AC-12 | Pending policy OD-13 |
+| UG-RULE-043 | XACT | XACT is the current assessment product name; Exam Munnodi is historical terminology, not a separate active product. | BRD §1–2 p.2, Appendix B p.11 | BR-18 | — | Review baseline |
+| UG-RULE-044 | XACT | Question catalogue must retain source paper/year, subject, medium, rights evidence and attribution for each candidate source. | BRD §8.1 p.6 | BR-18, BR-23 | AC-16 | Review baseline |
+| UG-RULE-045 | XACT | Canonical question concept is distinct from approved translation/option/answer-key versions; stable option identifiers survive display reordering. | BRD §8.1 p.6 | BR-18, BR-23 | AC-16, AC-17 | Review baseline |
+| UG-RULE-046 | XACT | Each Tamil, Sinhala and English translation requires independent academic approval and must not silently fall back to another medium. | BRD §3 p.3, §8.1 p.6 | BR-18, BR-23 | AC-16, AC-17 | Review baseline |
+| UG-RULE-047 | XACT | Only rights-cleared, approved, active concept, translation and answer-key combinations may be used in practice and exams. | BRD §8.1 p.6 | BR-18 | AC-16 | Review baseline |
+| UG-RULE-048 | XACT | Question/key corrections create versioned records; previously attempted snapshots remain immutable and changes are auditable. | BRD §8.1–8.2 pp.6–7 | BR-18 | AC-20, AC-25 | Review baseline |
+| UG-RULE-049 | XACT | Students may practice by approved paper/year/subject/medium or configure mocks by available topics, difficulty, count and time presets. | BRD §8.2 p.6 | BR-18 | AC-18 | Review baseline |
+| UG-RULE-050 | XACT | Mock generation selects from eligible approved pool without duplicate canonical questions and explains insufficient inventory. | BRD §8.2 p.6 | BR-18 | AC-18 | Review baseline |
+| UG-RULE-051 | XACT | Generated attempt snapshot retains question/option order, translation/key versions, scoring-policy version, time limit and source references. | BRD §8.2 p.6 | BR-18 | AC-20 | Review baseline |
+| UG-RULE-052 | XACT | Backend is authoritative for exam start, deadline, autosave, submission and grading; client timer is display-only. | BRD §8.2 pp.6–7 | BR-18 | AC-19, AC-20 | Review baseline |
+| UG-RULE-053 | XACT | Attempt state is one of NotStarted, InProgress, Submitted, AutoSubmitted, Expired or Invalidated; resumability/grace requires configuration and audit. | BRD §8.2 p.7 | BR-18 | AC-19 | Pending policy OD-10 |
+| UG-RULE-054 | XACT | Autosave retries must not lose server-confirmed answers; duplicate submission must create only one final result. | BRD §8.2 p.6, §13 p.10 | BR-18 | AC-19, AC-20 | Review baseline |
+| UG-RULE-055 | XACT | Results show approved score, correct/incorrect/unanswered, topic progress and history; answer reveal follows review policy. | BRD §8.2 p.7 | BR-11, BR-18 | AC-20, AC-22 | Pending policy OD-10 |
+| UG-RULE-056 | XACT | Do not infer topic mastery where sample size is insufficient; coverage and limitations must be transparent. | BRD §8.2 p.7 | BR-11 | — | Review baseline |
+| UG-RULE-057 | XACT | Only authorized approved teachers may build, preview, version, publish and assign papers from a read-only approved bank. | BRD §8.3 p.7 | BR-19 | AC-23, AC-24 | Review baseline |
+| UG-RULE-058 | XACT | Each assignment references immutable teacher paper version and authorized recipients; each recipient has a separate attempt/result. | BRD §8.3 p.7 | BR-19 | AC-21, AC-23 | Review baseline |
+| UG-RULE-059 | XACT | Paper reuse creates a new assignment; historical paper versions, recipient attempts and scores are preserved. | BRD §8.3 p.7 | BR-19 | AC-24 | Review baseline |
+| UG-RULE-060 | XACT | Teacher score/answer-level access requires ownership or authorized assignment membership; regrades are audited. | BRD §8.3 p.7 | BR-19 | AC-21, AC-25 | Review baseline |
+| UG-RULE-061 | XACT | XACT explanation video passes secure processing, academic/rights review and authorized publication; rejected/unprocessed media cannot publish. | BRD §8.4 p.7 | BR-20 | AC-26 | Review baseline |
+| UG-RULE-062 | XACT | Written explanation fallback remains when video is unavailable; XACT video entitlement differs from free class demo media. | BRD §8.4 p.7 | BR-20 | AC-22, AC-26 | Review baseline |
+| UG-RULE-063 | XACT | Question count, duration, retries, marking, negative marks, reveal/grace and difficulty quotas require approved configuration. | BRD §14 p.10 | BR-18 | AC-18, AC-19 | Pending policy OD-10/OD-11 |
+| UG-RULE-064 | PrivacyContent | Apply server-side role-based and object ownership/authorized-membership checks to protected operations; hiding UI alone is insufficient. | BRD §4 p.4 | BR-14, BR-21 | AC-21 | Review baseline |
+| UG-RULE-065 | PrivacyContent | Student must not read other students’ profiles, payments, results, resources or class assets without authorization. | BRD §4 p.4, §6.5 p.6 | BR-01, BR-07, BR-18 | AC-11, AC-21 | Review baseline |
+| UG-RULE-066 | PrivacyContent | Guardian contact is used for consent/communications where legally applicable; no full guardian dashboard in current scope. | BRD §4 p.4, §2 p.3 | BR-16, BR-21 | AC-04 | Review baseline |
+| UG-RULE-067 | PrivacyContent | Where consent is legally required, preserve a revocable purpose-specific event, exact policy version and protected evidence. | BRD §6.1 p.5 | BR-21 | AC-04 | Pending policy OD-15 |
+| UG-RULE-068 | PrivacyContent | Do not require NIC from every minor by default; NIC format validation is not government verification. | BRD §6.1 p.5 | BR-22 | AC-03 | Pending policy OD-19 |
+| UG-RULE-069 | PrivacyContent | Restrict teacher identity/evidence, moderation notes and student viewing behavior from public listings or demo playback. | BRD §4 p.4, §6.2–6.3 p.5 | BR-02, BR-04 | AC-06, AC-31 | Review baseline |
+| UG-RULE-070 | PrivacyContent | Source reproduction, translations, adaptation, teacher media and demo videos must have documented rights before publication. | BRD §3 p.3, §8.1 p.6, §14 p.10 | BR-04, BR-18, BR-20 | AC-16, AC-31 | Pending policy OD-02/OD-07 |
+| UG-RULE-071 | PrivacyContent | Separate public approved demo delivery from entitlement-gated private resources and XACT explanation assets. | BRD §6.3 p.5, §10 p.8 | BR-04, BR-07, BR-20 | AC-11, AC-31 | Review baseline |
+| UG-RULE-072 | PrivacyContent | Avoid irreversible deletion of ledger entries, scored attempts and legally retained investigation data; use approved retention/archival rules. | BRD §10 p.8 | BR-06, BR-18, BR-21 | AC-20, AC-25 | Pending policy OD-15 |
+| UG-RULE-073 | PrivacyContent | Child safety complaints must remain confidential, auditable and restricted to authorized safeguarding handlers. | BRD §4 p.4, §9 p.7 | BR-21, BR-24 | AC-27 | Review baseline |
+| UG-RULE-074 | PrivacyContent | Tamil/Sinhala/English scientific formulae, units, diagrams and answer options must be legible and accessible in supported browsers. | BRD §3 p.3, §11 p.8 | BR-23 | AC-28 | Review baseline |
+| UG-RULE-075 | Operations | Notification events must be independently trackable, retryable and avoid unnecessary personal details in email/SMS. | BRD §9 p.7 | BR-13 | AC-29 | Review baseline |
+| UG-RULE-076 | Operations | Outbox delivery and provider retries must recover from worker interruption without duplicate harmful effects. | BRD §9 p.7, §13 p.10 | BR-13 | AC-29 | Review baseline |
+| UG-RULE-077 | Operations | Teacher verification, payment/refund, demo publication, question corrections and consent decisions need actor/time/status audit. | BRD §5–10 pp.4–8 | BR-14, BR-24 | AC-10, AC-25, AC-31 | Review baseline |
+| UG-RULE-078 | Operations | Finance reviewers approve authorized refunds/payouts; no unaudited manual ledger edits. | BRD §4 p.4, §7 p.6 | BR-06, BR-14 | AC-14, AC-15 | Review baseline |
+| UG-RULE-079 | Operations | Support and safeguarding escalations require a controlled owner, restricted evidence and protected case history. | BRD §9 p.7, §12 p.9 | BR-21, BR-24 | AC-27 | Review baseline |
+| UG-RULE-080 | Operations | Proposed numerical performance/availability/RPO/RTO benchmarks are candidates, not production SLAs. | BRD §11 p.8 | BR-24 | AC-30 | Pending policy OD-16 |
+| UG-RULE-081 | Operations | Operational monitoring covers live failures, payment mismatches, outbox backlog, exam autosave failures, videos and safety escalations. | BRD §11 p.8 | BR-24 | AC-30 | Review baseline |
+
+## Usage rules
+
+1. Do **not** implement a rule merely because it is written here; check approval status and unresolved policy gates.
+2. Treat the BRD v6.2.2 PDF as the current **review candidate**; authoritative signed baseline not yet available.
+3. Use [`Legacy-V2-Rule-Reconciliation.md`](Legacy-V2-Rule-Reconciliation.md) before retiring old endpoints/trial models.
+4. No automatic assumption that class demo requires login, user watch record, book/seat hold or payment.
+5. Bring rule IDs into API/database/tests only once those documents are reconciled and approved.
+6. Keep proposed flow validations separate from unapproved thresholds, fees, durations, provider and release decisions.

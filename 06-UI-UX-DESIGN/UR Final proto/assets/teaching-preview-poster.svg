@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" role="img" aria-label="Mathematics lesson chalkboard">
+  <defs>
+    <radialGradient id="board" cx="49%" cy="39%" r="75%">
+      <stop stop-color="#145e6d"/>
+      <stop offset=".65" stop-color="#0b4254"/>
+      <stop offset="1" stop-color="#08283b"/>
+    </radialGradient>
+    <linearGradient id="desk" x2="0" y2="1">
+      <stop stop-color="#825b3e"/>
+      <stop offset="1" stop-color="#432e28"/>
+    </linearGradient>
+    <linearGradient id="book" x2="0" y2="1">
+      <stop stop-color="#eaf5ff"/>
+      <stop offset="1" stop-color="#9ac7ea"/>
+    </linearGradient>
+    <filter id="soft"><feGaussianBlur stdDeviation="1.2"/></filter>
+  </defs>
+  <rect width="800" height="450" fill="url(#board)"/>
+  <g fill="none" stroke="#b8e6e2" opacity=".16" stroke-width="3" filter="url(#soft)">
+    <path d="M30 78q75-30 168 2m416-30q79-19 152 28M62 199q51-18 115 13m467-12q47-10 118 12"/>
+    <path d="M205 45h149m-85 21h83M511 97h120M230 293h215"/>
+  </g>
+  <g fill="#e2f4ed" font-family="Georgia,serif" opacity=".77">
+    <text x="365" y="131" font-size="44" transform="rotate(-3 365 131)">(x + 3)² = x² + 6x + 9</text>
+    <text x="420" y="238" font-size="37" transform="rotate(2 420 238)">x² − 4 = (x − 2)(x + 2)</text>
+    <text x="140" y="225" font-size="29" opacity=".65">a² − b² = (a − b)(a + b)</text>
+  </g>
+  <g fill="none" stroke="#d1eee7" opacity=".42">
+    <path d="M125 168h228v75H125z" stroke-width="2"/>
+    <path d="m98 90 10-21 10 21m-20-6h20M51 189l17-35 17 35m-32-12h30" stroke-width="2"/>
+    <path d="M675 145h60m-30-30v60M72 258q34-28 68 0" stroke-width="1.5"/>
+  </g>
+  <rect y="384" width="800" height="66" fill="url(#desk)"/>
+  <path d="M0 385h800" stroke="#b58960" stroke-width="7" opacity=".75"/>
+  <g transform="translate(21 244)">
+    <path d="M13 52h90l-11 92H25z" fill="#b8c6cf"/>
+    <path d="M23 53h69" stroke="#eff8ff" stroke-width="7"/>
+    <path d="m39 50-9-120m27 121 4-136m17 135 14-111" stroke="#d9ad68" stroke-width="9" stroke-linecap="round"/>
+    <path d="m27-73 3-13 6 12m22-15 4-14 4 15m21 19 8-12 2 13" fill="#dbe7eb"/>
+    <path d="M23 78h70" stroke="#ebf3f8" opacity=".7"/>
+  </g>
+  <g transform="translate(632 270)">
+    <rect x="-3" y="91" width="160" height="32" rx="3" fill="#315f84"/>
+    <rect x="2" y="93" width="150" height="22" fill="url(#book)"/>
+    <path d="M0 90h151M0 117h151" stroke="#6ca5cc" stroke-width="5"/>
+    <rect x="8" y="53" width="153" height="31" rx="3" fill="#ded6c4"/>
+    <rect x="14" y="56" width="142" height="21" fill="#f4f3ec"/>
+    <path d="M12 53h145M12 79h145" stroke="#c4b695" stroke-width="4"/>
+    <rect x="3" y="14" width="166" height="32" rx="3" fill="#4685b1"/>
+    <rect x="9" y="17" width="154" height="22" fill="url(#book)"/>
+    <path d="M7 13h155M7 42h155" stroke="#72b9df" stroke-width="5"/>
+  </g>
+  <rect width="800" height="450" fill="#071a2c" opacity=".12"/>
+</svg>

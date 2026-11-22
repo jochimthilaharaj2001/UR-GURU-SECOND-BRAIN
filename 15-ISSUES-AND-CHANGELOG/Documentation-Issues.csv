@@ -1,0 +1,8 @@
+﻿Issue_ID,Area,Issue,Severity,Status,Next_Action
+DOC-01,README,Stale 161 APIs / four-stream scope,High,Corrected,Review and approve baseline
+DOC-02,API,292 MVP DTOs contain TBD placeholders,Critical,Open,Endpoint-specific contract review
+DOC-03,XACT,Legacy Exam Munnodi scope,High,Corrected,Review current XACT gateway
+DOC-04,Integrations,Provider choices missing,High,Recorded / pending approval,Verify LiveKit Build / PayHere Lite
+DOC-05,Database,Engine and migrations not signed,Critical,Open,Approve schema and generate migrations
+DOC-06,Tracking,Backlog and tests empty,High,Draft registers populated,"Confirm owners, estimates and execute tests"
+DOC-07,Audit,Legacy 65-file audit stale,High,Superseded,Use correction audit and manifest

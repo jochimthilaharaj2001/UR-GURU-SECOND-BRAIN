@@ -1,0 +1,48 @@
+digraph URGURU {
+  graph [label="UR GURU  |  PROPOSED MODULAR MONOLITH  |  BRD v6.2.2 — OD-20 PENDING", labelloc=t, fontsize=24, fontname="DejaVu Sans", fontcolor="#12324f", bgcolor="#ffffff", pad="0.35", nodesep="0.36", ranksep="0.65", splines=polyline, outputorder=edgesfirst, compound=true];
+  node [shape=box, style="rounded,filled", color="#d9e4ef", penwidth=1.3, fillcolor="#f6f9fe", fontname="DejaVu Sans", fontsize=12, margin="0.18,0.11"];
+  edge [color="#7791a7", arrowsize=0.75, penwidth=1.35, fontname="DejaVu Sans", fontsize=9];
+  subgraph cluster_channels {
+    label="ACCESS CHANNELS  •  RESPONSIVE WEB ONLY"; style="rounded,filled"; color="#d7e4ff"; fillcolor="#f2f6ff"; fontcolor="#285c9e"; fontsize=15;
+    student [label="Student / Teacher\nResponsive Web", fillcolor="#e2eeff", color="#89afe0"];
+    admin [label="Separate Admin\nWeb Portal", fillcolor="#e2eeff", color="#89afe0"];
+    {rank=same; student admin}
+  }
+  api [label="ONE ASP.NET CORE BACKEND DEPLOYABLE\nMODULAR MONOLITH  •  TLS  •  role + object authorization", fillcolor="#224c80", fontcolor="white", color="#224c80", fontsize=15, margin="0.20,0.15"];
+  subgraph cluster_domains {
+    label="IN-PROCESS BACKEND MODULES  •  MODULAR MONOLITH PROPOSAL"; style="rounded,filled"; color="#c2dde1"; fillcolor="#f3faf9"; fontcolor="#1d666a"; fontsize=15;
+    r0 [label="R0 FOUNDATION\nIdentity • Consent • Catalogue\nStudentSubject • Audit", fillcolor="#dcf2eb", color="#91c5b7"];
+    r1a [label="R1 MARKETPLACE\nTeacher Verify • Discovery\nClassOffering • FREE optional Demo", fillcolor="#dcf2eb", color="#91c5b7"];
+    r1b [label="R1 CLASSES & COMMERCE\nBatch • Enrollment • Live\nResources • Payments • Ledger", fillcolor="#dcf2eb", color="#91c5b7"];
+    r2 [label="R2 XACT\nApproved Question Versions\nMock • Attempt • Assignment • Scoring", fillcolor="#dcf2eb", color="#91c5b7"];
+    shared [label="SHARED CONTROLS\nMedia Review • Notifications\nOutbox/Retry • Safety/Logs", fillcolor="#edf7fb", color="#9dc8d5"];
+    {rank=same; r0 r1a r1b r2 shared}
+  }
+  subgraph cluster_data {
+    label="SHARED DATA INFRASTRUCTURE  •  MODULE-OWNED DATA  •  OD-20 PENDING"; style="rounded,filled"; color="#e5d9f3"; fillcolor="#faf7fd"; fontcolor="#6b4ca0"; fontsize=14;
+    db [label="One Logical Relational Database\nmodule-owned data boundaries\nENGINE / ERD SIGN-OFF PENDING", fillcolor="#efe6fb", color="#bca6d6"];
+    assets [label="Private Media / Storage\nresources • source demos • explanations\ndelivery policy by content type", fillcolor="#efe6fb", color="#bca6d6"];
+    {rank=same; db assets}
+  }
+  subgraph cluster_external {
+    label="EXTERNAL SERVICES  •  PROVIDERS NOT SELECTED"; style="rounded,filled"; color="#f1dbbe"; fillcolor="#fff9f0"; fontcolor="#91602e"; fontsize=14;
+    pay [label="Payment Gateway\nOD-05", fillcolor="#fff0d9", color="#e7ba79"];
+    live [label="Live Classroom\nOD-06", fillcolor="#fff0d9", color="#e7ba79"];
+    cdn [label="Media Processing / CDN\nOD-02 / OD-06", fillcolor="#fff0d9", color="#e7ba79"];
+    msg [label="Messaging Delivery\nVendor TBD", fillcolor="#fff0d9", color="#e7ba79"];
+    {rank=same; pay live cdn msg}
+  }
+  student -> api [label="HTTPS"];
+  admin -> api [label="HTTPS"];
+  api -> r0; api -> r1a; api -> r1b; api -> r2; api -> shared;
+  r0 -> db; r1a -> db; r1b -> db; r2 -> db; shared -> db;
+  r1a -> assets [label="approved demos"];
+  r1b -> assets [label="private class files"];
+  r2 -> assets [label="XACT videos"];
+  r1b -> pay [label="verified payment"];
+  r1b -> live [label="authorized join"];
+  assets -> cdn [label="controlled delivery"];
+  shared -> msg [label="retryable events"];
+  note [shape=note, label="CRITICAL: DemoVideo is FREE + OPTIONAL.\nNo live trial booking, seat reservation, or demo watch gate.\nStudentSubject ≠ paid Enrollment.\nXACT grading remains server-authoritative.", fillcolor="#fff5ed", color="#eab47d", fontsize=12];
+  cdn -> note [style=invis];
+}

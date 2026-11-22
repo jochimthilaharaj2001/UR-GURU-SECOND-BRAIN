@@ -1,0 +1,34 @@
+﻿Test_ID,Requirement_ID,Title,Precondition,Steps,Expected_Result,Actual_Result,Status,Owner
+AC-01,BR-01,Registration rejects invalid grade/stream/duplicate subject,Fixture and approved policy required,"Submit invalid Grade 11, stream mismatch and repeated subject selection",All rejected without paid entitlement,Not executed,Proposed / not run,QA + module owner
+AC-02,BR-01,Account recovery privacy,Fixture and approved policy required,Attempt unknown and known accounts,No account existence disclosure,Not executed,Proposed / not run,QA + module owner
+AC-03,BR-22,NIC format not identity proof,Fixture and approved policy required,Submit syntactically valid NIC,Not marked government-verified,Not executed,Proposed / not run,QA + module owner
+AC-04,BR-21,Guardian consent evidence,Fixture and approved policy required,Record/revoke applicable consent,Purpose/policy version/evidence audited,Not executed,Proposed / not run,QA + module owner
+AC-05,BR-02,Unapproved teacher cannot publish,Fixture and approved policy required,Attempt publish as unapproved teacher,Denied and not publicly listed,Not executed,Proposed / not run,QA + module owner
+AC-06,BR-03,Discovery respects eligibility,Fixture and approved policy required,Filter active approved teacher and medium,Only matching public safe fields,Not executed,Proposed / not run,QA + module owner
+AC-07,BR-04,Demo optionality,Fixture and approved policy required,Skip/fail demo and continue checkout,No booking or demo prerequisite,Not executed,Proposed / not run,QA + module owner
+AC-08,BR-05,Transactional paid seats,Fixture and approved policy required,Retry concurrent enrollments and payments,No duplicate seats or charges,Not executed,Proposed / not run,QA + module owner
+AC-09,BR-05,Authorized live joins,Fixture and approved policy required,Request join as unenrolled user,No join token; schedule updates notify,Not executed,Proposed / not run,QA + module owner
+AC-10,BR-05,Attendance audit,Fixture and approved policy required,Correct attendance as authorized actor,"Reason, actor and timestamp retained",Not executed,Proposed / not run,QA + module owner
+AC-11,BR-07,Protected resources,Fixture and approved policy required,Use copied media URL without entitlement,Access denied,Not executed,Proposed / not run,QA + module owner
+AC-12,BR-06,Forged payment callback,Fixture and approved policy required,Send unsigned webhook,No entitlement,Not executed,Proposed / not run,QA + module owner
+AC-13,BR-06,Idempotent callback,Fixture and approved policy required,Repeat verified payment webhook,One entitlement and ledger entry,Not executed,Proposed / not run,QA + module owner
+AC-14,BR-06,Partial refund reconciliation,Fixture and approved policy required,Refund part of order twice,Only authorized linked reversal posted once,Not executed,Proposed / not run,QA + module owner
+AC-15,BR-06,Teacher payout consistency,Fixture and approved policy required,Compute earnings with dispute hold,Approved commission base and hold respected,Not executed,Proposed / not run,QA + module owner
+AC-16,BR-18,Question approvals,Fixture and approved policy required,Use unapproved source/translation/key,Excluded from assessment,Not executed,Proposed / not run,QA + module owner
+AC-17,BR-23,Language isolation,Fixture and approved policy required,Request missing translation,No silent medium fallback,Not executed,Proposed / not run,QA + module owner
+AC-18,BR-18,Question pool shortage,Fixture and approved policy required,Generate with insufficient pool,Shortage response; no duplicates,Not executed,Proposed / not run,QA + module owner
+AC-19,BR-11,Autosave deadline,Fixture and approved policy required,Retry autosave after disconnect and deadline,Saved answers preserved; no late edits,Not executed,Proposed / not run,QA + module owner
+AC-20,BR-11,Idempotent exam submit,Fixture and approved policy required,Repeat submit,One immutable final score,Not executed,Proposed / not run,QA + module owner
+AC-21,BR-11,Student data isolation,Fixture and approved policy required,Read other attempt/report,Denied,Not executed,Proposed / not run,QA + module owner
+AC-22,BR-20,Explanation access policy,Fixture and approved policy required,Read unapproved/restricted explanation,Denied,Not executed,Proposed / not run,QA + module owner
+AC-23,BR-19,Multi-student assignment,Fixture and approved policy required,Assign version to authorized students,Independent recipient attempts,Not executed,Proposed / not run,QA + module owner
+AC-24,BR-19,Paper reuse immutability,Fixture and approved policy required,Reuse paper for new assignment,Old results/versions unchanged,Not executed,Proposed / not run,QA + module owner
+AC-25,BR-18,Question correction audit,Fixture and approved policy required,Withdraw question after attempt,Old attempt snapshot retained,Not executed,Proposed / not run,QA + module owner
+AC-26,BR-20,Explanation media moderation,Fixture and approved policy required,Publish rejected/unprocessed video,Denied; written fallback retained,Not executed,Proposed / not run,QA + module owner
+AC-27,BR-21,Safeguarding evidence,Fixture and approved policy required,Submit confidential safety report,Restricted triage and audit,Not executed,Proposed / not run,QA + module owner
+AC-28,BR-23,Localized math rendering,Fixture and approved policy required,View long Tamil/Sinhala options and formula,Readable accessible rendering,Not executed,Proposed / not run,QA + module owner
+AC-29,BR-13,Outbox recovery,Fixture and approved policy required,Crash notification worker then retry,Event delivered without loss,Not executed,Proposed / not run,QA + module owner
+AC-30,BR-24,Backup and monitoring,Fixture and approved policy required,Restore and concurrency drill,Approved NFR evidence captured,Not executed,Proposed / not run,QA + module owner
+AC-31,BR-04,Demo approval authorization,Fixture and approved policy required,Publish unreviewed/withdrawn demo,Public playback denied,Not executed,Proposed / not run,QA + module owner
+AC-32,BR-01,StudentSubject uniqueness,Fixture and approved policy required,Select subject twice,One valid active selection; no entitlement,Not executed,Proposed / not run,QA + module owner
+AC-33,BR-04,Demo no side effects,Fixture and approved policy required,Play demo and skip,No booking/payment/enrollment API invoked,Not executed,Proposed / not run,QA + module owner

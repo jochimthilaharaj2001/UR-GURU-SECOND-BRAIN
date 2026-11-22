@@ -1,0 +1,775 @@
+// UR GURU v6.2.2 — PROPOSED LOGICAL CANDIDATE ONLY.
+// NOT APPROVED PHYSICAL DDL. DO NOT EXECUTE or generate production migrations.
+// Source: BRD v6.2.2, 19 Nov 2026, pp3–12. OD-20 pending.
+
+Table UserAccount {
+  UserAccountId uuid [pk, note: "Candidate UUID PK; OD-20"]
+  Email varchar(255)
+  Phone varchar(120)
+  PasswordHash text
+  AccountStatus varchar(120)
+  CreatedAt timestamp
+  Note: "PROPOSED Identity entity, BR-01/02/14/21. No approval claimed."
+}
+
+Table UserRole {
+  UserRoleId uuid [pk, note: "Candidate UUID PK; OD-20"]
+  UserId uuid
+  RoleCode varchar(120)
+  GrantedAt timestamp
+  RevokedAt timestamp
+  Note: "PROPOSED Identity entity, BR-01/14. No approval claimed."
+}
+
+Table StudentProfile {
+  StudentProfileId uuid [pk, note: "Candidate UUID PK; OD-20"]
+  UserId uuid
+  GradeLevel int
+  StreamId uuid
+  PreferredMediumCode varchar(120)
+  Status varchar(120)
+  Note: "PROPOSED Identity entity, BR-01/21. No approval claimed."
+}
+
+Table TeacherProfile {
+  TeacherProfileId uuid [pk, note: "Candidate UUID PK; OD-20"]
+  UserId uuid
+  PublicName varchar(255)
+  Bio text
+  VerificationStatus varchar(120)
+  Status varchar(120)
+  Note: "PROPOSED Identity entity, BR-02/03. No approval claimed."
+}
+
+Table TeacherVerification {
+  TeacherVerificationId uuid [pk, note: "Candidate UUID PK; OD-20"]
+  TeacherId uuid
+  ReviewStatus varchar(120)
+  EvidenceAssetId uuid
+  ReviewerUserId uuid
+  ReviewedAt timestamp
+  Note: "PROPOSED Identity entity, BR-02. No approval claimed."
+}
+
+Table GuardianContact {
+  GuardianContactId uuid [pk, note: "Candidate UUID PK; OD-20"]
+  StudentId uuid
+  ContactName varchar(255)
+  ContactPhone varchar(120)
+  RelationshipCode varchar(120)
+  ContactStatus varchar(120)
+  Note: "PROPOSED Identity entity, BR-21. No approval claimed."
+}
+
+Table ConsentRecord {
+  ConsentRecordId uuid [pk, note: "Candidate UUID PK; OD-20"]
+  StudentId uuid
+  GuardianContactId uuid
+  PurposeCode varchar(120)
+  PolicyVersion text
+  GrantedAt timestamp
+  RevokedAt timestamp
+  EvidenceAssetId uuid
+  Note: "PROPOSED Identity entity, BR-21. No approval claimed."
+}
+
+Table IdentityCheck {
+  IdentityCheckId uuid [pk, note: "Candidate UUID PK; OD-20"]
+  UserId uuid
+  MethodCode varchar(120)
+  ProviderReference varchar(255)
+  VerificationStatus varchar(120)
+  VerifiedAt timestamp
+  Note: "PROPOSED Identity entity, BR-22. No approval claimed."
+}
+
+Table AcademicStream {
+  AcademicStreamId uuid [pk, note: "Candidate UUID PK; OD-20"]
+  StreamCode varchar(120)
+  Name varchar(255)
+  LaunchStatus varchar(120)
+  Note: "PROPOSED Catalogue entity, BR-01/23. No approval claimed."
+}
+
+Table Subject {
+  SubjectId uuid [pk, note: "Candidate UUID PK; OD-20"]
+  SubjectCode varchar(255)
+  Name varchar(255)
+  Status varchar(120)
+  Note: "PROPOSED Catalogue entity, BR-01/23. No approval claimed."
+}
+
+Table StreamSubject {
+  StreamSubjectId uuid [pk, note: "Candidate UUID PK; OD-20"]
+  StreamId uuid
+  SubjectId uuid
+  EligibilityStatus varchar(120)
+  Note: "PROPOSED Catalogue entity, BR-01. No approval claimed."
+}
+
+Table SyllabusVersion {
+  SyllabusVersionId uuid [pk, note: "Candidate UUID PK; OD-20"]
+  SubjectId uuid
+  VersionCode varchar(120)
+  EffectiveFrom timestamp
+  Status varchar(120)
+  Note: "PROPOSED Catalogue entity, BR-18/23. No approval claimed."
+}
+
+Table Topic {
+  TopicId uuid [pk, note: "Candidate UUID PK; OD-20"]
+  SyllabusVersionId uuid
+  ParentTopicId uuid
+  TopicCode varchar(120)
+  TopicName varchar(255)
+  Status varchar(120)
+  Note: "PROPOSED Catalogue entity, BR-18/23. No approval claimed."
+}
+
+Table CatalogueTranslation {
+  CatalogueTranslationId uuid [pk, note: "Candidate UUID PK; OD-20"]
+  EntityType varchar(120)
+  EntityId uuid
+  MediumCode varchar(120)
+  DisplayText text
+  ReviewStatus varchar(120)
+  Note: "PROPOSED Catalogue entity, BR-23. No approval claimed."
+}
+
+Table StudentSubject {
+  StudentSubjectId uuid [pk, note: "Candidate UUID PK; OD-20"]
+  StudentId uuid
+  SubjectId uuid
+  AcademicYear int
+  SelectedAt timestamp
+  Status varchar(120)
+  Note: "PROPOSED Catalogue entity, BR-01. No approval claimed."
+}
+
+Table TeacherSubject {
+  TeacherSubjectId uuid [pk, note: "Candidate UUID PK; OD-20"]
+  TeacherId uuid
+  SubjectId uuid
+  MediumCode varchar(120)
+  AuthorizationStatus varchar(120)
+  Note: "PROPOSED Catalogue entity, BR-02/03. No approval claimed."
+}
+
+Table ClassOffering {
+  ClassOfferingId uuid [pk, note: "Candidate UUID PK; OD-20"]
+  TeacherId uuid
+  SubjectId uuid
+  Title varchar(255)
+  MediumCode varchar(120)
+  PriceAmount decimal(19,4)
+  CurrencyCode varchar(120)
+  DemoPreviewEnabled boolean
+  Status varchar(120)
+  Note: "PROPOSED Marketplace entity, BR-03/04/05. No approval claimed."
+}
+
+Table ClassBatch {
+  ClassBatchId uuid [pk, note: "Candidate UUID PK; OD-20"]
+  ClassOfferingId uuid
+  Capacity int
+  StartAt timestamp
+  EndAt timestamp
+  TimeZoneId uuid
+  Status varchar(120)
+  Note: "PROPOSED Marketplace entity, BR-05. No approval claimed."
+}
+
+Table ClassSchedule {
+  ClassScheduleId uuid [pk, note: "Candidate UUID PK; OD-20"]
+  BatchId uuid
+  DayOfWeek int
+  LocalStartTime varchar(120)
+  DurationMinutes int
+  TimeZoneId uuid
+  Note: "PROPOSED Marketplace entity, BR-05. No approval claimed."
+}
+
+Table LiveSession {
+  LiveSessionId uuid [pk, note: "Candidate UUID PK; OD-20"]
+  BatchId uuid
+  ScheduledStartAt timestamp
+  ScheduledEndAt timestamp
+  ProviderSessionRef varchar(120)
+  Status varchar(120)
+  Note: "PROPOSED Marketplace entity, BR-05. No approval claimed."
+}
+
+Table Enrollment {
+  EnrollmentId uuid [pk, note: "Candidate UUID PK; OD-20"]
+  StudentId uuid
+  BatchId uuid
+  OrderLineId uuid
+  EnrollmentStatus varchar(120)
+  EnrolledAt timestamp
+  Note: "PROPOSED Marketplace entity, BR-05/06. No approval claimed."
+}
+
+Table Attendance {
+  AttendanceId uuid [pk, note: "Candidate UUID PK; OD-20"]
+  LiveSessionId uuid
+  StudentId uuid
+  JoinedAt timestamp
+  LeftAt timestamp
+  AttendanceStatus varchar(120)
+  Note: "PROPOSED Marketplace entity, BR-05. No approval claimed."
+}
+
+Table DemoVideo {
+  DemoVideoId uuid [pk, note: "Candidate UUID PK; OD-20"]
+  ClassOfferingId uuid
+  MediaAssetId uuid
+  ReviewerUserId uuid
+  Title varchar(255)
+  MediumCode varchar(120)
+  ReviewStatus varchar(120)
+  DurationSeconds int
+  CreatedAt timestamp
+  PublishedAt timestamp
+  UpdatedAt timestamp
+  Note: "PROPOSED Marketplace entity, BR-04. No approval claimed."
+}
+
+Table MediaAsset {
+  MediaAssetId uuid [pk, note: "Candidate UUID PK; OD-20"]
+  StorageKeyRef varchar(255)
+  ContentType varchar(120)
+  ByteSize int
+  ProcessingStatus varchar(120)
+  RightsStatus varchar(120)
+  CreatedByUserId uuid
+  Note: "PROPOSED Media entity, BR-04/07/20. No approval claimed."
+}
+
+Table ContentReviewEvent {
+  ContentReviewEventId uuid [pk, note: "Candidate UUID PK; OD-20"]
+  MediaAssetId uuid
+  ReviewObjectType varchar(120)
+  ReviewObjectId uuid
+  ReviewerUserId uuid
+  DecisionCode varchar(120)
+  RecordedAt timestamp
+  Note: "PROPOSED Media entity, BR-04/20. No approval claimed."
+}
+
+Table LearningResource {
+  LearningResourceId uuid [pk, note: "Candidate UUID PK; OD-20"]
+  ClassOfferingId uuid
+  Title varchar(255)
+  MediumCode varchar(120)
+  VisibilityStatus varchar(120)
+  Note: "PROPOSED Media entity, BR-07. No approval claimed."
+}
+
+Table ResourceVersion {
+  ResourceVersionId uuid [pk, note: "Candidate UUID PK; OD-20"]
+  LearningResourceId uuid
+  MediaAssetId uuid
+  VersionNumber int
+  PublishedAt timestamp
+  Status varchar(120)
+  Note: "PROPOSED Media entity, BR-07. No approval claimed."
+}
+
+Table OrderHeader {
+  OrderHeaderId uuid [pk, note: "Candidate UUID PK; OD-20"]
+  StudentId uuid
+  CurrencyCode varchar(120)
+  GrossAmount decimal(19,4)
+  OrderStatus varchar(120)
+  CreatedAt timestamp
+  Note: "PROPOSED Commerce entity, BR-06. No approval claimed."
+}
+
+Table OrderLine {
+  OrderLineId uuid [pk, note: "Candidate UUID PK; OD-20"]
+  OrderId uuid
+  ProductType varchar(120)
+  ProductRefId uuid
+  Quantity int
+  UnitAmount decimal(19,4)
+  TotalAmount decimal(19,4)
+  Note: "PROPOSED Commerce entity, BR-06. No approval claimed."
+}
+
+Table PaymentAttempt {
+  PaymentAttemptId uuid [pk, note: "Candidate UUID PK; OD-20"]
+  OrderId uuid
+  ProviderCode varchar(120)
+  ProviderReference varchar(255)
+  Amount decimal(19,4)
+  VerificationStatus varchar(120)
+  CreatedAt timestamp
+  Note: "PROPOSED Commerce entity, BR-06. No approval claimed."
+}
+
+Table PaymentProviderEvent {
+  PaymentProviderEventId uuid [pk, note: "Candidate UUID PK; OD-20"]
+  PaymentAttemptId uuid
+  ProviderCode varchar(120)
+  ProviderEventId uuid
+  PayloadHash varchar(255)
+  ReceivedAt timestamp
+  HandledAt timestamp
+  Note: "PROPOSED Commerce entity, BR-06. No approval claimed."
+}
+
+Table Entitlement {
+  EntitlementId uuid [pk, note: "Candidate UUID PK; OD-20"]
+  StudentId uuid
+  OrderLineId uuid
+  ResourceType varchar(120)
+  ResourceRefId uuid
+  ValidFrom timestamp
+  ValidTo timestamp
+  Status varchar(120)
+  Note: "PROPOSED Commerce entity, BR-06. No approval claimed."
+}
+
+Table LedgerEntry {
+  LedgerEntryId uuid [pk, note: "Candidate UUID PK; OD-20"]
+  OrderId uuid
+  EntryType varchar(120)
+  Amount decimal(19,4)
+  CurrencyCode varchar(120)
+  Direction varchar(120)
+  RelatedEntryId uuid
+  RecordedAt timestamp
+  Note: "PROPOSED Commerce entity, BR-06. No approval claimed."
+}
+
+Table Refund {
+  RefundId uuid [pk, note: "Candidate UUID PK; OD-20"]
+  OrderLineId uuid
+  PaymentAttemptId uuid
+  RefundAmount decimal(19,4)
+  DecisionStatus varchar(120)
+  ProviderReference varchar(255)
+  CreatedAt timestamp
+  Note: "PROPOSED Commerce entity, BR-06. No approval claimed."
+}
+
+Table TeacherEarning {
+  TeacherEarningId uuid [pk, note: "Candidate UUID PK; OD-20"]
+  TeacherId uuid
+  OrderLineId uuid
+  GrossBase decimal(19,4)
+  CommissionAmount decimal(19,4)
+  NetAmount decimal(19,4)
+  EarningStatus varchar(120)
+  Note: "PROPOSED Commerce entity, BR-06. No approval claimed."
+}
+
+Table TeacherPayout {
+  TeacherPayoutId uuid [pk, note: "Candidate UUID PK; OD-20"]
+  TeacherId uuid
+  PayoutAmount decimal(19,4)
+  CurrencyCode varchar(120)
+  Status varchar(120)
+  ApprovedAt timestamp
+  ProviderReference varchar(255)
+  Note: "PROPOSED Commerce entity, BR-06. No approval claimed."
+}
+
+Table PayoutItem {
+  PayoutItemId uuid [pk, note: "Candidate UUID PK; OD-20"]
+  TeacherPayoutId uuid
+  TeacherEarningId uuid
+  AllocatedAmount decimal(19,4)
+  Note: "PROPOSED Commerce entity, BR-06. No approval claimed."
+}
+
+Table PastPaperSource {
+  PastPaperSourceId uuid [pk, note: "Candidate UUID PK; OD-20"]
+  SubjectId uuid
+  PaperYear int
+  PaperCode varchar(120)
+  MediumCode varchar(120)
+  Attribution varchar(120)
+  ReviewStatus varchar(120)
+  Note: "PROPOSED XACT Content entity, BR-18/23. No approval claimed."
+}
+
+Table SourceRightsRecord {
+  SourceRightsRecordId uuid [pk, note: "Candidate UUID PK; OD-20"]
+  PastPaperSourceId uuid
+  RightsCode varchar(120)
+  EvidenceAssetId uuid
+  ApprovedByUserId uuid
+  ValidUntil timestamp
+  Note: "PROPOSED XACT Content entity, BR-18/23. No approval claimed."
+}
+
+Table QuestionConcept {
+  QuestionConceptId uuid [pk, note: "Candidate UUID PK; OD-20"]
+  SubjectId uuid
+  SyllabusVersionId uuid
+  PrimaryTopicId uuid
+  SourceId uuid
+  DifficultyCode varchar(120)
+  Status varchar(120)
+  Note: "PROPOSED XACT Content entity, BR-18. No approval claimed."
+}
+
+Table QuestionOption {
+  QuestionOptionId uuid [pk, note: "Candidate UUID PK; OD-20"]
+  QuestionConceptId uuid
+  OptionCode varchar(120)
+  Status varchar(120)
+  Note: "PROPOSED XACT Content entity, BR-18/23. No approval claimed."
+}
+
+Table QuestionTranslation {
+  QuestionTranslationId uuid [pk, note: "Candidate UUID PK; OD-20"]
+  QuestionConceptId uuid
+  MediumCode varchar(120)
+  RevisionNumber int
+  QuestionText text
+  ReviewStatus varchar(120)
+  IsActive boolean
+  Note: "PROPOSED XACT Content entity, BR-18/23. No approval claimed."
+}
+
+Table QuestionOptionTranslation {
+  QuestionOptionTranslationId uuid [pk, note: "Candidate UUID PK; OD-20"]
+  QuestionTranslationId uuid
+  QuestionOptionId uuid
+  DisplayText text
+  DisplayOrder int
+  ReviewStatus varchar(120)
+  Note: "PROPOSED XACT Content entity, BR-18/23. No approval claimed."
+}
+
+Table AnswerKeyVersion {
+  AnswerKeyVersionId uuid [pk, note: "Candidate UUID PK; OD-20"]
+  QuestionTranslationId uuid
+  QuestionOptionId uuid
+  VersionNumber int
+  ReviewStatus varchar(120)
+  ApprovedAt timestamp
+  Note: "PROPOSED XACT Content entity, BR-11/18. No approval claimed."
+}
+
+Table QuestionReviewEvent {
+  QuestionReviewEventId uuid [pk, note: "Candidate UUID PK; OD-20"]
+  QuestionTranslationId uuid
+  ReviewerUserId uuid
+  DecisionCode varchar(120)
+  Notes text
+  RecordedAt timestamp
+  Note: "PROPOSED XACT Content entity, BR-18. No approval claimed."
+}
+
+Table WrittenExplanationVersion {
+  WrittenExplanationVersionId uuid [pk, note: "Candidate UUID PK; OD-20"]
+  QuestionTranslationId uuid
+  RevisionNumber int
+  Body text
+  ReviewStatus varchar(120)
+  PublishedAt timestamp
+  Note: "PROPOSED XACT Content entity, BR-18/20. No approval claimed."
+}
+
+Table ExplanationVideo {
+  ExplanationVideoId uuid [pk, note: "Candidate UUID PK; OD-20"]
+  QuestionTranslationId uuid
+  TeacherId uuid
+  MediaAssetId uuid
+  ReviewStatus varchar(120)
+  RightsStatus varchar(120)
+  PublishedAt timestamp
+  Note: "PROPOSED XACT Content entity, BR-20. No approval claimed."
+}
+
+Table ScoringPolicyVersion {
+  ScoringPolicyVersionId uuid [pk, note: "Candidate UUID PK; OD-20"]
+  PolicyCode varchar(120)
+  VersionNumber int
+  RuleJson text
+  ApprovedAt timestamp
+  Status varchar(120)
+  Note: "PROPOSED XACT Assessments entity, BR-11/18. No approval claimed."
+}
+
+Table MockExam {
+  MockExamId uuid [pk, note: "Candidate UUID PK; OD-20"]
+  StudentId uuid
+  SubjectId uuid
+  SyllabusVersionId uuid
+  MediumCode varchar(120)
+  SelectionConfigJson text
+  DurationMinutes int
+  CreatedAt timestamp
+  Note: "PROPOSED XACT Assessments entity, BR-11/18. No approval claimed."
+}
+
+Table MockQuestionSnapshot {
+  MockQuestionSnapshotId uuid [pk, note: "Candidate UUID PK; OD-20"]
+  MockExamId uuid
+  QuestionTranslationId uuid
+  AnswerKeyVersionId uuid
+  DisplayOrder int
+  SnapshotHash varchar(255)
+  Note: "PROPOSED XACT Assessments entity, BR-11/18. No approval claimed."
+}
+
+Table ExamAttempt {
+  ExamAttemptId uuid [pk, note: "Candidate UUID PK; OD-20"]
+  StudentId uuid
+  MockExamId uuid
+  AssignmentRecipientId uuid
+  ScoringPolicyVersionId uuid
+  StartedAt timestamp
+  DeadlineAt timestamp
+  FinalizedAt timestamp
+  AttemptStatus varchar(120)
+  Note: "PROPOSED XACT Assessments entity, BR-11/18/19. No approval claimed."
+}
+
+Table AttemptQuestionSnapshot {
+  AttemptQuestionSnapshotId uuid [pk, note: "Candidate UUID PK; OD-20"]
+  ExamAttemptId uuid
+  QuestionTranslationId uuid
+  AnswerKeyVersionId uuid
+  DisplayOrder int
+  SnapshotHash varchar(255)
+  Note: "PROPOSED XACT Assessments entity, BR-11/18/19. No approval claimed."
+}
+
+Table AttemptAnswer {
+  AttemptAnswerId uuid [pk, note: "Candidate UUID PK; OD-20"]
+  ExamAttemptId uuid
+  AttemptQuestionSnapshotId uuid
+  SelectedQuestionOptionId uuid
+  SavedAt timestamp
+  MarksAwarded decimal(19,4)
+  Note: "PROPOSED XACT Assessments entity, BR-11/18. No approval claimed."
+}
+
+Table ExamResult {
+  ExamResultId uuid [pk, note: "Candidate UUID PK; OD-20"]
+  ExamAttemptId uuid
+  Score decimal(19,4)
+  CorrectCount int
+  IncorrectCount int
+  UnansweredCount int
+  GradedAt timestamp
+  RegradeVersion int
+  Note: "PROPOSED XACT Assessments entity, BR-11/18. No approval claimed."
+}
+
+Table TeacherPaper {
+  TeacherPaperId uuid [pk, note: "Candidate UUID PK; OD-20"]
+  TeacherId uuid
+  SubjectId uuid
+  Title varchar(255)
+  Status varchar(120)
+  Note: "PROPOSED XACT Assignments entity, BR-19. No approval claimed."
+}
+
+Table TeacherPaperVersion {
+  TeacherPaperVersionId uuid [pk, note: "Candidate UUID PK; OD-20"]
+  TeacherPaperId uuid
+  VersionNumber int
+  CreatedAt timestamp
+  PublishedAt timestamp
+  Status varchar(120)
+  Note: "PROPOSED XACT Assignments entity, BR-19. No approval claimed."
+}
+
+Table TeacherPaperItem {
+  TeacherPaperItemId uuid [pk, note: "Candidate UUID PK; OD-20"]
+  TeacherPaperVersionId uuid
+  QuestionTranslationId uuid
+  AnswerKeyVersionId uuid
+  ItemOrder int
+  Note: "PROPOSED XACT Assignments entity, BR-19. No approval claimed."
+}
+
+Table Assignment {
+  AssignmentId uuid [pk, note: "Candidate UUID PK; OD-20"]
+  TeacherPaperVersionId uuid
+  TeacherId uuid
+  OpenAt timestamp
+  DueAt timestamp
+  AttemptLimit int
+  Status varchar(120)
+  Note: "PROPOSED XACT Assignments entity, BR-19. No approval claimed."
+}
+
+Table AssignmentRecipient {
+  AssignmentRecipientId uuid [pk, note: "Candidate UUID PK; OD-20"]
+  AssignmentId uuid
+  StudentId uuid
+  EnrollmentId uuid
+  RecipientStatus varchar(120)
+  AssignedAt timestamp
+  Note: "PROPOSED XACT Assignments entity, BR-19. No approval claimed."
+}
+
+Table NotificationDelivery {
+  NotificationDeliveryId uuid [pk, note: "Candidate UUID PK; OD-20"]
+  RecipientUserId uuid
+  EventType varchar(120)
+  ChannelCode varchar(120)
+  DeliveryStatus varchar(120)
+  SentAt timestamp
+  Note: "PROPOSED Operations entity, BR-13/24. No approval claimed."
+}
+
+Table OutboxMessage {
+  OutboxMessageId uuid [pk, note: "Candidate UUID PK; OD-20"]
+  EventType varchar(120)
+  AggregateType varchar(120)
+  AggregateId uuid
+  PayloadJson text
+  PublishedAt timestamp
+  RetryCount int
+  Note: "PROPOSED Operations entity, BR-13/24. No approval claimed."
+}
+
+Table AuditEvent {
+  AuditEventId uuid [pk, note: "Candidate UUID PK; OD-20"]
+  ActorUserId uuid
+  ActionCode varchar(120)
+  ObjectType varchar(120)
+  ObjectId uuid
+  TimestampUtc timestamp
+  EventJson text
+  Note: "PROPOSED Operations entity, BR-14/21/24. No approval claimed."
+}
+
+Table SafetyReport {
+  SafetyReportId uuid [pk, note: "Candidate UUID PK; OD-20"]
+  ReporterUserId uuid
+  SubjectUserId uuid
+  CaseStatus varchar(120)
+  AssignedToUserId uuid
+  OpenedAt timestamp
+  Note: "PROPOSED Operations entity, BR-21/24. No approval claimed."
+}
+
+Table SupportTicket {
+  SupportTicketId uuid [pk, note: "Candidate UUID PK; OD-20"]
+  RequesterUserId uuid
+  CategoryCode varchar(120)
+  TicketStatus varchar(120)
+  AssignedToUserId uuid
+  CreatedAt timestamp
+  Note: "PROPOSED Operations entity, BR-24. No approval claimed."
+}
+
+Ref: UserRole.UserId > UserAccount.UserAccountId
+Ref: StudentProfile.UserId > UserAccount.UserAccountId
+Ref: StudentProfile.StreamId > AcademicStream.AcademicStreamId
+Ref: TeacherProfile.UserId > UserAccount.UserAccountId
+Ref: TeacherVerification.TeacherId > TeacherProfile.TeacherProfileId
+Ref: TeacherVerification.EvidenceAssetId > MediaAsset.MediaAssetId
+Ref: TeacherVerification.ReviewerUserId > UserAccount.UserAccountId
+Ref: GuardianContact.StudentId > StudentProfile.StudentProfileId
+Ref: ConsentRecord.StudentId > StudentProfile.StudentProfileId
+Ref: ConsentRecord.GuardianContactId > GuardianContact.GuardianContactId
+Ref: ConsentRecord.EvidenceAssetId > MediaAsset.MediaAssetId
+Ref: IdentityCheck.UserId > UserAccount.UserAccountId
+Ref: StreamSubject.StreamId > AcademicStream.AcademicStreamId
+Ref: StreamSubject.SubjectId > Subject.SubjectId
+Ref: SyllabusVersion.SubjectId > Subject.SubjectId
+Ref: Topic.SyllabusVersionId > SyllabusVersion.SyllabusVersionId
+Ref: Topic.ParentTopicId > Topic.TopicId
+Ref: StudentSubject.StudentId > StudentProfile.StudentProfileId
+Ref: StudentSubject.SubjectId > Subject.SubjectId
+Ref: TeacherSubject.TeacherId > TeacherProfile.TeacherProfileId
+Ref: TeacherSubject.SubjectId > Subject.SubjectId
+Ref: ClassOffering.TeacherId > TeacherProfile.TeacherProfileId
+Ref: ClassOffering.SubjectId > Subject.SubjectId
+Ref: ClassBatch.ClassOfferingId > ClassOffering.ClassOfferingId
+Ref: ClassSchedule.BatchId > ClassBatch.ClassBatchId
+Ref: LiveSession.BatchId > ClassBatch.ClassBatchId
+Ref: Enrollment.StudentId > StudentProfile.StudentProfileId
+Ref: Enrollment.BatchId > ClassBatch.ClassBatchId
+Ref: Enrollment.OrderLineId > OrderLine.OrderLineId
+Ref: Attendance.LiveSessionId > LiveSession.LiveSessionId
+Ref: Attendance.StudentId > StudentProfile.StudentProfileId
+Ref: DemoVideo.ClassOfferingId > ClassOffering.ClassOfferingId
+Ref: DemoVideo.MediaAssetId > MediaAsset.MediaAssetId
+Ref: DemoVideo.ReviewerUserId > UserAccount.UserAccountId
+Ref: ContentReviewEvent.MediaAssetId > MediaAsset.MediaAssetId
+Ref: ContentReviewEvent.ReviewerUserId > UserAccount.UserAccountId
+Ref: MediaAsset.CreatedByUserId > UserAccount.UserAccountId
+Ref: LearningResource.ClassOfferingId > ClassOffering.ClassOfferingId
+Ref: ResourceVersion.LearningResourceId > LearningResource.LearningResourceId
+Ref: ResourceVersion.MediaAssetId > MediaAsset.MediaAssetId
+Ref: OrderHeader.StudentId > StudentProfile.StudentProfileId
+Ref: OrderLine.OrderId > OrderHeader.OrderHeaderId
+Ref: PaymentAttempt.OrderId > OrderHeader.OrderHeaderId
+Ref: PaymentProviderEvent.PaymentAttemptId > PaymentAttempt.PaymentAttemptId
+Ref: Entitlement.StudentId > StudentProfile.StudentProfileId
+Ref: Entitlement.OrderLineId > OrderLine.OrderLineId
+Ref: LedgerEntry.OrderId > OrderHeader.OrderHeaderId
+Ref: LedgerEntry.RelatedEntryId > LedgerEntry.LedgerEntryId
+Ref: Refund.OrderLineId > OrderLine.OrderLineId
+Ref: Refund.PaymentAttemptId > PaymentAttempt.PaymentAttemptId
+Ref: TeacherEarning.TeacherId > TeacherProfile.TeacherProfileId
+Ref: TeacherEarning.OrderLineId > OrderLine.OrderLineId
+Ref: TeacherPayout.TeacherId > TeacherProfile.TeacherProfileId
+Ref: PayoutItem.TeacherPayoutId > TeacherPayout.TeacherPayoutId
+Ref: PayoutItem.TeacherEarningId > TeacherEarning.TeacherEarningId
+Ref: PastPaperSource.SubjectId > Subject.SubjectId
+Ref: SourceRightsRecord.PastPaperSourceId > PastPaperSource.PastPaperSourceId
+Ref: SourceRightsRecord.EvidenceAssetId > MediaAsset.MediaAssetId
+Ref: SourceRightsRecord.ApprovedByUserId > UserAccount.UserAccountId
+Ref: QuestionConcept.SubjectId > Subject.SubjectId
+Ref: QuestionConcept.SyllabusVersionId > SyllabusVersion.SyllabusVersionId
+Ref: QuestionConcept.PrimaryTopicId > Topic.TopicId
+Ref: QuestionConcept.SourceId > PastPaperSource.PastPaperSourceId
+Ref: QuestionOption.QuestionConceptId > QuestionConcept.QuestionConceptId
+Ref: QuestionTranslation.QuestionConceptId > QuestionConcept.QuestionConceptId
+Ref: QuestionOptionTranslation.QuestionTranslationId > QuestionTranslation.QuestionTranslationId
+Ref: QuestionOptionTranslation.QuestionOptionId > QuestionOption.QuestionOptionId
+Ref: AnswerKeyVersion.QuestionTranslationId > QuestionTranslation.QuestionTranslationId
+Ref: AnswerKeyVersion.QuestionOptionId > QuestionOption.QuestionOptionId
+Ref: QuestionReviewEvent.QuestionTranslationId > QuestionTranslation.QuestionTranslationId
+Ref: QuestionReviewEvent.ReviewerUserId > UserAccount.UserAccountId
+Ref: WrittenExplanationVersion.QuestionTranslationId > QuestionTranslation.QuestionTranslationId
+Ref: ExplanationVideo.QuestionTranslationId > QuestionTranslation.QuestionTranslationId
+Ref: ExplanationVideo.TeacherId > TeacherProfile.TeacherProfileId
+Ref: ExplanationVideo.MediaAssetId > MediaAsset.MediaAssetId
+Ref: MockExam.StudentId > StudentProfile.StudentProfileId
+Ref: MockExam.SubjectId > Subject.SubjectId
+Ref: MockExam.SyllabusVersionId > SyllabusVersion.SyllabusVersionId
+Ref: MockQuestionSnapshot.MockExamId > MockExam.MockExamId
+Ref: MockQuestionSnapshot.QuestionTranslationId > QuestionTranslation.QuestionTranslationId
+Ref: MockQuestionSnapshot.AnswerKeyVersionId > AnswerKeyVersion.AnswerKeyVersionId
+Ref: ExamAttempt.StudentId > StudentProfile.StudentProfileId
+Ref: ExamAttempt.MockExamId > MockExam.MockExamId
+Ref: ExamAttempt.AssignmentRecipientId > AssignmentRecipient.AssignmentRecipientId
+Ref: ExamAttempt.ScoringPolicyVersionId > ScoringPolicyVersion.ScoringPolicyVersionId
+Ref: AttemptQuestionSnapshot.ExamAttemptId > ExamAttempt.ExamAttemptId
+Ref: AttemptQuestionSnapshot.QuestionTranslationId > QuestionTranslation.QuestionTranslationId
+Ref: AttemptQuestionSnapshot.AnswerKeyVersionId > AnswerKeyVersion.AnswerKeyVersionId
+Ref: AttemptAnswer.ExamAttemptId > ExamAttempt.ExamAttemptId
+Ref: AttemptAnswer.AttemptQuestionSnapshotId > AttemptQuestionSnapshot.AttemptQuestionSnapshotId
+Ref: AttemptAnswer.SelectedQuestionOptionId > QuestionOption.QuestionOptionId
+Ref: ExamResult.ExamAttemptId > ExamAttempt.ExamAttemptId
+Ref: TeacherPaper.TeacherId > TeacherProfile.TeacherProfileId
+Ref: TeacherPaper.SubjectId > Subject.SubjectId
+Ref: TeacherPaperVersion.TeacherPaperId > TeacherPaper.TeacherPaperId
+Ref: TeacherPaperItem.TeacherPaperVersionId > TeacherPaperVersion.TeacherPaperVersionId
+Ref: TeacherPaperItem.QuestionTranslationId > QuestionTranslation.QuestionTranslationId
+Ref: TeacherPaperItem.AnswerKeyVersionId > AnswerKeyVersion.AnswerKeyVersionId
+Ref: Assignment.TeacherPaperVersionId > TeacherPaperVersion.TeacherPaperVersionId
+Ref: Assignment.TeacherId > TeacherProfile.TeacherProfileId
+Ref: AssignmentRecipient.AssignmentId > Assignment.AssignmentId
+Ref: AssignmentRecipient.StudentId > StudentProfile.StudentProfileId
+Ref: AssignmentRecipient.EnrollmentId > Enrollment.EnrollmentId
+Ref: NotificationDelivery.RecipientUserId > UserAccount.UserAccountId
+Ref: AuditEvent.ActorUserId > UserAccount.UserAccountId
+Ref: SafetyReport.ReporterUserId > UserAccount.UserAccountId
+Ref: SafetyReport.SubjectUserId > UserAccount.UserAccountId
+Ref: SafetyReport.AssignedToUserId > UserAccount.UserAccountId
+Ref: SupportTicket.RequesterUserId > UserAccount.UserAccountId
+Ref: SupportTicket.AssignedToUserId > UserAccount.UserAccountId
