@@ -21,3 +21,7 @@
 - Add owner, approval status, version/date and cross-references to the appropriate BRD requirements.
 - Link to the canonical document instead of creating conflicting copies.
 - When a policy or provider is pending, write `PENDING APPROVAL` rather than assuming a final value.
+
+
+## 104-API MVP testing alignment
+The 33 BRD acceptance checks remain requirements-level coverage and are NOT evidence of passed tests. Derive API test cases from the 104 rows in `08-API-DOCUMENTATION/API-REGISTER.csv`, then map each to relevant BRD acceptance checks and exception scenarios. Mark unsupported BRD capabilities deferred with owner approval; do not silently remove UAT requirements.

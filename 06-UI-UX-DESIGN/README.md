@@ -19,3 +19,7 @@
 - Add owner, approval status, version/date and cross-references to the appropriate BRD requirements.
 - Link to the canonical document instead of creating conflicting copies.
 - When a policy or provider is pending, write `PENDING APPROVAL` rather than assuming a final value.
+
+
+## 104-API MVP alignment
+Verify every active screen/action against the 104-API register. Mark prototype interactions with no supporting API as deferred, disabled or awaiting design decision. Screenshots and screen-to-API mappings must be verified against actual prototype files; no mapping is claimed complete here.

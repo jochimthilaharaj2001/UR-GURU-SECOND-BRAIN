@@ -1,3 +1,5 @@
+> **Document control (2026-11-22):** Changes to approved Second Brain baseline documents require **DEV_1 approval**. `19-CHAT-MEMORY/` is excluded from the DEV_1-only rule. See [Document Access Control Policy](10-DEVELOPMENT-GUIDELINES/DOCUMENT-ACCESS-CONTROL-POLICY.md). GitHub enforcement requires CODEOWNERS owner replacement and branch protection configuration.
+
 > **Architecture alignment update — 22 Nov 2026 (v2.2):** Engineering direction is Angular (Student/Teacher + separate Admin), ASP.NET Core modular monolith, **MySQL 8.4 LTS** (replacing earlier SQL Server/PostgreSQL candidates), and proposed Hetzner VPS + Docker/Nginx. Read [architecture reconciliation](04-TECHNICAL-ARCHITECTURE/TECHNICAL-ARCHITECTURE-BASELINE-2026-11-22.md) and [full architecture DOCX](04-TECHNICAL-ARCHITECTURE/UR_GURU_Complete_Technical_Architecture_v1.0.docx). **Design candidate, OD-20 sign-off pending**; previous references may remain as historical drafts.
 
 # UR GURU — Development Second Brain
@@ -29,3 +31,7 @@ UR GURU is a responsive web platform for Sri Lankan G.C.E. A/L Grades 12–13. *
 3. Record architecture/provider choices as *team-selected / verification pending* until signed decision evidence exists.
 4. Use the populated backlog/UAT registers as **proposed work**, not completed tasks or passing tests.
 5. Record changes, decisions, PRs and evidence links; preserve historical documents with explicit archived labels.
+
+
+## Active MVP scope alignment — 22 Nov 2026
+**Current implementation planning baseline: 104 APIs in 15 modules**, as documented in `08-API-DOCUMENTATION/API-REGISTER.csv`. Older references to 292 MVP APIs describe the superseded planning inventory, not the active 104-API implementation backlog. BRD v6.2.2 remains the requirements baseline; unimplemented BRD functionality must be explicitly deferred or addressed before release approval. See `MVP-104-SCOPE-ALIGNMENT-2026-11-22.md`.

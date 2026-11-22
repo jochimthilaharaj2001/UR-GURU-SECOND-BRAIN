@@ -24,3 +24,7 @@
 | **M2: Profiles & Classes**| Nov 20 – Nov 22 | Student/Teacher Profiles, Admin Vetting, Class Scheduling, Mock Generator | Teacher publishes class; student generates mock |
 | **M3: Bookings & Mocks** | Nov 23 – Nov 25 | Class Booking, Webhook Payments (GMV), Mock Taking & Scoring, Paper Builder | Paid booking verified; exam graded server-side |
 | **M4: Hardening & RC-1** | Nov 26 – Nov 29 | Safeguarding (`BR-21`), Low-bandwidth video, AC-01..20 QA Sign-off | **Release Candidate RC-1 Ready** |
+
+
+## 104-API MVP override (22 Nov 2026)
+Use `ACTIVE-MVP-104-API-BACKLOG.csv` for the current implementation scope. `Product-Backlog.csv` (292 entries) and historical developer allocations remain archival and MUST NOT be used as the current sprint assignment. Re-estimate and assign the 104 active endpoints; verify required non-API work separately.

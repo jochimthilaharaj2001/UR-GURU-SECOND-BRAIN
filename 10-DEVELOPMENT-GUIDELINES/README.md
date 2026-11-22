@@ -1,3 +1,5 @@
+> **Controlled-document rule:** DEV_1 is the final approver for changes to important Second Brain baseline documents, excluding `19-CHAT-MEMORY/`. See [Document Access Control Policy](DOCUMENT-ACCESS-CONTROL-POLICY.md) and [Git Branching and PR](Git-Branching-and-PR.md). GitHub branch rules must be configured separately.
+
 # 10-DEVELOPMENT-GUIDELINES
 
 **Purpose:** Shared coding, repository and review conventions.
@@ -8,7 +10,7 @@
 |---|---|---|
 | `Repository-Structure.md` | Frontend, backend, database/migrations, docs directory conventions | ☐ Not supplied / verify |
 | `Coding-Standards.md` | C# and TS linting, naming, validation, logging, error handling | ☐ Not supplied / verify |
-| `Git-Branching-and-PR.md` | Branches, commit naming, PR checks, review/merge policy | ☐ Not supplied / verify |
+| `Git-Branching-and-PR.md` | Branches, commit naming, PR checks, review/merge policy | Draft added; DEV_1 approval pending |
 | `Local-Setup.md` | Developer prerequisites, env variables names, sample data, commands | ☐ Not supplied / verify |
 | `Definition-of-Done.md` | Code review, tests, docs, API/DB updated, signoff | ☐ Not supplied / verify |
 | `Secrets-and-Security.md` | No credentials in repo, permissions, reporting vulnerabilities | ☐ Not supplied / verify |

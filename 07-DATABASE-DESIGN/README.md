@@ -41,3 +41,7 @@
 - `TABLE-SPEC-TEMPLATE.md` — useful blank standard for future table-by-table approvals.
 
 **No executable migration / production DDL is supplied** because the database vendor and physical schema are unapproved (OD-20). Do not create `DbContext` migrations from the old 45-table schema.
+
+
+## 104-API MVP database alignment
+The active API scope is 104 endpoints, but endpoint count is not a table count. Existing logical ERD and schema remain design candidates. Approve only required MVP entities/constraints/migrations after mapping each endpoint to persistence, including StudentSubject, DemoVideo, paid entitlement, payment idempotency and XACT attempt snapshots where used. Do not delete historical/financial data to reduce scope.

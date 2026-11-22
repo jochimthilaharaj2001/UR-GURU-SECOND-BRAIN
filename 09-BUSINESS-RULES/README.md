@@ -39,3 +39,7 @@ Business rule knowledge for UR GURU **V6.2.2 review baseline** — NOT a formall
 - Read this README → affected domain document → rule IDs → original BRD section → decision gates.
 - Include the rule ID and BRD section in new API, UI and test tickets.
 - Do not treat **Review baseline** as approval; no numeric provider/SLA/commission/refund/retake parameters are finalized.
+
+
+## 104-API MVP alignment
+BRD v6.2.2 business rules remain authoritative even when the MVP API subset is smaller. Explicitly record which business rules are implemented, deferred or blocked by missing APIs; particularly consent, demo optionality, paid access, gateway callbacks, question approvals and auditability.

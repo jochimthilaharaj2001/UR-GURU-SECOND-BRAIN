@@ -53,3 +53,7 @@
 ## Modular Monolith specific readme
 
 - [`Modular-Monolith-Architecture.md`](./Modular-Monolith-Architecture.md) — proposed single-backend-deployable, module responsibilities, boundaries, interactions and explicit approval gates.
+
+
+## 104-API MVP alignment
+The 104-endpoint reduction does not itself change the proposed Angular + ASP.NET Core modular-monolith architecture. Review module interfaces, authentication, background jobs and external integrations against the current API register. Existing architecture diagrams remain proposed until reviewed.

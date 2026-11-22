@@ -47,3 +47,7 @@ Section 03 explains **WHAT connects to WHAT**. This section 04 explains **HOW th
 6. Implement in small reviewed vertical slices, with tests, audit/logging and documentation updates.
 
 **Document owners (proposed):** Engineering Lead (technical architecture), Security Lead (security), DevOps Lead (infrastructure), Product/Academic/Finance (business gates). Names and sign-off dates: **PENDING**.
+
+
+## 104-API MVP alignment
+Use `../08-API-DOCUMENTATION/API-REGISTER.csv` as the active endpoint inventory. Finalize per-endpoint DTOs, permissions, persistence, idempotency, failure handling and provider integration before treating the 104 contracts as implementation-ready. Previous 292-endpoint references are historical.
