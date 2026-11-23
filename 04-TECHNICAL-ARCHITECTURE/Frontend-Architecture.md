@@ -94,3 +94,7 @@ Route names are illustrative; authoritative screen IDs/routes belong in `06-UI-U
 Document approved framework, route/screen inventory, design system, browser support matrix, accessibility standard, secure session strategy, contract generation workflow, analytics consent and test evidence before declaring frontend design accepted.
 
 **Links:** [`Security-Architecture.md`](./Security-Architecture.md), [`../05-USER-JOURNEYS/`](../05-USER-JOURNEYS/), [`../06-UI-UX-DESIGN/`](../06-UI-UX-DESIGN/), [`../08-API-DOCUMENTATION/`](../08-API-DOCUMENTATION/).
+
+
+## Team allocation update (23 Nov 2026)
+See `FRONTEND-TEAM-WORKSPACE-2026-11-23.md`. DEV 3/4 own student UI, DEV 5 teacher UI, DEV 6 admin UI. Keep BRD student/teacher shared web boundary unless separately approved.

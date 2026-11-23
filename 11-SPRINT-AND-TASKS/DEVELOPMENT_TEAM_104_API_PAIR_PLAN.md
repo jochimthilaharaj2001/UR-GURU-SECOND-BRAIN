@@ -1,3 +1,5 @@
+> **SUPERSEDED — HISTORICAL PLAN ONLY (2026-11-23).** The 3-backend/3-frontend pair allocation below is no longer active. Use `CURRENT-6-DEVELOPER-EXECUTION-PLAN.md` and `../07-DEVELOPMENT-PLANNING/TEAM-RESPONSIBILITIES-v2.md`. The companion XLSX is retained unchanged for traceability and must not be used to assign current owners.
+
 # UR GURU — MVP Development Team & API Ownership Plan
 
 **Status:** Proposed execution baseline (not signed off)  

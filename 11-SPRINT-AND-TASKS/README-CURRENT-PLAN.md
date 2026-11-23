@@ -1,0 +1,1 @@
+Current team plan: `CURRENT-6-DEVELOPER-EXECUTION-PLAN.md`. `DEVELOPMENT_TEAM_104_API_PAIR_PLAN.md` and `UR_GURU_104_API_3_Backend_3_Frontend_Pair_Plan.xlsx` are superseded historical planning artifacts, not current ownership authority.
