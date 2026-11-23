@@ -1,3 +1,5 @@
+> **HISTORICAL SCHEDULE — 23 Nov 2026:** This older 12-day plan is not the current proposed 7-day coordination schedule. See `DEVELOPMENT_TEAM_104_API_PAIR_PLAN.md`. Its trial booking, old stream scope, database and release assertions require fresh approval.
+
 # UR GURU — 12-Day Development Milestone Plan (Nov 17 – Nov 29, 2026)
 
 **Project:** UR GURU (A/L Online Education Marketplace & Exam Munnodi)  

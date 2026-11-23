@@ -28,3 +28,9 @@
 
 ## 104-API MVP override (22 Nov 2026)
 Use `ACTIVE-MVP-104-API-BACKLOG.csv` for the current implementation scope. `Product-Backlog.csv` (292 entries) and historical developer allocations remain archival and MUST NOT be used as the current sprint assignment. Re-estimate and assign the 104 active endpoints; verify required non-API work separately.
+
+## Active 104-API paired ownership (23 Nov 2026)
+**Current proposed allocation:** [DEVELOPMENT_TEAM_104_API_PAIR_PLAN.md](DEVELOPMENT_TEAM_104_API_PAIR_PLAN.md) and [104-API paired workbook](UR_GURU_104_API_3_Backend_3_Frontend_Pair_Plan.xlsx). Three backend and three frontend developers work in three pairs (36/34/34 APIs). The workbook is the per-API ownership reference.
+
+The documents `Task-Assignment.md`, `PROPOSED-6-DEVELOPER-ALLOCATION.md` and `12-DAY-MILESTONE-PLAN.md` below are **historical plans, not current assignments**. Their older team roles, dates, 292-API scope, trial-booking mentions, and legacy BRD/ERD references must not override the 104-API paired plan or BRD v6.2.2. The 7-day schedule is proposed, not a delivery guarantee.
+

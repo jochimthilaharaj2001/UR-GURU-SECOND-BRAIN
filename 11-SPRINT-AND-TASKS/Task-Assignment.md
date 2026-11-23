@@ -1,3 +1,5 @@
+> **SUPERSEDED ASSIGNMENT — 23 Nov 2026:** This is a historical 12-day/older-role allocation. For current proposed 104-API ownership use `DEVELOPMENT_TEAM_104_API_PAIR_PLAN.md` and its companion Excel. Do not implement legacy trial-booking tasks.
+
 # UR GURU — Task Assignment by Developer (6 Members)
 
 **Sprint Window:** 17 November 2026 – 29 November 2026 (12 Days)  

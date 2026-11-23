@@ -1,3 +1,5 @@
+> **SUPERSEDED — 23 Nov 2026:** Historical 292-API proposal; current 104-API 3-backend/3-frontend paired allocation is in `DEVELOPMENT_TEAM_104_API_PAIR_PLAN.md` and companion Excel.
+
 # Proposed 6-developer module split — review before assigning
 
 This is **not** a confirmed staffing assignment, a 10-day feasibility guarantee, or an estimate. Existing API tracker assignee labels remain in original API documents. Module allocation minimizes split ownership; counts are endpoint inventory only.
