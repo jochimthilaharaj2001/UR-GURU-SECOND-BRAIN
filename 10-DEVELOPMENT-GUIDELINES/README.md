@@ -1,4 +1,4 @@
-> **Controlled-document rule:** DEV_1 is the final approver for changes to important Second Brain baseline documents, excluding `19-CHAT-MEMORY/`. See [Document Access Control Policy](DOCUMENT-ACCESS-CONTROL-POLICY.md) and [Git Branching and PR](Git-Branching-and-PR.md). GitHub branch rules must be configured separately.
+> **Controlled-document rule:** DEV_2 is the final approver for changes to important Second Brain baseline documents, excluding `19-CHAT-MEMORY/`. See [Document Access Control Policy](DOCUMENT-ACCESS-CONTROL-POLICY.md) and [Git Branching and PR](Git-Branching-and-PR.md). GitHub branch rules must be configured separately.
 
 # 10-DEVELOPMENT-GUIDELINES
 
