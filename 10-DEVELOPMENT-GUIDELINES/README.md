@@ -10,7 +10,7 @@
 |---|---|---|
 | `Repository-Structure.md` | Frontend, backend, database/migrations, docs directory conventions | ☐ Not supplied / verify |
 | `Coding-Standards.md` | C# and TS linting, naming, validation, logging, error handling | ☐ Not supplied / verify |
-| `Git-Branching-and-PR.md` | Branches, commit naming, PR checks, review/merge policy | Draft added; DEV_1 approval pending |
+| `Git-Branching-and-PR.md` | Branches, commit naming, PR checks, review/merge policy | Draft added; DEV_2 approval pending |
 | `Local-Setup.md` | Developer prerequisites, env variables names, sample data, commands | ☐ Not supplied / verify |
 | `Definition-of-Done.md` | Code review, tests, docs, API/DB updated, signoff | ☐ Not supplied / verify |
 | `Secrets-and-Security.md` | No credentials in repo, permissions, reporting vulnerabilities | ☐ Not supplied / verify |
