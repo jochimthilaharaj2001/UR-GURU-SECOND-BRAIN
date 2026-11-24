@@ -1,0 +1,561 @@
+UR GURU  |  MVP API IMPLEMENTATION TRACKER,,,
+,,,
+,,,
+Same 12 columns as your uploaded tracker • 104 proposed APIs • 15 module tabs • feature-first order,,,
+,,,
+Metric,Value,Meaning,Notes
+Proposed API endpoints,104,Unique endpoint rows in this plan,"New MVP scope, not old 521 endpoints"
+Selected product features,109,Selection IDs from approved checklist,Some are enforced by existing APIs
+Module worksheets,15,Individual focused API worklists,Plus master / day / coverage views
+Delivery target,7,Aggressive integrated demonstration,Not production-ready promise
+,,,
+Development Day,API Count,Focus,Module dependencies
+Day 1,18,Identity & Curriculum,Implement in dependency order
+Day 2,19,"Discovery, classes, admin approval",Implement in dependency order
+Day 3,9,Checkout & enrollment,Implement in dependency order
+Day 4,18,"Demo, live and protected files",Implement in dependency order
+Day 5,12,XACT question bank & attempts,Implement in dependency order
+Day 6,18,"Assignments, finance & notifications",Implement in dependency order
+Day 7,10,"Safety, support & community",Implement in dependency order
+,,,
+,,,
+HOW TO USE THIS WORKBOOK,,,
+,,,
+"01 • Open a module tab (e.g., 01 Identity) and implement the grouped feature areas from top to bottom.",,,
+"02 • Use Implementation Order to see Day 1–7 dependency sequencing, then track Status / Assignee / Jira.",,,
+03 • All APIs is a filterable master reference; do not implement the same API twice.,,,
+"04 • Feature Coverage maps each selected feature ID to its API IDs; several rules are internal, not dedicated routes.",,,
+05 • Assignee intentionally blank for team assignment. Status starts at To Do; no unearned progress is claimed.,,,
+06 • Fixed pricing is Admin-controlled; 20 is the hard batch capacity maximum; only teachers submit NIC.,,,
+"07 • Exam Munnodi external API requires documentation, capability check and content rights approval.",,,
+08 • Manual refunds / payouts require approvals + external transfer references; production hardening is separate.,,,
+UR GURU  •  IDENTITY,,,,,,,,,,,
+,,,,,,,,,,,
+13 endpoints  •  grouped by Feature Area  •  project feature IDs included in column C,,,,,,,,,,,
+,,,,,,,,,,,
+API ID,Module,Feature Area,API Name,Method,API Endpoint,Short Description,Priority,Assignee,Status,Access / Role,Jira / PR
+MVP-01-001,Identity,Student registration [AUTH01],Register student,POST,/api/v1/auth/register/student,Register student without NIC requirement.,Must,DEV_2,Done [✓],Public,PR #b739271 (113 Tests)
+MVP-01-002,Identity,Teacher registration [AUTH02],Register teacher,POST,/api/v1/auth/register/teacher,Register teacher in pending identity/approval state.,Must,DEV_2,Done [✓],Public,PR #b739271 (113 Tests)
+MVP-01-003,Identity,Authentication sessions [AUTH03],Login,POST,/api/v1/auth/login,"Authenticate; enforce role, lockout, account status.",Must,DEV_2,Done [✓],Public,PR #b739271 (113 Tests)
+MVP-01-004,Identity,Authentication sessions [AUTH03],Logout,POST,/api/v1/auth/logout,Revoke current refresh session.,Must,DEV_2,Done [✓],Authenticated,PR #b739271 (113 Tests)
+MVP-01-005,Identity,Authentication sessions [AUTH03],Refresh access token,POST,/api/v1/auth/refresh,Rotate refresh credential; essential security dependency.,Must,DEV_2,Done [✓],Authenticated,PR #b739271 (113 Tests)
+MVP-01-006,Identity,Password recovery [AUTH04],Request password reset,POST,/api/v1/auth/forgot-password,"Issue time-limited reset request, avoid user enumeration.",Must,DEV_2,Done [✓],Public,PR #b739271 (113 Tests)
+MVP-01-007,Identity,Password recovery [AUTH04],Reset password,POST,/api/v1/auth/reset-password,Consume time-limited token and reset password.,Must,DEV_2,Done [✓],Public,PR #b739271 (113 Tests)
+MVP-01-008,Identity,Contact verification [AUTH05],Verify contact,POST,/api/v1/auth/verify-contact,Verify email/phone token; decide delivery channel.,Must,DEV_2,Done [✓],Authenticated,PR #b739271 (113 Tests)
+MVP-01-009,Identity,Contact verification [AUTH05],Resend verification,POST,/api/v1/auth/resend-verification,Rate-limited resend for contact verification.,Must,DEV_2,Done [✓],Authenticated,PR #b739271 (113 Tests)
+MVP-01-010,Identity,Current user + RBAC [AUTH06],Get my identity,GET,/api/v1/users/me,"Show identity, roles and permitted account state.",Must,DEV_2,Done [✓],Authenticated,PR #b739271 (113 Tests)
+MVP-01-011,Identity,Student profiles [AUTH07],Update my student profile,PATCH,/api/v1/students/me/profile,Edit allowed student profile fields only.,Must,DEV_2,Done [✓],Student,PR #b739271 (113 Tests)
+MVP-01-012,Identity,Teacher profiles [AUTH08],Update my teacher profile,PATCH,/api/v1/teachers/me/profile,"Edit teacher bio, subjects/medium and profile data.",Must,DEV_2,Done [✓],Teacher,PR #b739271 (113 Tests)
+MVP-01-013,Identity,Teacher-only NIC [AUTH11],Submit teacher identity evidence,POST,/api/v1/teachers/me/identity-documents,"Validate format; private documents and manual review, not government lookup.",Must,DEV_2,Done [✓],Teacher,PR #b739271 (113 Tests)
+UR GURU  •  CURRICULUM,,,,,,,,,,,
+,,,,,,,,,,,
+5 endpoints  •  grouped by Feature Area  •  project feature IDs included in column C,,,,,,,,,,,
+,,,,,,,,,,,
+API ID,Module,Feature Area,API Name,Method,API Endpoint,Short Description,Priority,Assignee,Status,Access / Role,Jira / PR
+MVP-02-001,Curriculum,"Streams and subject eligibility [CUR01,CUR02,CUR03,CUR07]",List streams,GET,/api/v1/curriculum/streams,Return seeded Biological/Physical Science streams.,Must,,To Do,Authenticated,
+MVP-02-002,Curriculum,"Streams and subject eligibility [CUR02,CUR03,CUR04,CUR07]",List eligible subjects,GET,/api/v1/curriculum/subjects,"Filter by stream, grade and supported medium.",Must,,To Do,Authenticated,
+MVP-02-003,Curriculum,Syllabus and topics [CUR06],List syllabus versions,GET,/api/v1/curriculum/syllabuses,Return available syllabus versions.,Must,,To Do,Authenticated,
+MVP-02-004,Curriculum,Syllabus and topics [CUR06],List syllabus topics,GET,/api/v1/curriculum/topics,Filter topics by subject and syllabus version.,Must,,To Do,Authenticated,
+MVP-02-005,Curriculum,"Academic profile selection [CUR01,CUR04,CUR05,CUR07]",Save student academic profile,PUT,/api/v1/students/me/academic-profile,"Validate grade, stream, medium, at least one eligible subject.",Must,,To Do,Student,
+UR GURU  •  DISCOVERY,,,,,,,,,,,
+,,,,,,,,,,,
+3 endpoints  •  grouped by Feature Area  •  project feature IDs included in column C,,,,,,,,,,,
+,,,,,,,,,,,
+API ID,Module,Feature Area,API Name,Method,API Endpoint,Short Description,Priority,Assignee,Status,Access / Role,Jira / PR
+MVP-03-001,Discovery,"Teacher browse / filters [TCH04,TCH05,TCH06,TCH07]",Find approved teachers,GET,/api/v1/teachers,"Search teachers; subject, medium, fee, schedule, demo filters.",Must,,To Do,Public,
+MVP-03-002,Discovery,"Public teacher profile [TCH03,TCH07]",View approved teacher,GET,/api/v1/teachers/{teacherId},Public profile only if approved/published/active.,Must,,To Do,Public,
+MVP-03-003,Discovery,Teacher class visibility [TCH07],View teacher published classes,GET,/api/v1/teachers/{teacherId}/classes,Only published classes of approved teacher.,Must,,To Do,Public,
+UR GURU  •  CLASSES,,,,,,,,,,,
+,,,,,,,,,,,
+12 endpoints  •  grouped by Feature Area  •  project feature IDs included in column C,,,,,,,,,,,
+,,,,,,,,,,,
+API ID,Module,Feature Area,API Name,Method,API Endpoint,Short Description,Priority,Assignee,Status,Access / Role,Jira / PR
+MVP-04-001,Classes,Class offerings [CLS01],Create class offering,POST,/api/v1/teacher/classes,Create class without teacher-controlled rate.,Must,,To Do,Teacher,
+MVP-04-002,Classes,Class offerings [CLS01],List my class offerings,GET,/api/v1/teacher/classes,Teacher owned class list and statuses.,Must,,To Do,Teacher,
+MVP-04-003,Classes,Class offerings [CLS01],Edit my class offering,PATCH,/api/v1/teacher/classes/{classId},Update allowed class fields; cannot override price.,Must,,To Do,Teacher,
+MVP-04-004,Classes,"Batches and schedules [CLS02,CLS04]",Create batch,POST,/api/v1/teacher/classes/{classId}/batches,Create schedule with admin-enforced capacity <=20.,Must,,To Do,Teacher,
+MVP-04-005,Classes,"Batches and schedules [CLS02,CLS09]",Update batch / cancel,PATCH,/api/v1/teacher/batches/{batchId},Update schedule/status with cancellation rules.,Must,,To Do,Teacher,
+MVP-04-006,Classes,Class discovery [CLS03],Browse published classes,GET,/api/v1/classes,List approved/published searchable offerings.,Must,,To Do,Public,
+MVP-04-007,Classes,Class discovery [CLS03],Get class details,GET,/api/v1/classes/{classId},"Details, fixed pricing, approved demo references.",Must,,To Do,Public,
+MVP-04-008,Classes,"Batch selection + seats [CLS04,CLS05]",List class batches and availability,GET,/api/v1/classes/{classId}/batches,"Show schedules, confirmed + reserved seats, available seats.",Must,,To Do,Public,
+MVP-04-009,Classes,"Batch selection + seats [CLS04,CLS05]",Get batch and calculated fee,GET,/api/v1/batches/{batchId},Show selected batch details and backend price calculation.,Must,,To Do,Public,
+MVP-04-010,Classes,"Enrollment access [CLS06,CLS07,CLS10]",List my enrollments,GET,/api/v1/students/me/enrollments,Return paid verified active entitlements; permission checks reused.,Must,,To Do,Student,
+MVP-04-011,Classes,Batch roster [CLS08],List students in my batch,GET,/api/v1/teacher/batches/{batchId}/students,Owner teacher only; respect student data privacy.,Must,,To Do,Teacher,
+MVP-04-012,Classes,Cancel or reschedule class [CLS09],Reschedule batch,POST,/api/v1/teacher/batches/{batchId}/reschedule,Record schedule change; notify and handle paid-hour obligations.,Must,,To Do,Teacher,
+UR GURU  •  DEMO VIDEOS,,,,,,,,,,,
+,,,,,,,,,,,
+4 endpoints  •  grouped by Feature Area  •  project feature IDs included in column C,,,,,,,,,,,
+,,,,,,,,,,,
+API ID,Module,Feature Area,API Name,Method,API Endpoint,Short Description,Priority,Assignee,Status,Access / Role,Jira / PR
+MVP-05-001,Demo Videos,"Demo upload [DEM01,DEM02]",Create demo upload,POST,/api/v1/teacher/classes/{classId}/demos,Initiate private video upload; size/type/security validation.,Must,,To Do,Teacher,
+MVP-05-002,Demo Videos,"Demo upload [DEM01,DEM02]",Complete demo upload,POST,/api/v1/teacher/demos/{demoId}/complete-upload,Confirm provider asset ready and pending review.,Must,,To Do,Teacher,
+MVP-05-003,Demo Videos,"Approved demo discovery [DEM04,DEM06]",List approved demos,GET,/api/v1/classes/{classId}/demos,Public approved demos; optional to watch before enrolling.,Must,,To Do,Public,
+MVP-05-004,Demo Videos,Free demo playback [DEM05],Get free demo playback,GET,/api/v1/demos/{demoId}/playback,Short-lived provider playback reference; approved only.,Must,,To Do,Public,
+UR GURU  •  LIVE CLASSES,,,,,,,,,,,
+,,,,,,,,,,,
+7 endpoints  •  grouped by Feature Area  •  project feature IDs included in column C,,,,,,,,,,,
+,,,,,,,,,,,
+API ID,Module,Feature Area,API Name,Method,API Endpoint,Short Description,Priority,Assignee,Status,Access / Role,Jira / PR
+MVP-06-001,Live Classes,Session scheduling [LIVE01],Schedule live class,POST,/api/v1/teacher/batches/{batchId}/sessions,Teacher schedules live session under owned batch.,Must,,To Do,Teacher,
+MVP-06-002,Live Classes,Session scheduling [LIVE01],List batch sessions,GET,/api/v1/batches/{batchId}/sessions,Return scheduled sessions for authorized users.,Must,,To Do,Entitled Student / Teacher,
+MVP-06-003,Live Classes,Session changes [LIVE07],Update / reschedule session,PATCH,/api/v1/teacher/sessions/{sessionId},Reschedule live session with change record.,Must,,To Do,Teacher,
+MVP-06-004,Live Classes,Session changes [LIVE07],Cancel session,POST,/api/v1/teacher/sessions/{sessionId}/cancel,"Cancel session, notify affected students.",Must,,To Do,Teacher,
+MVP-06-005,Live Classes,"Secure live access [LIVE02,LIVE03,LIVE04,LIVE05]",Issue secure live join credentials,POST,/api/v1/sessions/{sessionId}/join,"Enforce entitlement, schedule window and role-specific token.",Must,,To Do,Teacher / Entitled Student,
+MVP-06-006,Live Classes,Attendance [LIVE06],Receive authenticated provider events,POST,/api/v1/live/provider/events,Verify webhook and record idempotent join/leave.,Must,,To Do,Provider Webhook,
+MVP-06-007,Live Classes,Attendance [LIVE06],Get teacher attendance,GET,/api/v1/teacher/sessions/{sessionId}/attendance,Teacher sees authorized session attendance.,Must,,To Do,Teacher,
+UR GURU  •  PAYMENTS,,,,,,,,,,,
+,,,,,,,,,,,
+13 endpoints  •  grouped by Feature Area  •  project feature IDs included in column C,,,,,,,,,,,
+,,,,,,,,,,,
+API ID,Module,Feature Area,API Name,Method,API Endpoint,Short Description,Priority,Assignee,Status,Access / Role,Jira / PR
+MVP-07-001,Payments,"Checkout + seat reserve [PAY01,PAY02]",Create checkout order,POST,/api/v1/checkout/orders,Backend price snapshot + expiring seat hold; capacity concurrency.,Must,,To Do,Student,
+MVP-07-002,Payments,"Checkout + fee display [PAY01,PAY02]",Get order checkout details,GET,/api/v1/checkout/orders/{orderId},"Amount, currency, status, fee snapshot.",Must,,To Do,Order Owner,
+MVP-07-003,Payments,Payment gateway [PAY03],Initiate gateway payment,POST,/api/v1/payments/{orderId}/initiate,Start sandbox provider payment using verified order amount.,Must,,To Do,Order Owner,
+MVP-07-004,Payments,"Verified payment [PAY04,PAY05]",Receive verified gateway webhook,POST,/api/v1/payments/gateway/webhook,"Authenticate webhook, idempotent paid enrollment + seat confirm.",Must,,To Do,Provider Webhook,
+MVP-07-005,Payments,Payment status [PAY04],Get payment status,GET,/api/v1/payments/{paymentId}/status,Return authoritative payment state.,Must,,To Do,Owner / Admin,
+MVP-07-006,Payments,Payment history [PAY06],My payment history,GET,/api/v1/students/me/payments,List student order/payment history.,Must,,To Do,Student,
+MVP-07-007,Payments,Payment history [PAY06],View payment receipt,GET,/api/v1/payments/{paymentId}/receipt,Basic transaction receipt; no PDF generation required.,Must,,To Do,Owner / Admin,
+MVP-07-008,Payments,Manual refunds [PAY07],Request manual refund,POST,/api/v1/refunds,"Create refund request, admin approval later.",Must,,To Do,Student,
+MVP-07-009,Payments,Manual refunds [PAY07],My refund requests,GET,/api/v1/students/me/refunds,List owned refund requests and status.,Must,,To Do,Student,
+MVP-07-010,Payments,Teacher earnings [PAY08],My earnings summary,GET,/api/v1/teacher/me/earnings,Paid eligible completed hours and configured commission.,Must,,To Do,Teacher,
+MVP-07-011,Payments,Manual payouts [PAY09],My payout history,GET,/api/v1/teacher/me/payouts,Manual payout status and bank reference history.,Must,,To Do,Teacher,
+MVP-07-012,Payments,"Financial oversight [PAY10,ADM08]",Admin finance summary,GET,/api/v1/admin/finance/summary,"Payments, refunds, earned commission, payout totals.",Must,,To Do,Admin,
+MVP-07-013,Payments,Ledger / reconciliation [PAY10],View financial ledger,GET,/api/v1/admin/finance/ledger,Read immutable financial postings; manual reconciliation basis.,Must,,To Do,Admin,
+UR GURU  •  RESOURCES,,,,,,,,,,,
+,,,,,,,,,,,
+4 endpoints  •  grouped by Feature Area  •  project feature IDs included in column C,,,,,,,,,,,
+,,,,,,,,,,,
+API ID,Module,Feature Area,API Name,Method,API Endpoint,Short Description,Priority,Assignee,Status,Access / Role,Jira / PR
+MVP-08-001,Resources,"File upload and validation [RES01,RES06]",Upload learning material,POST,/api/v1/teacher/classes/{classId}/materials,Private file with file-type/size checks; MVP prioritizes PDF.,Must,,To Do,Teacher,
+MVP-08-002,Resources,"Protected list [RES02,RES03]",List class materials,GET,/api/v1/classes/{classId}/materials,Check batch entitlement before showing protected resources.,Must,,To Do,Entitled Student / Teacher,
+MVP-08-003,Resources,"Secure delivery [RES02,RES03,RES06]",Download protected file,GET,/api/v1/materials/{materialId}/download,Authorization before time-limited download.,Must,,To Do,Entitled Student / Teacher,
+MVP-08-004,Resources,Material withdrawal [RES05],Withdraw/archive material,PATCH,/api/v1/teacher/materials/{materialId}/status,Unpublish/withdraw inaccessible document; preserve metadata.,Must,,To Do,Teacher,
+UR GURU  •  XACT SOURCE,,,,,,,,,,,
+,,,,,,,,,,,
+4 endpoints  •  grouped by Feature Area  •  project feature IDs included in column C,,,,,,,,,,,
+,,,,,,,,,,,
+API ID,Module,Feature Area,API Name,Method,API Endpoint,Short Description,Priority,Assignee,Status,Access / Role,Jira / PR
+MVP-09-001,XACT Source,"Exam Munnodi catalogue [XQB01,XQB02]",List external past papers,GET,/api/v1/xact/catalog/papers,Browse last-five-year papers sourced from Exam Munnodi.,Must,,To Do,Authenticated,
+MVP-09-002,XACT Source,Exam Munnodi topics [XQB02],List source topics,GET,/api/v1/xact/catalog/topics,Expose provided subject/year/topic metadata.,Must,,To Do,Authenticated,
+MVP-09-003,XACT Source,"Question + answer adapter [XQB05,XQB06,XQB07]",Get eligible question previews,GET,/api/v1/xact/catalog/questions,Normalize external questions; never leak answer keys pre-submit.,Must,,To Do,Authenticated,
+MVP-09-004,XACT Source,"External source health [XQB01,XQB10]",Check source connectivity,GET,/api/v1/xact/catalog/status,Integration health; actual content rights require formal approval.,Technical dependency,,To Do,Admin,
+UR GURU  •  XACT EXAMS,,,,,,,,,,,
+,,,,,,,,,,,
+8 endpoints  •  grouped by Feature Area  •  project feature IDs included in column C,,,,,,,,,,,
+,,,,,,,,,,,
+API ID,Module,Feature Area,API Name,Method,API Endpoint,Short Description,Priority,Assignee,Status,Access / Role,Jira / PR
+MVP-10-001,XACT Exams,"Create past paper / mock [XPR01,XPR02,XPR03,XPR04,XPR05,XPR06]",Create exam from eligible questions,POST,/api/v1/xact/exams,Configure paper/topic/question count/time; difficulty if API supports.,Must,,To Do,Student,
+MVP-10-002,XACT Exams,"Exam questions [XPR02,XPR06]",Get exam questions,GET,/api/v1/xact/exams/{examId},Return randomized selected questions without correct answers.,Must,,To Do,Exam Owner,
+MVP-10-003,XACT Exams,"Attempt start / resume [XPR07,XPR09]",Start or resume attempt,POST,/api/v1/xact/exams/{examId}/attempts,Idempotent start; server deadline.,Must,,To Do,Student,
+MVP-10-004,XACT Exams,"Attempt start / resume [XPR07,XPR09]",Get active attempt,GET,/api/v1/xact/attempts/{attemptId},Return remaining server time and saved selections.,Must,,To Do,Attempt Owner,
+MVP-10-005,XACT Exams,Answer autosave [XPR08],Save one answer,PUT,/api/v1/xact/attempts/{attemptId}/answers/{questionId},Validate ownership/deadline; idempotent answer save.,Must,,To Do,Attempt Owner,
+MVP-10-006,XACT Exams,"Submit + score [XPR10,XPR11]",Submit and score attempt,POST,/api/v1/xact/attempts/{attemptId}/submit,Finalize once and calculate score server side.,Must,,To Do,Attempt Owner,
+MVP-10-007,XACT Exams,"Review results [XPR12,XPR13]",Get score and explanations,GET,/api/v1/xact/attempts/{attemptId}/result,Correct/incorrect/unanswered + explanation when provided.,Must,,To Do,Attempt Owner,
+MVP-10-008,XACT Exams,Attempt history [XPR14],List previous attempts,GET,/api/v1/xact/me/attempts,Return owned exam attempts and scores.,Must,,To Do,Student,
+UR GURU  •  XACT TEACHER,,,,,,,,,,,
+,,,,,,,,,,,
+6 endpoints  •  grouped by Feature Area  •  project feature IDs included in column C,,,,,,,,,,,
+,,,,,,,,,,,
+API ID,Module,Feature Area,API Name,Method,API Endpoint,Short Description,Priority,Assignee,Status,Access / Role,Jira / PR
+MVP-11-001,XACT Teacher,Paper authoring from external IDs [XTA02],Create teacher MCQ paper,POST,/api/v1/xact/teacher/papers,Create paper using permitted external question references.,Must,,To Do,Teacher,
+MVP-11-002,XACT Teacher,Teacher papers [XTA02],List my teacher papers,GET,/api/v1/xact/teacher/papers,Teacher owned paper list.,Must,,To Do,Teacher,
+MVP-11-003,XACT Teacher,Teacher papers [XTA02],View teacher paper,GET,/api/v1/xact/teacher/papers/{paperId},Owner view; hide answers from students.,Must,,To Do,Teacher,
+MVP-11-004,XACT Teacher,Assign to multiple students [XTA05],Assign paper,POST,/api/v1/xact/teacher/papers/{paperId}/assign,"Assign to eligible enrolled student list, prevent duplicates.",Must,,To Do,Teacher,
+MVP-11-005,XACT Teacher,"Student assignments [XTA07,XTA08]",List assigned papers,GET,/api/v1/xact/me/assignments,Authorized assignments; attempt via common exam API.,Must,,To Do,Student,
+MVP-11-006,XACT Teacher,Assignment results [XTA09],Get students assignment results,GET,/api/v1/xact/teacher/assignments/{assignmentId}/results,Teacher sees only assigned students results.,Must,,To Do,Teacher,
+UR GURU  •  NOTIFICATIONS,,,,,,,,,,,
+,,,,,,,,,,,
+3 endpoints  •  grouped by Feature Area  •  project feature IDs included in column C,,,,,,,,,,,
+,,,,,,,,,,,
+API ID,Module,Feature Area,API Name,Method,API Endpoint,Short Description,Priority,Assignee,Status,Access / Role,Jira / PR
+MVP-12-001,Notifications,"In-app notification feed [NOT01,NOT02,NOT03,NOT04,NOT07]",List my notifications,GET,/api/v1/notifications,"Account, teacher/demo, payment/enrollment and live alerts.",Must,,To Do,Authenticated,
+MVP-12-002,Notifications,Unread notification count [NOT07],Get unread count,GET,/api/v1/notifications/unread-count,Unread indicator for notification bell.,Must,,To Do,Authenticated,
+MVP-12-003,Notifications,Notification read status [NOT07],Mark notification read,PATCH,/api/v1/notifications/{notificationId}/read,Only owner can mark read.,Must,,To Do,Owner,
+UR GURU  •  ADMIN,,,,,,,,,,,
+,,,,,,,,,,,
+12 endpoints  •  grouped by Feature Area  •  project feature IDs included in column C,,,,,,,,,,,
+,,,,,,,,,,,
+API ID,Module,Feature Area,API Name,Method,API Endpoint,Short Description,Priority,Assignee,Status,Access / Role,Jira / PR
+MVP-13-001,Admin,"Teacher review [TCH02,ADM02]",List pending teacher verifications,GET,/api/v1/admin/teachers/pending,Review queue of teacher-only NIC and credentials.,Must,,To Do,Admin,
+MVP-13-002,Admin,"Teacher review [TCH02,ADM02]",Get teacher verification evidence,GET,/api/v1/admin/teachers/{teacherId}/verification,Restricted teacher verification documents.,Must,,To Do,Admin,
+MVP-13-003,Admin,"Teacher review [TCH02,ADM02]",Approve or reject teacher,POST,/api/v1/admin/teachers/{teacherId}/decision,Record approval decision and audit log.,Must,,To Do,Admin,
+MVP-13-004,Admin,"Publication control [TCH07,ADM04]",Set teacher publication status,PATCH,/api/v1/admin/teachers/{teacherId}/publication,Show/hide approved active teacher.,Must,,To Do,Admin,
+MVP-13-005,Admin,"Publication control [TCH07,ADM04]",Set class publication status,PATCH,/api/v1/admin/classes/{classId}/publication,Show/hide compliant class offering.,Must,,To Do,Admin,
+MVP-13-006,Admin,"Demo moderation [DEM03,ADM05]",List pending demos,GET,/api/v1/admin/demos/pending,Review uploaded teacher demo assets.,Must,,To Do,Admin,
+MVP-13-007,Admin,"Demo moderation [DEM03,ADM05]",Approve or reject demo,POST,/api/v1/admin/demos/{demoId}/decision,Publish only approved demo assets.,Must,,To Do,Admin,
+MVP-13-008,Admin,Admin batch capacity [CLS04],Adjust batch capacity,PATCH,/api/v1/admin/batches/{batchId}/capacity,"Admin-only; platform hard maximum 20, never under confirmed seats.",Must,,To Do,Admin,
+MVP-13-009,Admin,"Refund approval (manual) [PAY07,ADM08]",Approve/reject refund,POST,/api/v1/admin/refunds/{refundId}/decision,Manual review and decision audit.,Must,,To Do,Admin,
+MVP-13-010,Admin,"Refund processing (manual) [PAY07,ADM08]",Record completed refund,POST,/api/v1/admin/refunds/{refundId}/record-completion,"Record external refund reference, amount, date.",Must,,To Do,Admin,
+MVP-13-011,Admin,"Payout processing (manual) [PAY09,ADM08]",Record manual teacher payout,POST,/api/v1/admin/payouts,"Create manual payout instruction/record, no bank API.",Must,,To Do,Admin,
+MVP-13-012,Admin,"User suspension [AUTH09,ADM09]",Change user account status,PATCH,/api/v1/admin/users/{userId}/status,"Suspend/reactivate; revoke access sessions, audit.",Must,,To Do,Admin,
+UR GURU  •  SUPPORT SAFETY,,,,,,,,,,,
+,,,,,,,,,,,
+4 endpoints  •  grouped by Feature Area  •  project feature IDs included in column C,,,,,,,,,,,
+,,,,,,,,,,,
+API ID,Module,Feature Area,API Name,Method,API Endpoint,Short Description,Priority,Assignee,Status,Access / Role,Jira / PR
+MVP-14-001,Support Safety,"Help / complaint / safety [SAFE01,SAFE02,SAFE03]",Submit support or safeguarding case,POST,/api/v1/support/cases,Typed report with confidential safeguarding handling.,Must,,To Do,Authenticated,
+MVP-14-002,Support Safety,"User case tracking [SAFE01,SAFE02]",List my submitted cases,GET,/api/v1/support/me/cases,Owner-only view with sensitive details protected.,Must,,To Do,Authenticated,
+MVP-14-003,Support Safety,Admin case queue [SAFE04],List admin support cases,GET,/api/v1/admin/support/cases,Restricted case queue and escalation priority.,Must,,To Do,Admin,
+MVP-14-004,Support Safety,"Case review / escalation [SAFE04,SAFE07]",Update admin case,PATCH,/api/v1/admin/support/cases/{caseId},Resolve/escalate with audited sensitive decisions.,Must,,To Do,Admin,
+UR GURU  •  COMMUNITY,,,,,,,,,,,
+,,,,,,,,,,,
+6 endpoints  •  grouped by Feature Area  •  project feature IDs included in column C,,,,,,,,,,,
+,,,,,,,,,,,
+API ID,Module,Feature Area,API Name,Method,API Endpoint,Short Description,Priority,Assignee,Status,Access / Role,Jira / PR
+MVP-15-001,Community,Subject forum browse [CHAT01],List subject discussion posts,GET,/api/v1/community/posts,Paginate filtered posts by subject.,Must,,To Do,Authenticated,
+MVP-15-002,Community,Create discussion [CHAT03],Create post / question,POST,/api/v1/community/posts,Validate content and apply rate limits.,Must,,To Do,Student / Teacher,
+MVP-15-003,Community,"Replies / comments [CHAT04,CHAT05]",List comments,GET,/api/v1/community/posts/{postId}/comments,Display student replies and verified teacher contributions.,Must,,To Do,Authenticated,
+MVP-15-004,Community,"Replies / comments [CHAT04,CHAT05]",Add comment / teacher answer,POST,/api/v1/community/posts/{postId}/comments,"Authorized reply, moderation and basic rate limit.",Must,,To Do,Student / Teacher,
+MVP-15-005,Community,Content reporting [CHAT06],Report content,POST,/api/v1/community/reports,Create moderation report for post/comment.,Must,,To Do,Authenticated,
+MVP-15-006,Community,Admin moderation [CHAT06],Hide or remove forum content,PATCH,/api/v1/admin/community/content/{contentId}/status,Admin hide/remove and record audit reason.,Must,,To Do,Admin,
+ALL APIs  |  104 PROPOSED ENDPOINTS,,,,,,,,,,,
+,,,,,,,,,,,
+Master list matches original tracker columns • source of truth for overall filtering and assignment,,,,,,,,,,,
+,,,,,,,,,,,
+API ID,Module,Feature Area,API Name,Method,API Endpoint,Short Description,Priority,Assignee,Status,Access / Role,Jira / PR
+MVP-01-001,Identity,Student registration [AUTH01],Register student,POST,/api/v1/auth/register/student,Register student without NIC requirement.,Must,DEV_2,Done [✓],Public,PR #b739271 (113 Tests)
+MVP-01-002,Identity,Teacher registration [AUTH02],Register teacher,POST,/api/v1/auth/register/teacher,Register teacher in pending identity/approval state.,Must,DEV_2,Done [✓],Public,PR #b739271 (113 Tests)
+MVP-01-003,Identity,Authentication sessions [AUTH03],Login,POST,/api/v1/auth/login,"Authenticate; enforce role, lockout, account status.",Must,DEV_2,Done [✓],Public,PR #b739271 (113 Tests)
+MVP-01-004,Identity,Authentication sessions [AUTH03],Logout,POST,/api/v1/auth/logout,Revoke current refresh session.,Must,DEV_2,Done [✓],Authenticated,PR #b739271 (113 Tests)
+MVP-01-005,Identity,Authentication sessions [AUTH03],Refresh access token,POST,/api/v1/auth/refresh,Rotate refresh credential; essential security dependency.,Must,DEV_2,Done [✓],Authenticated,PR #b739271 (113 Tests)
+MVP-01-006,Identity,Password recovery [AUTH04],Request password reset,POST,/api/v1/auth/forgot-password,"Issue time-limited reset request, avoid user enumeration.",Must,DEV_2,Done [✓],Public,PR #b739271 (113 Tests)
+MVP-01-007,Identity,Password recovery [AUTH04],Reset password,POST,/api/v1/auth/reset-password,Consume time-limited token and reset password.,Must,DEV_2,Done [✓],Public,PR #b739271 (113 Tests)
+MVP-01-008,Identity,Contact verification [AUTH05],Verify contact,POST,/api/v1/auth/verify-contact,Verify email/phone token; decide delivery channel.,Must,DEV_2,Done [✓],Authenticated,PR #b739271 (113 Tests)
+MVP-01-009,Identity,Contact verification [AUTH05],Resend verification,POST,/api/v1/auth/resend-verification,Rate-limited resend for contact verification.,Must,DEV_2,Done [✓],Authenticated,PR #b739271 (113 Tests)
+MVP-01-010,Identity,Current user + RBAC [AUTH06],Get my identity,GET,/api/v1/users/me,"Show identity, roles and permitted account state.",Must,DEV_2,Done [✓],Authenticated,PR #b739271 (113 Tests)
+MVP-01-011,Identity,Student profiles [AUTH07],Update my student profile,PATCH,/api/v1/students/me/profile,Edit allowed student profile fields only.,Must,DEV_2,Done [✓],Student,PR #b739271 (113 Tests)
+MVP-01-012,Identity,Teacher profiles [AUTH08],Update my teacher profile,PATCH,/api/v1/teachers/me/profile,"Edit teacher bio, subjects/medium and profile data.",Must,DEV_2,Done [✓],Teacher,PR #b739271 (113 Tests)
+MVP-01-013,Identity,Teacher-only NIC [AUTH11],Submit teacher identity evidence,POST,/api/v1/teachers/me/identity-documents,"Validate format; private documents and manual review, not government lookup.",Must,DEV_2,Done [✓],Teacher,PR #b739271 (113 Tests)
+MVP-02-001,Curriculum,"Streams and subject eligibility [CUR01,CUR02,CUR03,CUR07]",List streams,GET,/api/v1/curriculum/streams,Return seeded Biological/Physical Science streams.,Must,,To Do,Authenticated,
+MVP-02-002,Curriculum,"Streams and subject eligibility [CUR02,CUR03,CUR04,CUR07]",List eligible subjects,GET,/api/v1/curriculum/subjects,"Filter by stream, grade and supported medium.",Must,,To Do,Authenticated,
+MVP-02-003,Curriculum,Syllabus and topics [CUR06],List syllabus versions,GET,/api/v1/curriculum/syllabuses,Return available syllabus versions.,Must,,To Do,Authenticated,
+MVP-02-004,Curriculum,Syllabus and topics [CUR06],List syllabus topics,GET,/api/v1/curriculum/topics,Filter topics by subject and syllabus version.,Must,,To Do,Authenticated,
+MVP-02-005,Curriculum,"Academic profile selection [CUR01,CUR04,CUR05,CUR07]",Save student academic profile,PUT,/api/v1/students/me/academic-profile,"Validate grade, stream, medium, at least one eligible subject.",Must,,To Do,Student,
+MVP-03-001,Discovery,"Teacher browse / filters [TCH04,TCH05,TCH06,TCH07]",Find approved teachers,GET,/api/v1/teachers,"Search teachers; subject, medium, fee, schedule, demo filters.",Must,,To Do,Public,
+MVP-03-002,Discovery,"Public teacher profile [TCH03,TCH07]",View approved teacher,GET,/api/v1/teachers/{teacherId},Public profile only if approved/published/active.,Must,,To Do,Public,
+MVP-03-003,Discovery,Teacher class visibility [TCH07],View teacher published classes,GET,/api/v1/teachers/{teacherId}/classes,Only published classes of approved teacher.,Must,,To Do,Public,
+MVP-04-001,Classes,Class offerings [CLS01],Create class offering,POST,/api/v1/teacher/classes,Create class without teacher-controlled rate.,Must,,To Do,Teacher,
+MVP-04-002,Classes,Class offerings [CLS01],List my class offerings,GET,/api/v1/teacher/classes,Teacher owned class list and statuses.,Must,,To Do,Teacher,
+MVP-04-003,Classes,Class offerings [CLS01],Edit my class offering,PATCH,/api/v1/teacher/classes/{classId},Update allowed class fields; cannot override price.,Must,,To Do,Teacher,
+MVP-04-004,Classes,"Batches and schedules [CLS02,CLS04]",Create batch,POST,/api/v1/teacher/classes/{classId}/batches,Create schedule with admin-enforced capacity <=20.,Must,,To Do,Teacher,
+MVP-04-005,Classes,"Batches and schedules [CLS02,CLS09]",Update batch / cancel,PATCH,/api/v1/teacher/batches/{batchId},Update schedule/status with cancellation rules.,Must,,To Do,Teacher,
+MVP-04-006,Classes,Class discovery [CLS03],Browse published classes,GET,/api/v1/classes,List approved/published searchable offerings.,Must,,To Do,Public,
+MVP-04-007,Classes,Class discovery [CLS03],Get class details,GET,/api/v1/classes/{classId},"Details, fixed pricing, approved demo references.",Must,,To Do,Public,
+MVP-04-008,Classes,"Batch selection + seats [CLS04,CLS05]",List class batches and availability,GET,/api/v1/classes/{classId}/batches,"Show schedules, confirmed + reserved seats, available seats.",Must,,To Do,Public,
+MVP-04-009,Classes,"Batch selection + seats [CLS04,CLS05]",Get batch and calculated fee,GET,/api/v1/batches/{batchId},Show selected batch details and backend price calculation.,Must,,To Do,Public,
+MVP-04-010,Classes,"Enrollment access [CLS06,CLS07,CLS10]",List my enrollments,GET,/api/v1/students/me/enrollments,Return paid verified active entitlements; permission checks reused.,Must,,To Do,Student,
+MVP-04-011,Classes,Batch roster [CLS08],List students in my batch,GET,/api/v1/teacher/batches/{batchId}/students,Owner teacher only; respect student data privacy.,Must,,To Do,Teacher,
+MVP-04-012,Classes,Cancel or reschedule class [CLS09],Reschedule batch,POST,/api/v1/teacher/batches/{batchId}/reschedule,Record schedule change; notify and handle paid-hour obligations.,Must,,To Do,Teacher,
+MVP-05-001,Demo Videos,"Demo upload [DEM01,DEM02]",Create demo upload,POST,/api/v1/teacher/classes/{classId}/demos,Initiate private video upload; size/type/security validation.,Must,,To Do,Teacher,
+MVP-05-002,Demo Videos,"Demo upload [DEM01,DEM02]",Complete demo upload,POST,/api/v1/teacher/demos/{demoId}/complete-upload,Confirm provider asset ready and pending review.,Must,,To Do,Teacher,
+MVP-05-003,Demo Videos,"Approved demo discovery [DEM04,DEM06]",List approved demos,GET,/api/v1/classes/{classId}/demos,Public approved demos; optional to watch before enrolling.,Must,,To Do,Public,
+MVP-05-004,Demo Videos,Free demo playback [DEM05],Get free demo playback,GET,/api/v1/demos/{demoId}/playback,Short-lived provider playback reference; approved only.,Must,,To Do,Public,
+MVP-06-001,Live Classes,Session scheduling [LIVE01],Schedule live class,POST,/api/v1/teacher/batches/{batchId}/sessions,Teacher schedules live session under owned batch.,Must,,To Do,Teacher,
+MVP-06-002,Live Classes,Session scheduling [LIVE01],List batch sessions,GET,/api/v1/batches/{batchId}/sessions,Return scheduled sessions for authorized users.,Must,,To Do,Entitled Student / Teacher,
+MVP-06-003,Live Classes,Session changes [LIVE07],Update / reschedule session,PATCH,/api/v1/teacher/sessions/{sessionId},Reschedule live session with change record.,Must,,To Do,Teacher,
+MVP-06-004,Live Classes,Session changes [LIVE07],Cancel session,POST,/api/v1/teacher/sessions/{sessionId}/cancel,"Cancel session, notify affected students.",Must,,To Do,Teacher,
+MVP-06-005,Live Classes,"Secure live access [LIVE02,LIVE03,LIVE04,LIVE05]",Issue secure live join credentials,POST,/api/v1/sessions/{sessionId}/join,"Enforce entitlement, schedule window and role-specific token.",Must,,To Do,Teacher / Entitled Student,
+MVP-06-006,Live Classes,Attendance [LIVE06],Receive authenticated provider events,POST,/api/v1/live/provider/events,Verify webhook and record idempotent join/leave.,Must,,To Do,Provider Webhook,
+MVP-06-007,Live Classes,Attendance [LIVE06],Get teacher attendance,GET,/api/v1/teacher/sessions/{sessionId}/attendance,Teacher sees authorized session attendance.,Must,,To Do,Teacher,
+MVP-07-001,Payments,"Checkout + seat reserve [PAY01,PAY02]",Create checkout order,POST,/api/v1/checkout/orders,Backend price snapshot + expiring seat hold; capacity concurrency.,Must,,To Do,Student,
+MVP-07-002,Payments,"Checkout + fee display [PAY01,PAY02]",Get order checkout details,GET,/api/v1/checkout/orders/{orderId},"Amount, currency, status, fee snapshot.",Must,,To Do,Order Owner,
+MVP-07-003,Payments,Payment gateway [PAY03],Initiate gateway payment,POST,/api/v1/payments/{orderId}/initiate,Start sandbox provider payment using verified order amount.,Must,,To Do,Order Owner,
+MVP-07-004,Payments,"Verified payment [PAY04,PAY05]",Receive verified gateway webhook,POST,/api/v1/payments/gateway/webhook,"Authenticate webhook, idempotent paid enrollment + seat confirm.",Must,,To Do,Provider Webhook,
+MVP-07-005,Payments,Payment status [PAY04],Get payment status,GET,/api/v1/payments/{paymentId}/status,Return authoritative payment state.,Must,,To Do,Owner / Admin,
+MVP-07-006,Payments,Payment history [PAY06],My payment history,GET,/api/v1/students/me/payments,List student order/payment history.,Must,,To Do,Student,
+MVP-07-007,Payments,Payment history [PAY06],View payment receipt,GET,/api/v1/payments/{paymentId}/receipt,Basic transaction receipt; no PDF generation required.,Must,,To Do,Owner / Admin,
+MVP-07-008,Payments,Manual refunds [PAY07],Request manual refund,POST,/api/v1/refunds,"Create refund request, admin approval later.",Must,,To Do,Student,
+MVP-07-009,Payments,Manual refunds [PAY07],My refund requests,GET,/api/v1/students/me/refunds,List owned refund requests and status.,Must,,To Do,Student,
+MVP-07-010,Payments,Teacher earnings [PAY08],My earnings summary,GET,/api/v1/teacher/me/earnings,Paid eligible completed hours and configured commission.,Must,,To Do,Teacher,
+MVP-07-011,Payments,Manual payouts [PAY09],My payout history,GET,/api/v1/teacher/me/payouts,Manual payout status and bank reference history.,Must,,To Do,Teacher,
+MVP-07-012,Payments,"Financial oversight [PAY10,ADM08]",Admin finance summary,GET,/api/v1/admin/finance/summary,"Payments, refunds, earned commission, payout totals.",Must,,To Do,Admin,
+MVP-07-013,Payments,Ledger / reconciliation [PAY10],View financial ledger,GET,/api/v1/admin/finance/ledger,Read immutable financial postings; manual reconciliation basis.,Must,,To Do,Admin,
+MVP-08-001,Resources,"File upload and validation [RES01,RES06]",Upload learning material,POST,/api/v1/teacher/classes/{classId}/materials,Private file with file-type/size checks; MVP prioritizes PDF.,Must,,To Do,Teacher,
+MVP-08-002,Resources,"Protected list [RES02,RES03]",List class materials,GET,/api/v1/classes/{classId}/materials,Check batch entitlement before showing protected resources.,Must,,To Do,Entitled Student / Teacher,
+MVP-08-003,Resources,"Secure delivery [RES02,RES03,RES06]",Download protected file,GET,/api/v1/materials/{materialId}/download,Authorization before time-limited download.,Must,,To Do,Entitled Student / Teacher,
+MVP-08-004,Resources,Material withdrawal [RES05],Withdraw/archive material,PATCH,/api/v1/teacher/materials/{materialId}/status,Unpublish/withdraw inaccessible document; preserve metadata.,Must,,To Do,Teacher,
+MVP-09-001,XACT Source,"Exam Munnodi catalogue [XQB01,XQB02]",List external past papers,GET,/api/v1/xact/catalog/papers,Browse last-five-year papers sourced from Exam Munnodi.,Must,,To Do,Authenticated,
+MVP-09-002,XACT Source,Exam Munnodi topics [XQB02],List source topics,GET,/api/v1/xact/catalog/topics,Expose provided subject/year/topic metadata.,Must,,To Do,Authenticated,
+MVP-09-003,XACT Source,"Question + answer adapter [XQB05,XQB06,XQB07]",Get eligible question previews,GET,/api/v1/xact/catalog/questions,Normalize external questions; never leak answer keys pre-submit.,Must,,To Do,Authenticated,
+MVP-09-004,XACT Source,"External source health [XQB01,XQB10]",Check source connectivity,GET,/api/v1/xact/catalog/status,Integration health; actual content rights require formal approval.,Technical dependency,,To Do,Admin,
+MVP-10-001,XACT Exams,"Create past paper / mock [XPR01,XPR02,XPR03,XPR04,XPR05,XPR06]",Create exam from eligible questions,POST,/api/v1/xact/exams,Configure paper/topic/question count/time; difficulty if API supports.,Must,,To Do,Student,
+MVP-10-002,XACT Exams,"Exam questions [XPR02,XPR06]",Get exam questions,GET,/api/v1/xact/exams/{examId},Return randomized selected questions without correct answers.,Must,,To Do,Exam Owner,
+MVP-10-003,XACT Exams,"Attempt start / resume [XPR07,XPR09]",Start or resume attempt,POST,/api/v1/xact/exams/{examId}/attempts,Idempotent start; server deadline.,Must,,To Do,Student,
+MVP-10-004,XACT Exams,"Attempt start / resume [XPR07,XPR09]",Get active attempt,GET,/api/v1/xact/attempts/{attemptId},Return remaining server time and saved selections.,Must,,To Do,Attempt Owner,
+MVP-10-005,XACT Exams,Answer autosave [XPR08],Save one answer,PUT,/api/v1/xact/attempts/{attemptId}/answers/{questionId},Validate ownership/deadline; idempotent answer save.,Must,,To Do,Attempt Owner,
+MVP-10-006,XACT Exams,"Submit + score [XPR10,XPR11]",Submit and score attempt,POST,/api/v1/xact/attempts/{attemptId}/submit,Finalize once and calculate score server side.,Must,,To Do,Attempt Owner,
+MVP-10-007,XACT Exams,"Review results [XPR12,XPR13]",Get score and explanations,GET,/api/v1/xact/attempts/{attemptId}/result,Correct/incorrect/unanswered + explanation when provided.,Must,,To Do,Attempt Owner,
+MVP-10-008,XACT Exams,Attempt history [XPR14],List previous attempts,GET,/api/v1/xact/me/attempts,Return owned exam attempts and scores.,Must,,To Do,Student,
+MVP-11-001,XACT Teacher,Paper authoring from external IDs [XTA02],Create teacher MCQ paper,POST,/api/v1/xact/teacher/papers,Create paper using permitted external question references.,Must,,To Do,Teacher,
+MVP-11-002,XACT Teacher,Teacher papers [XTA02],List my teacher papers,GET,/api/v1/xact/teacher/papers,Teacher owned paper list.,Must,,To Do,Teacher,
+MVP-11-003,XACT Teacher,Teacher papers [XTA02],View teacher paper,GET,/api/v1/xact/teacher/papers/{paperId},Owner view; hide answers from students.,Must,,To Do,Teacher,
+MVP-11-004,XACT Teacher,Assign to multiple students [XTA05],Assign paper,POST,/api/v1/xact/teacher/papers/{paperId}/assign,"Assign to eligible enrolled student list, prevent duplicates.",Must,,To Do,Teacher,
+MVP-11-005,XACT Teacher,"Student assignments [XTA07,XTA08]",List assigned papers,GET,/api/v1/xact/me/assignments,Authorized assignments; attempt via common exam API.,Must,,To Do,Student,
+MVP-11-006,XACT Teacher,Assignment results [XTA09],Get students assignment results,GET,/api/v1/xact/teacher/assignments/{assignmentId}/results,Teacher sees only assigned students results.,Must,,To Do,Teacher,
+MVP-12-001,Notifications,"In-app notification feed [NOT01,NOT02,NOT03,NOT04,NOT07]",List my notifications,GET,/api/v1/notifications,"Account, teacher/demo, payment/enrollment and live alerts.",Must,,To Do,Authenticated,
+MVP-12-002,Notifications,Unread notification count [NOT07],Get unread count,GET,/api/v1/notifications/unread-count,Unread indicator for notification bell.,Must,,To Do,Authenticated,
+MVP-12-003,Notifications,Notification read status [NOT07],Mark notification read,PATCH,/api/v1/notifications/{notificationId}/read,Only owner can mark read.,Must,,To Do,Owner,
+MVP-13-001,Admin,"Teacher review [TCH02,ADM02]",List pending teacher verifications,GET,/api/v1/admin/teachers/pending,Review queue of teacher-only NIC and credentials.,Must,,To Do,Admin,
+MVP-13-002,Admin,"Teacher review [TCH02,ADM02]",Get teacher verification evidence,GET,/api/v1/admin/teachers/{teacherId}/verification,Restricted teacher verification documents.,Must,,To Do,Admin,
+MVP-13-003,Admin,"Teacher review [TCH02,ADM02]",Approve or reject teacher,POST,/api/v1/admin/teachers/{teacherId}/decision,Record approval decision and audit log.,Must,,To Do,Admin,
+MVP-13-004,Admin,"Publication control [TCH07,ADM04]",Set teacher publication status,PATCH,/api/v1/admin/teachers/{teacherId}/publication,Show/hide approved active teacher.,Must,,To Do,Admin,
+MVP-13-005,Admin,"Publication control [TCH07,ADM04]",Set class publication status,PATCH,/api/v1/admin/classes/{classId}/publication,Show/hide compliant class offering.,Must,,To Do,Admin,
+MVP-13-006,Admin,"Demo moderation [DEM03,ADM05]",List pending demos,GET,/api/v1/admin/demos/pending,Review uploaded teacher demo assets.,Must,,To Do,Admin,
+MVP-13-007,Admin,"Demo moderation [DEM03,ADM05]",Approve or reject demo,POST,/api/v1/admin/demos/{demoId}/decision,Publish only approved demo assets.,Must,,To Do,Admin,
+MVP-13-008,Admin,Admin batch capacity [CLS04],Adjust batch capacity,PATCH,/api/v1/admin/batches/{batchId}/capacity,"Admin-only; platform hard maximum 20, never under confirmed seats.",Must,,To Do,Admin,
+MVP-13-009,Admin,"Refund approval (manual) [PAY07,ADM08]",Approve/reject refund,POST,/api/v1/admin/refunds/{refundId}/decision,Manual review and decision audit.,Must,,To Do,Admin,
+MVP-13-010,Admin,"Refund processing (manual) [PAY07,ADM08]",Record completed refund,POST,/api/v1/admin/refunds/{refundId}/record-completion,"Record external refund reference, amount, date.",Must,,To Do,Admin,
+MVP-13-011,Admin,"Payout processing (manual) [PAY09,ADM08]",Record manual teacher payout,POST,/api/v1/admin/payouts,"Create manual payout instruction/record, no bank API.",Must,,To Do,Admin,
+MVP-13-012,Admin,"User suspension [AUTH09,ADM09]",Change user account status,PATCH,/api/v1/admin/users/{userId}/status,"Suspend/reactivate; revoke access sessions, audit.",Must,,To Do,Admin,
+MVP-14-001,Support Safety,"Help / complaint / safety [SAFE01,SAFE02,SAFE03]",Submit support or safeguarding case,POST,/api/v1/support/cases,Typed report with confidential safeguarding handling.,Must,,To Do,Authenticated,
+MVP-14-002,Support Safety,"User case tracking [SAFE01,SAFE02]",List my submitted cases,GET,/api/v1/support/me/cases,Owner-only view with sensitive details protected.,Must,,To Do,Authenticated,
+MVP-14-003,Support Safety,Admin case queue [SAFE04],List admin support cases,GET,/api/v1/admin/support/cases,Restricted case queue and escalation priority.,Must,,To Do,Admin,
+MVP-14-004,Support Safety,"Case review / escalation [SAFE04,SAFE07]",Update admin case,PATCH,/api/v1/admin/support/cases/{caseId},Resolve/escalate with audited sensitive decisions.,Must,,To Do,Admin,
+MVP-15-001,Community,Subject forum browse [CHAT01],List subject discussion posts,GET,/api/v1/community/posts,Paginate filtered posts by subject.,Must,,To Do,Authenticated,
+MVP-15-002,Community,Create discussion [CHAT03],Create post / question,POST,/api/v1/community/posts,Validate content and apply rate limits.,Must,,To Do,Student / Teacher,
+MVP-15-003,Community,"Replies / comments [CHAT04,CHAT05]",List comments,GET,/api/v1/community/posts/{postId}/comments,Display student replies and verified teacher contributions.,Must,,To Do,Authenticated,
+MVP-15-004,Community,"Replies / comments [CHAT04,CHAT05]",Add comment / teacher answer,POST,/api/v1/community/posts/{postId}/comments,"Authorized reply, moderation and basic rate limit.",Must,,To Do,Student / Teacher,
+MVP-15-005,Community,Content reporting [CHAT06],Report content,POST,/api/v1/community/reports,Create moderation report for post/comment.,Must,,To Do,Authenticated,
+MVP-15-006,Community,Admin moderation [CHAT06],Hide or remove forum content,PATCH,/api/v1/admin/community/content/{contentId}/status,Admin hide/remove and record audit reason.,Must,,To Do,Admin,
+DAY-BY-DAY  |  IMPLEMENTATION ORDER,,,,,,,,,,,
+,,,,,,,,,,,
+Rows sorted Day 1 to Day 7. Look up each API ID in module sheet; Days shown in Day Plan tab.,,,,,,,,,,,
+,,,,,,,,,,,
+API ID,Module,Feature Area,API Name,Method,API Endpoint,Short Description,Priority,Assignee,Status,Access / Role,Jira / PR
+MVP-01-001,Identity,Student registration [AUTH01],Register student,POST,/api/v1/auth/register/student,Register student without NIC requirement.,Must,DEV_2,Done [✓],Public,PR #b739271 (113 Tests)
+MVP-01-002,Identity,Teacher registration [AUTH02],Register teacher,POST,/api/v1/auth/register/teacher,Register teacher in pending identity/approval state.,Must,DEV_2,Done [✓],Public,PR #b739271 (113 Tests)
+MVP-01-003,Identity,Authentication sessions [AUTH03],Login,POST,/api/v1/auth/login,"Authenticate; enforce role, lockout, account status.",Must,DEV_2,Done [✓],Public,PR #b739271 (113 Tests)
+MVP-01-004,Identity,Authentication sessions [AUTH03],Logout,POST,/api/v1/auth/logout,Revoke current refresh session.,Must,DEV_2,Done [✓],Authenticated,PR #b739271 (113 Tests)
+MVP-01-005,Identity,Authentication sessions [AUTH03],Refresh access token,POST,/api/v1/auth/refresh,Rotate refresh credential; essential security dependency.,Must,DEV_2,Done [✓],Authenticated,PR #b739271 (113 Tests)
+MVP-01-006,Identity,Password recovery [AUTH04],Request password reset,POST,/api/v1/auth/forgot-password,"Issue time-limited reset request, avoid user enumeration.",Must,DEV_2,Done [✓],Public,PR #b739271 (113 Tests)
+MVP-01-007,Identity,Password recovery [AUTH04],Reset password,POST,/api/v1/auth/reset-password,Consume time-limited token and reset password.,Must,DEV_2,Done [✓],Public,PR #b739271 (113 Tests)
+MVP-01-008,Identity,Contact verification [AUTH05],Verify contact,POST,/api/v1/auth/verify-contact,Verify email/phone token; decide delivery channel.,Must,DEV_2,Done [✓],Authenticated,PR #b739271 (113 Tests)
+MVP-01-009,Identity,Contact verification [AUTH05],Resend verification,POST,/api/v1/auth/resend-verification,Rate-limited resend for contact verification.,Must,DEV_2,Done [✓],Authenticated,PR #b739271 (113 Tests)
+MVP-01-010,Identity,Current user + RBAC [AUTH06],Get my identity,GET,/api/v1/users/me,"Show identity, roles and permitted account state.",Must,DEV_2,Done [✓],Authenticated,PR #b739271 (113 Tests)
+MVP-01-011,Identity,Student profiles [AUTH07],Update my student profile,PATCH,/api/v1/students/me/profile,Edit allowed student profile fields only.,Must,DEV_2,Done [✓],Student,PR #b739271 (113 Tests)
+MVP-01-012,Identity,Teacher profiles [AUTH08],Update my teacher profile,PATCH,/api/v1/teachers/me/profile,"Edit teacher bio, subjects/medium and profile data.",Must,DEV_2,Done [✓],Teacher,PR #b739271 (113 Tests)
+MVP-01-013,Identity,Teacher-only NIC [AUTH11],Submit teacher identity evidence,POST,/api/v1/teachers/me/identity-documents,"Validate format; private documents and manual review, not government lookup.",Must,DEV_2,Done [✓],Teacher,PR #b739271 (113 Tests)
+MVP-02-001,Curriculum,"Streams and subject eligibility [CUR01,CUR02,CUR03,CUR07]",List streams,GET,/api/v1/curriculum/streams,Return seeded Biological/Physical Science streams.,Must,,To Do,Authenticated,
+MVP-02-002,Curriculum,"Streams and subject eligibility [CUR02,CUR03,CUR04,CUR07]",List eligible subjects,GET,/api/v1/curriculum/subjects,"Filter by stream, grade and supported medium.",Must,,To Do,Authenticated,
+MVP-02-003,Curriculum,Syllabus and topics [CUR06],List syllabus versions,GET,/api/v1/curriculum/syllabuses,Return available syllabus versions.,Must,,To Do,Authenticated,
+MVP-02-004,Curriculum,Syllabus and topics [CUR06],List syllabus topics,GET,/api/v1/curriculum/topics,Filter topics by subject and syllabus version.,Must,,To Do,Authenticated,
+MVP-02-005,Curriculum,"Academic profile selection [CUR01,CUR04,CUR05,CUR07]",Save student academic profile,PUT,/api/v1/students/me/academic-profile,"Validate grade, stream, medium, at least one eligible subject.",Must,,To Do,Student,
+MVP-03-001,Discovery,"Teacher browse / filters [TCH04,TCH05,TCH06,TCH07]",Find approved teachers,GET,/api/v1/teachers,"Search teachers; subject, medium, fee, schedule, demo filters.",Must,,To Do,Public,
+MVP-03-002,Discovery,"Public teacher profile [TCH03,TCH07]",View approved teacher,GET,/api/v1/teachers/{teacherId},Public profile only if approved/published/active.,Must,,To Do,Public,
+MVP-03-003,Discovery,Teacher class visibility [TCH07],View teacher published classes,GET,/api/v1/teachers/{teacherId}/classes,Only published classes of approved teacher.,Must,,To Do,Public,
+MVP-04-001,Classes,Class offerings [CLS01],Create class offering,POST,/api/v1/teacher/classes,Create class without teacher-controlled rate.,Must,,To Do,Teacher,
+MVP-04-002,Classes,Class offerings [CLS01],List my class offerings,GET,/api/v1/teacher/classes,Teacher owned class list and statuses.,Must,,To Do,Teacher,
+MVP-04-003,Classes,Class offerings [CLS01],Edit my class offering,PATCH,/api/v1/teacher/classes/{classId},Update allowed class fields; cannot override price.,Must,,To Do,Teacher,
+MVP-04-004,Classes,"Batches and schedules [CLS02,CLS04]",Create batch,POST,/api/v1/teacher/classes/{classId}/batches,Create schedule with admin-enforced capacity <=20.,Must,,To Do,Teacher,
+MVP-04-005,Classes,"Batches and schedules [CLS02,CLS09]",Update batch / cancel,PATCH,/api/v1/teacher/batches/{batchId},Update schedule/status with cancellation rules.,Must,,To Do,Teacher,
+MVP-04-006,Classes,Class discovery [CLS03],Browse published classes,GET,/api/v1/classes,List approved/published searchable offerings.,Must,,To Do,Public,
+MVP-04-007,Classes,Class discovery [CLS03],Get class details,GET,/api/v1/classes/{classId},"Details, fixed pricing, approved demo references.",Must,,To Do,Public,
+MVP-04-008,Classes,"Batch selection + seats [CLS04,CLS05]",List class batches and availability,GET,/api/v1/classes/{classId}/batches,"Show schedules, confirmed + reserved seats, available seats.",Must,,To Do,Public,
+MVP-04-009,Classes,"Batch selection + seats [CLS04,CLS05]",Get batch and calculated fee,GET,/api/v1/batches/{batchId},Show selected batch details and backend price calculation.,Must,,To Do,Public,
+MVP-13-001,Admin,"Teacher review [TCH02,ADM02]",List pending teacher verifications,GET,/api/v1/admin/teachers/pending,Review queue of teacher-only NIC and credentials.,Must,,To Do,Admin,
+MVP-13-002,Admin,"Teacher review [TCH02,ADM02]",Get teacher verification evidence,GET,/api/v1/admin/teachers/{teacherId}/verification,Restricted teacher verification documents.,Must,,To Do,Admin,
+MVP-13-003,Admin,"Teacher review [TCH02,ADM02]",Approve or reject teacher,POST,/api/v1/admin/teachers/{teacherId}/decision,Record approval decision and audit log.,Must,,To Do,Admin,
+MVP-13-004,Admin,"Publication control [TCH07,ADM04]",Set teacher publication status,PATCH,/api/v1/admin/teachers/{teacherId}/publication,Show/hide approved active teacher.,Must,,To Do,Admin,
+MVP-13-005,Admin,"Publication control [TCH07,ADM04]",Set class publication status,PATCH,/api/v1/admin/classes/{classId}/publication,Show/hide compliant class offering.,Must,,To Do,Admin,
+MVP-13-008,Admin,Admin batch capacity [CLS04],Adjust batch capacity,PATCH,/api/v1/admin/batches/{batchId}/capacity,"Admin-only; platform hard maximum 20, never under confirmed seats.",Must,,To Do,Admin,
+MVP-13-012,Admin,"User suspension [AUTH09,ADM09]",Change user account status,PATCH,/api/v1/admin/users/{userId}/status,"Suspend/reactivate; revoke access sessions, audit.",Must,,To Do,Admin,
+MVP-04-010,Classes,"Enrollment access [CLS06,CLS07,CLS10]",List my enrollments,GET,/api/v1/students/me/enrollments,Return paid verified active entitlements; permission checks reused.,Must,,To Do,Student,
+MVP-04-011,Classes,Batch roster [CLS08],List students in my batch,GET,/api/v1/teacher/batches/{batchId}/students,Owner teacher only; respect student data privacy.,Must,,To Do,Teacher,
+MVP-07-001,Payments,"Checkout + seat reserve [PAY01,PAY02]",Create checkout order,POST,/api/v1/checkout/orders,Backend price snapshot + expiring seat hold; capacity concurrency.,Must,,To Do,Student,
+MVP-07-002,Payments,"Checkout + fee display [PAY01,PAY02]",Get order checkout details,GET,/api/v1/checkout/orders/{orderId},"Amount, currency, status, fee snapshot.",Must,,To Do,Order Owner,
+MVP-07-003,Payments,Payment gateway [PAY03],Initiate gateway payment,POST,/api/v1/payments/{orderId}/initiate,Start sandbox provider payment using verified order amount.,Must,,To Do,Order Owner,
+MVP-07-004,Payments,"Verified payment [PAY04,PAY05]",Receive verified gateway webhook,POST,/api/v1/payments/gateway/webhook,"Authenticate webhook, idempotent paid enrollment + seat confirm.",Must,,To Do,Provider Webhook,
+MVP-07-005,Payments,Payment status [PAY04],Get payment status,GET,/api/v1/payments/{paymentId}/status,Return authoritative payment state.,Must,,To Do,Owner / Admin,
+MVP-07-006,Payments,Payment history [PAY06],My payment history,GET,/api/v1/students/me/payments,List student order/payment history.,Must,,To Do,Student,
+MVP-07-007,Payments,Payment history [PAY06],View payment receipt,GET,/api/v1/payments/{paymentId}/receipt,Basic transaction receipt; no PDF generation required.,Must,,To Do,Owner / Admin,
+MVP-04-012,Classes,Cancel or reschedule class [CLS09],Reschedule batch,POST,/api/v1/teacher/batches/{batchId}/reschedule,Record schedule change; notify and handle paid-hour obligations.,Must,,To Do,Teacher,
+MVP-05-001,Demo Videos,"Demo upload [DEM01,DEM02]",Create demo upload,POST,/api/v1/teacher/classes/{classId}/demos,Initiate private video upload; size/type/security validation.,Must,,To Do,Teacher,
+MVP-05-002,Demo Videos,"Demo upload [DEM01,DEM02]",Complete demo upload,POST,/api/v1/teacher/demos/{demoId}/complete-upload,Confirm provider asset ready and pending review.,Must,,To Do,Teacher,
+MVP-05-003,Demo Videos,"Approved demo discovery [DEM04,DEM06]",List approved demos,GET,/api/v1/classes/{classId}/demos,Public approved demos; optional to watch before enrolling.,Must,,To Do,Public,
+MVP-05-004,Demo Videos,Free demo playback [DEM05],Get free demo playback,GET,/api/v1/demos/{demoId}/playback,Short-lived provider playback reference; approved only.,Must,,To Do,Public,
+MVP-06-001,Live Classes,Session scheduling [LIVE01],Schedule live class,POST,/api/v1/teacher/batches/{batchId}/sessions,Teacher schedules live session under owned batch.,Must,,To Do,Teacher,
+MVP-06-002,Live Classes,Session scheduling [LIVE01],List batch sessions,GET,/api/v1/batches/{batchId}/sessions,Return scheduled sessions for authorized users.,Must,,To Do,Entitled Student / Teacher,
+MVP-06-003,Live Classes,Session changes [LIVE07],Update / reschedule session,PATCH,/api/v1/teacher/sessions/{sessionId},Reschedule live session with change record.,Must,,To Do,Teacher,
+MVP-06-004,Live Classes,Session changes [LIVE07],Cancel session,POST,/api/v1/teacher/sessions/{sessionId}/cancel,"Cancel session, notify affected students.",Must,,To Do,Teacher,
+MVP-06-005,Live Classes,"Secure live access [LIVE02,LIVE03,LIVE04,LIVE05]",Issue secure live join credentials,POST,/api/v1/sessions/{sessionId}/join,"Enforce entitlement, schedule window and role-specific token.",Must,,To Do,Teacher / Entitled Student,
+MVP-06-006,Live Classes,Attendance [LIVE06],Receive authenticated provider events,POST,/api/v1/live/provider/events,Verify webhook and record idempotent join/leave.,Must,,To Do,Provider Webhook,
+MVP-06-007,Live Classes,Attendance [LIVE06],Get teacher attendance,GET,/api/v1/teacher/sessions/{sessionId}/attendance,Teacher sees authorized session attendance.,Must,,To Do,Teacher,
+MVP-08-001,Resources,"File upload and validation [RES01,RES06]",Upload learning material,POST,/api/v1/teacher/classes/{classId}/materials,Private file with file-type/size checks; MVP prioritizes PDF.,Must,,To Do,Teacher,
+MVP-08-002,Resources,"Protected list [RES02,RES03]",List class materials,GET,/api/v1/classes/{classId}/materials,Check batch entitlement before showing protected resources.,Must,,To Do,Entitled Student / Teacher,
+MVP-08-003,Resources,"Secure delivery [RES02,RES03,RES06]",Download protected file,GET,/api/v1/materials/{materialId}/download,Authorization before time-limited download.,Must,,To Do,Entitled Student / Teacher,
+MVP-08-004,Resources,Material withdrawal [RES05],Withdraw/archive material,PATCH,/api/v1/teacher/materials/{materialId}/status,Unpublish/withdraw inaccessible document; preserve metadata.,Must,,To Do,Teacher,
+MVP-13-006,Admin,"Demo moderation [DEM03,ADM05]",List pending demos,GET,/api/v1/admin/demos/pending,Review uploaded teacher demo assets.,Must,,To Do,Admin,
+MVP-13-007,Admin,"Demo moderation [DEM03,ADM05]",Approve or reject demo,POST,/api/v1/admin/demos/{demoId}/decision,Publish only approved demo assets.,Must,,To Do,Admin,
+MVP-09-001,XACT Source,"Exam Munnodi catalogue [XQB01,XQB02]",List external past papers,GET,/api/v1/xact/catalog/papers,Browse last-five-year papers sourced from Exam Munnodi.,Must,,To Do,Authenticated,
+MVP-09-002,XACT Source,Exam Munnodi topics [XQB02],List source topics,GET,/api/v1/xact/catalog/topics,Expose provided subject/year/topic metadata.,Must,,To Do,Authenticated,
+MVP-09-003,XACT Source,"Question + answer adapter [XQB05,XQB06,XQB07]",Get eligible question previews,GET,/api/v1/xact/catalog/questions,Normalize external questions; never leak answer keys pre-submit.,Must,,To Do,Authenticated,
+MVP-09-004,XACT Source,"External source health [XQB01,XQB10]",Check source connectivity,GET,/api/v1/xact/catalog/status,Integration health; actual content rights require formal approval.,Technical dependency,,To Do,Admin,
+MVP-10-001,XACT Exams,"Create past paper / mock [XPR01,XPR02,XPR03,XPR04,XPR05,XPR06]",Create exam from eligible questions,POST,/api/v1/xact/exams,Configure paper/topic/question count/time; difficulty if API supports.,Must,,To Do,Student,
+MVP-10-002,XACT Exams,"Exam questions [XPR02,XPR06]",Get exam questions,GET,/api/v1/xact/exams/{examId},Return randomized selected questions without correct answers.,Must,,To Do,Exam Owner,
+MVP-10-003,XACT Exams,"Attempt start / resume [XPR07,XPR09]",Start or resume attempt,POST,/api/v1/xact/exams/{examId}/attempts,Idempotent start; server deadline.,Must,,To Do,Student,
+MVP-10-004,XACT Exams,"Attempt start / resume [XPR07,XPR09]",Get active attempt,GET,/api/v1/xact/attempts/{attemptId},Return remaining server time and saved selections.,Must,,To Do,Attempt Owner,
+MVP-10-005,XACT Exams,Answer autosave [XPR08],Save one answer,PUT,/api/v1/xact/attempts/{attemptId}/answers/{questionId},Validate ownership/deadline; idempotent answer save.,Must,,To Do,Attempt Owner,
+MVP-10-006,XACT Exams,"Submit + score [XPR10,XPR11]",Submit and score attempt,POST,/api/v1/xact/attempts/{attemptId}/submit,Finalize once and calculate score server side.,Must,,To Do,Attempt Owner,
+MVP-10-007,XACT Exams,"Review results [XPR12,XPR13]",Get score and explanations,GET,/api/v1/xact/attempts/{attemptId}/result,Correct/incorrect/unanswered + explanation when provided.,Must,,To Do,Attempt Owner,
+MVP-10-008,XACT Exams,Attempt history [XPR14],List previous attempts,GET,/api/v1/xact/me/attempts,Return owned exam attempts and scores.,Must,,To Do,Student,
+MVP-07-008,Payments,Manual refunds [PAY07],Request manual refund,POST,/api/v1/refunds,"Create refund request, admin approval later.",Must,,To Do,Student,
+MVP-07-009,Payments,Manual refunds [PAY07],My refund requests,GET,/api/v1/students/me/refunds,List owned refund requests and status.,Must,,To Do,Student,
+MVP-07-010,Payments,Teacher earnings [PAY08],My earnings summary,GET,/api/v1/teacher/me/earnings,Paid eligible completed hours and configured commission.,Must,,To Do,Teacher,
+MVP-07-011,Payments,Manual payouts [PAY09],My payout history,GET,/api/v1/teacher/me/payouts,Manual payout status and bank reference history.,Must,,To Do,Teacher,
+MVP-07-012,Payments,"Financial oversight [PAY10,ADM08]",Admin finance summary,GET,/api/v1/admin/finance/summary,"Payments, refunds, earned commission, payout totals.",Must,,To Do,Admin,
+MVP-07-013,Payments,Ledger / reconciliation [PAY10],View financial ledger,GET,/api/v1/admin/finance/ledger,Read immutable financial postings; manual reconciliation basis.,Must,,To Do,Admin,
+MVP-11-001,XACT Teacher,Paper authoring from external IDs [XTA02],Create teacher MCQ paper,POST,/api/v1/xact/teacher/papers,Create paper using permitted external question references.,Must,,To Do,Teacher,
+MVP-11-002,XACT Teacher,Teacher papers [XTA02],List my teacher papers,GET,/api/v1/xact/teacher/papers,Teacher owned paper list.,Must,,To Do,Teacher,
+MVP-11-003,XACT Teacher,Teacher papers [XTA02],View teacher paper,GET,/api/v1/xact/teacher/papers/{paperId},Owner view; hide answers from students.,Must,,To Do,Teacher,
+MVP-11-004,XACT Teacher,Assign to multiple students [XTA05],Assign paper,POST,/api/v1/xact/teacher/papers/{paperId}/assign,"Assign to eligible enrolled student list, prevent duplicates.",Must,,To Do,Teacher,
+MVP-11-005,XACT Teacher,"Student assignments [XTA07,XTA08]",List assigned papers,GET,/api/v1/xact/me/assignments,Authorized assignments; attempt via common exam API.,Must,,To Do,Student,
+MVP-11-006,XACT Teacher,Assignment results [XTA09],Get students assignment results,GET,/api/v1/xact/teacher/assignments/{assignmentId}/results,Teacher sees only assigned students results.,Must,,To Do,Teacher,
+MVP-12-001,Notifications,"In-app notification feed [NOT01,NOT02,NOT03,NOT04,NOT07]",List my notifications,GET,/api/v1/notifications,"Account, teacher/demo, payment/enrollment and live alerts.",Must,,To Do,Authenticated,
+MVP-12-002,Notifications,Unread notification count [NOT07],Get unread count,GET,/api/v1/notifications/unread-count,Unread indicator for notification bell.,Must,,To Do,Authenticated,
+MVP-12-003,Notifications,Notification read status [NOT07],Mark notification read,PATCH,/api/v1/notifications/{notificationId}/read,Only owner can mark read.,Must,,To Do,Owner,
+MVP-13-009,Admin,"Refund approval (manual) [PAY07,ADM08]",Approve/reject refund,POST,/api/v1/admin/refunds/{refundId}/decision,Manual review and decision audit.,Must,,To Do,Admin,
+MVP-13-010,Admin,"Refund processing (manual) [PAY07,ADM08]",Record completed refund,POST,/api/v1/admin/refunds/{refundId}/record-completion,"Record external refund reference, amount, date.",Must,,To Do,Admin,
+MVP-13-011,Admin,"Payout processing (manual) [PAY09,ADM08]",Record manual teacher payout,POST,/api/v1/admin/payouts,"Create manual payout instruction/record, no bank API.",Must,,To Do,Admin,
+MVP-14-001,Support Safety,"Help / complaint / safety [SAFE01,SAFE02,SAFE03]",Submit support or safeguarding case,POST,/api/v1/support/cases,Typed report with confidential safeguarding handling.,Must,,To Do,Authenticated,
+MVP-14-002,Support Safety,"User case tracking [SAFE01,SAFE02]",List my submitted cases,GET,/api/v1/support/me/cases,Owner-only view with sensitive details protected.,Must,,To Do,Authenticated,
+MVP-14-003,Support Safety,Admin case queue [SAFE04],List admin support cases,GET,/api/v1/admin/support/cases,Restricted case queue and escalation priority.,Must,,To Do,Admin,
+MVP-14-004,Support Safety,"Case review / escalation [SAFE04,SAFE07]",Update admin case,PATCH,/api/v1/admin/support/cases/{caseId},Resolve/escalate with audited sensitive decisions.,Must,,To Do,Admin,
+MVP-15-001,Community,Subject forum browse [CHAT01],List subject discussion posts,GET,/api/v1/community/posts,Paginate filtered posts by subject.,Must,,To Do,Authenticated,
+MVP-15-002,Community,Create discussion [CHAT03],Create post / question,POST,/api/v1/community/posts,Validate content and apply rate limits.,Must,,To Do,Student / Teacher,
+MVP-15-003,Community,"Replies / comments [CHAT04,CHAT05]",List comments,GET,/api/v1/community/posts/{postId}/comments,Display student replies and verified teacher contributions.,Must,,To Do,Authenticated,
+MVP-15-004,Community,"Replies / comments [CHAT04,CHAT05]",Add comment / teacher answer,POST,/api/v1/community/posts/{postId}/comments,"Authorized reply, moderation and basic rate limit.",Must,,To Do,Student / Teacher,
+MVP-15-005,Community,Content reporting [CHAT06],Report content,POST,/api/v1/community/reports,Create moderation report for post/comment.,Must,,To Do,Authenticated,
+MVP-15-006,Community,Admin moderation [CHAT06],Hide or remove forum content,PATCH,/api/v1/admin/community/content/{contentId}/status,Admin hide/remove and record audit reason.,Must,,To Do,Admin,
+Day,Core backend goal,Frontend workstream,Proof / demo checkpoint,Blocking risks,API Count
+1,"Auth, roles, teacher NIC, curriculum migrations","Auth, registration, onboarding","Register/login, student curriculum profile","Token delivery, NIC review requirements",18
+2,"Teacher approvals, class offerings, fixed pricing, 20 seats","Teacher browsing, class create, admin review",Approved teacher + published batch searchable,"Pricing decisions, concurrency design",19
+3,"Sandbox payment, seat holds, verified enrollment","Checkout, payment status, my classes",Idempotent payment grants one entitlement,"Gateway sandbox/webhook, reservation expiry",9
+4,"Demo upload, live session tokens, materials","Video views, live classroom, downloads",Entitled live join + protected file,"Video provider, private storage",18
+5,Exam Munnodi + XACT practice and scoring,"MCQ mock, autosave, result/history","Attempt starts, resumes, scores correctly","API rights, difficulty/medium support",12
+6,"Assignments, manual finance, notifications","Assignments, finance dashboard, alerts",Teacher assignment + recorded refund/payout,Time pressure; financial rules,18
+7,"Support/safeguarding, forum, audit, smoke tests","Forum, report flow, integration QA",Moderated forum + safety case end-to-end,Public launch requires operational controls,10
+Selected Feature ID,Module,Implementation / ownership,Related API IDs,Note / critical dependency
+AUTH01,Identity,Proposed API,MVP-01-001,Mapped via listed APIs; one endpoint may satisfy multiple features.
+AUTH02,Identity,Proposed API,MVP-01-002,Mapped via listed APIs; one endpoint may satisfy multiple features.
+AUTH03,Identity,Proposed API,"MVP-01-003, MVP-01-004, MVP-01-005",Mapped via listed APIs; one endpoint may satisfy multiple features.
+AUTH04,Identity,Proposed API,"MVP-01-006, MVP-01-007",Mapped via listed APIs; one endpoint may satisfy multiple features.
+AUTH05,Identity,Proposed API,"MVP-01-008, MVP-01-009",Mapped via listed APIs; one endpoint may satisfy multiple features.
+AUTH06,Identity,Proposed API,MVP-01-010,Mapped via listed APIs; one endpoint may satisfy multiple features.
+AUTH07,Identity,Proposed API,MVP-01-011,Mapped via listed APIs; one endpoint may satisfy multiple features.
+AUTH08,Identity,Proposed API,MVP-01-012,Mapped via listed APIs; one endpoint may satisfy multiple features.
+AUTH09,Identity,Proposed API,MVP-13-012,Admin suspension & lockout mapped; self-service closure is NOT covered.
+AUTH11,Identity,Proposed API,MVP-01-013,Teachers only. Regex format alone does not prove genuine NIC.
+CUR01,Curriculum,Proposed API,"MVP-02-001, MVP-02-005",Mapped via listed APIs; one endpoint may satisfy multiple features.
+CUR02,Curriculum,Proposed API,"MVP-02-001, MVP-02-002",Mapped via listed APIs; one endpoint may satisfy multiple features.
+CUR03,Curriculum,Proposed API,"MVP-02-001, MVP-02-002",Mapped via listed APIs; one endpoint may satisfy multiple features.
+CUR04,Curriculum,Proposed API,"MVP-02-002, MVP-02-005",Mapped via listed APIs; one endpoint may satisfy multiple features.
+CUR05,Curriculum,Proposed API,MVP-02-005,Mapped via listed APIs; one endpoint may satisfy multiple features.
+CUR06,Curriculum,Proposed API,"MVP-02-003, MVP-02-004",Mapped via listed APIs; one endpoint may satisfy multiple features.
+CUR07,Curriculum,Proposed API,"MVP-02-001, MVP-02-002, MVP-02-005",Mapped via listed APIs; one endpoint may satisfy multiple features.
+TCH02,Discovery,Proposed API,"MVP-13-001, MVP-13-002, MVP-13-003",Mapped via listed APIs; one endpoint may satisfy multiple features.
+TCH03,Discovery,Proposed API,MVP-03-002,Mapped via listed APIs; one endpoint may satisfy multiple features.
+TCH04,Discovery,Proposed API,MVP-03-001,Mapped via listed APIs; one endpoint may satisfy multiple features.
+TCH05,Discovery,Proposed API,MVP-03-001,Mapped via listed APIs; one endpoint may satisfy multiple features.
+TCH06,Discovery,Proposed API,MVP-03-001,Mapped via listed APIs; one endpoint may satisfy multiple features.
+TCH07,Discovery,Proposed API,"MVP-03-001, MVP-03-002, MVP-03-003, MVP-13-004, MVP-13-005",Mapped via listed APIs; one endpoint may satisfy multiple features.
+CLS01,Classes,Proposed API,"MVP-04-001, MVP-04-002, MVP-04-003",Mapped via listed APIs; one endpoint may satisfy multiple features.
+CLS02,Classes,Proposed API,"MVP-04-004, MVP-04-005",Mapped via listed APIs; one endpoint may satisfy multiple features.
+CLS03,Classes,Proposed API,"MVP-04-006, MVP-04-007",Mapped via listed APIs; one endpoint may satisfy multiple features.
+CLS04,Classes,Proposed API,"MVP-04-004, MVP-04-008, MVP-04-009, MVP-13-008",Mapped via listed APIs; one endpoint may satisfy multiple features.
+CLS05,Classes,Proposed API,"MVP-04-008, MVP-04-009",Mapped via listed APIs; one endpoint may satisfy multiple features.
+CLS06,Classes,Proposed API,MVP-04-010,Mapped via listed APIs; one endpoint may satisfy multiple features.
+CLS07,Classes,Proposed API,MVP-04-010,Mapped via listed APIs; one endpoint may satisfy multiple features.
+CLS08,Classes,Proposed API,MVP-04-011,Mapped via listed APIs; one endpoint may satisfy multiple features.
+CLS09,Classes,Proposed API,"MVP-04-005, MVP-04-012",Mapped via listed APIs; one endpoint may satisfy multiple features.
+CLS10,Classes,Proposed API,MVP-04-010,Enforced in authorized resource/live/class APIs
+DEM01,Demo Videos,Proposed API,"MVP-05-001, MVP-05-002",Mapped via listed APIs; one endpoint may satisfy multiple features.
+DEM02,Demo Videos,Proposed API,"MVP-05-001, MVP-05-002",Mapped via listed APIs; one endpoint may satisfy multiple features.
+DEM03,Demo Videos,Proposed API,"MVP-13-006, MVP-13-007",Mapped via listed APIs; one endpoint may satisfy multiple features.
+DEM04,Demo Videos,Proposed API,MVP-05-003,Mapped via listed APIs; one endpoint may satisfy multiple features.
+DEM05,Demo Videos,Proposed API,MVP-05-004,Mapped via listed APIs; one endpoint may satisfy multiple features.
+DEM06,Demo Videos,Proposed API,MVP-05-003,Mapped via listed APIs; one endpoint may satisfy multiple features.
+LIVE01,Live Classes,Proposed API,"MVP-06-001, MVP-06-002",Mapped via listed APIs; one endpoint may satisfy multiple features.
+LIVE02,Live Classes,Proposed API,MVP-06-005,Mapped via listed APIs; one endpoint may satisfy multiple features.
+LIVE03,Live Classes,Proposed API,MVP-06-005,Mapped via listed APIs; one endpoint may satisfy multiple features.
+LIVE04,Live Classes,Proposed API,MVP-06-005,Mapped via listed APIs; one endpoint may satisfy multiple features.
+LIVE05,Live Classes,Proposed API,MVP-06-005,Mapped via listed APIs; one endpoint may satisfy multiple features.
+LIVE06,Live Classes,Proposed API,"MVP-06-006, MVP-06-007",Mapped via listed APIs; one endpoint may satisfy multiple features.
+LIVE07,Live Classes,Proposed API,"MVP-06-003, MVP-06-004",Mapped via listed APIs; one endpoint may satisfy multiple features.
+PAY01,Payments,Proposed API,"MVP-07-001, MVP-07-002",Mapped via listed APIs; one endpoint may satisfy multiple features.
+PAY02,Payments,Proposed API,"MVP-07-001, MVP-07-002",Mapped via listed APIs; one endpoint may satisfy multiple features.
+PAY03,Payments,Proposed API,MVP-07-003,Mapped via listed APIs; one endpoint may satisfy multiple features.
+PAY04,Payments,Proposed API,"MVP-07-004, MVP-07-005",Mapped via listed APIs; one endpoint may satisfy multiple features.
+PAY05,Payments,Proposed API,MVP-07-004,Verified gateway webhook atomically activates enrollment
+PAY06,Payments,Proposed API,"MVP-07-006, MVP-07-007",Mapped via listed APIs; one endpoint may satisfy multiple features.
+PAY07,Payments,Proposed API,"MVP-07-008, MVP-07-009, MVP-13-009, MVP-13-010",Mapped via listed APIs; one endpoint may satisfy multiple features.
+PAY08,Payments,Proposed API,MVP-07-010,Mapped via listed APIs; one endpoint may satisfy multiple features.
+PAY09,Payments,Proposed API,"MVP-07-011, MVP-13-011",Mapped via listed APIs; one endpoint may satisfy multiple features.
+PAY10,Payments,Proposed API,"MVP-07-012, MVP-07-013",Ledger read endpoint + internal immutable accounting postings
+RES01,Resources,Proposed API,MVP-08-001,PDF first; verify PPTX/slides support if in acceptance scope.
+RES02,Resources,Proposed API,"MVP-08-002, MVP-08-003",Mapped via listed APIs; one endpoint may satisfy multiple features.
+RES03,Resources,Proposed API,"MVP-08-002, MVP-08-003",Mapped via listed APIs; one endpoint may satisfy multiple features.
+RES05,Resources,Proposed API,MVP-08-004,Mapped via listed APIs; one endpoint may satisfy multiple features.
+RES06,Resources,Proposed API,"MVP-08-001, MVP-08-003",Mapped via listed APIs; one endpoint may satisfy multiple features.
+XQB01,XACT Source,Proposed API,"MVP-09-001, MVP-09-004",Mapped via listed APIs; one endpoint may satisfy multiple features.
+XQB02,XACT Source,Proposed API,"MVP-09-001, MVP-09-002",Mapped via listed APIs; one endpoint may satisfy multiple features.
+XQB05,XACT Source,Proposed API,MVP-09-003,Mapped via listed APIs; one endpoint may satisfy multiple features.
+XQB06,XACT Source,Proposed API,MVP-09-003,Mapped via listed APIs; one endpoint may satisfy multiple features.
+XQB07,XACT Source,Proposed API,MVP-09-003,Mapped via listed APIs; one endpoint may satisfy multiple features.
+XQB10,XACT Source,Shared / cross-cutting,MVP-09-004,Permission contract / rights clearance is off-system prerequisite.
+XPR01,XACT Exams,Proposed API,MVP-10-001,Mapped via listed APIs; one endpoint may satisfy multiple features.
+XPR02,XACT Exams,Proposed API,"MVP-10-001, MVP-10-002",Mapped via listed APIs; one endpoint may satisfy multiple features.
+XPR03,XACT Exams,Proposed API,MVP-10-001,Mapped via listed APIs; one endpoint may satisfy multiple features.
+XPR04,XACT Exams,Proposed API,MVP-10-001,Topic works; difficulty requires Exam Munnodi metadata.
+XPR05,XACT Exams,Proposed API,MVP-10-001,Mapped via listed APIs; one endpoint may satisfy multiple features.
+XPR06,XACT Exams,Proposed API,"MVP-10-001, MVP-10-002",Mapped via listed APIs; one endpoint may satisfy multiple features.
+XPR07,XACT Exams,Proposed API,"MVP-10-003, MVP-10-004",Mapped via listed APIs; one endpoint may satisfy multiple features.
+XPR08,XACT Exams,Proposed API,MVP-10-005,Mapped via listed APIs; one endpoint may satisfy multiple features.
+XPR09,XACT Exams,Proposed API,"MVP-10-003, MVP-10-004",Mapped via listed APIs; one endpoint may satisfy multiple features.
+XPR10,XACT Exams,Proposed API,MVP-10-006,Mapped via listed APIs; one endpoint may satisfy multiple features.
+XPR11,XACT Exams,Proposed API,MVP-10-006,Mapped via listed APIs; one endpoint may satisfy multiple features.
+XPR12,XACT Exams,Proposed API,MVP-10-007,Mapped via listed APIs; one endpoint may satisfy multiple features.
+XPR13,XACT Exams,Proposed API,MVP-10-007,Mapped via listed APIs; one endpoint may satisfy multiple features.
+XPR14,XACT Exams,Proposed API,MVP-10-008,Mapped via listed APIs; one endpoint may satisfy multiple features.
+XTA02,XACT Teacher,Proposed API,"MVP-11-001, MVP-11-002, MVP-11-003",Mapped via listed APIs; one endpoint may satisfy multiple features.
+XTA05,XACT Teacher,Proposed API,MVP-11-004,Mapped via listed APIs; one endpoint may satisfy multiple features.
+XTA07,XACT Teacher,Proposed API,MVP-11-005,Mapped via listed APIs; one endpoint may satisfy multiple features.
+XTA08,XACT Teacher,Proposed API,MVP-11-005,Mapped via listed APIs; one endpoint may satisfy multiple features.
+XTA09,XACT Teacher,Proposed API,MVP-11-006,Mapped via listed APIs; one endpoint may satisfy multiple features.
+NOT01,Notifications,Proposed API,MVP-12-001,Mapped via listed APIs; one endpoint may satisfy multiple features.
+NOT02,Notifications,Proposed API,MVP-12-001,Mapped via listed APIs; one endpoint may satisfy multiple features.
+NOT03,Notifications,Proposed API,MVP-12-001,Mapped via listed APIs; one endpoint may satisfy multiple features.
+NOT04,Notifications,Proposed API,MVP-12-001,Timed reminders require backend scheduler (not just GET notifications).
+NOT07,Notifications,Proposed API,"MVP-12-001, MVP-12-002, MVP-12-003",Mapped via listed APIs; one endpoint may satisfy multiple features.
+ADM01,Admin,Shared / cross-cutting,,Admin login uses /auth/login; RBAC applies to all /admin paths
+ADM02,Admin,Proposed API,"MVP-13-001, MVP-13-002, MVP-13-003",Mapped via listed APIs; one endpoint may satisfy multiple features.
+ADM04,Admin,Proposed API,"MVP-13-004, MVP-13-005",Mapped via listed APIs; one endpoint may satisfy multiple features.
+ADM05,Admin,Proposed API,"MVP-13-006, MVP-13-007",Mapped via listed APIs; one endpoint may satisfy multiple features.
+ADM08,Admin,Proposed API,"MVP-07-012, MVP-13-009, MVP-13-010, MVP-13-011",Mapped via listed APIs; one endpoint may satisfy multiple features.
+ADM09,Admin,Proposed API,MVP-13-012,Mapped via listed APIs; one endpoint may satisfy multiple features.
+ADM10,Admin,Shared / cross-cutting,,Audit events generated by protected admin operations.
+SAFE01,Support Safety,Proposed API,"MVP-14-001, MVP-14-002",Mapped via listed APIs; one endpoint may satisfy multiple features.
+SAFE02,Support Safety,Proposed API,"MVP-14-001, MVP-14-002",Mapped via listed APIs; one endpoint may satisfy multiple features.
+SAFE03,Support Safety,Proposed API,MVP-14-001,Mapped via listed APIs; one endpoint may satisfy multiple features.
+SAFE04,Support Safety,Proposed API,"MVP-14-003, MVP-14-004",Mapped via listed APIs; one endpoint may satisfy multiple features.
+SAFE06,Support Safety,Shared / cross-cutting,,"Data minimization, access control, retention policies; no standalone endpoint."
+SAFE07,Support Safety,Shared / cross-cutting,MVP-14-004,Audit events generated by protected admin operations.
+CHAT01,Community,Proposed API,MVP-15-001,Mapped via listed APIs; one endpoint may satisfy multiple features.
+CHAT03,Community,Proposed API,MVP-15-002,Mapped via listed APIs; one endpoint may satisfy multiple features.
+CHAT04,Community,Proposed API,"MVP-15-003, MVP-15-004",Mapped via listed APIs; one endpoint may satisfy multiple features.
+CHAT05,Community,Proposed API,"MVP-15-003, MVP-15-004",Mapped via listed APIs; one endpoint may satisfy multiple features.
+CHAT06,Community,Proposed API,"MVP-15-005, MVP-15-006",Mapped via listed APIs; one endpoint may satisfy multiple features.
+Area,Confirmed / proposed,Critical implementation note,Current state
+Teacher NIC,Confirmed: teachers only,Manual evidence review; format check does not authenticate against government,Review needed
+Pricing,Confirmed: platform fixed hourly,Teacher cannot edit; actual hourly amount and commission need decision,Values TBD
+Batch capacity,Confirmed: maximum 20,Admin may set <=20; prevent overbooking with atomic active holds,Design required
+Refunds,Confirmed: manual processing,"Approval, external refund reference, auditable status",Gateway policy TBD
+Teacher payouts,Confirmed: manual bank transfer,"Verified completed hours, commission, payout record",Policy TBD
+Exam Munnodi,Confirmed: external source API,"Questions/keys/explanations, licensing, rate limits, stable IDs",Documentation needed
+XACT difficulty,Not selected in XQB; selected in XPR,Do not fake levels; only implement if source supports it,Blocked pending API
+XACT languages,Selected per paper; translation creation NOT selected,Only expose available mediums from Exam Munnodi,Capability check
+Teacher closure,AUTH09 selected,"Current API covers suspend/reactivate, not closure; needs separate workflow",Partial coverage
+Resource formats,PDF/notes/slides selected,PDF-first sprint; PPTX validation and playback need checking,Potential gap
+Secure live provider,Selected core live,Signed short lived join credentials and attendance events,Provider TBD
+Privacy / child safety,Selected safety controls,Sensitive reports and documents restricted; operational review before public launch,Production gate
+Notifications,Selected live reminders,Time-based reminders require scheduler; in-app API alone insufficient,Worker dependency
+Architecture,Recommended modular monolith,Reuse existing modules and one EF Core migration owner,Repository mapping check
