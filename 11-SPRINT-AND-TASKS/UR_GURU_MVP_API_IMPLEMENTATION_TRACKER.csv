@@ -52,11 +52,11 @@ UR GURU  •  CURRICULUM,,,,,,,,,,,
 5 endpoints  •  grouped by Feature Area  •  project feature IDs included in column C,,,,,,,,,,,
 ,,,,,,,,,,,
 API ID,Module,Feature Area,API Name,Method,API Endpoint,Short Description,Priority,Assignee,Status,Access / Role,Jira / PR
-MVP-02-001,Curriculum,"Streams and subject eligibility [CUR01,CUR02,CUR03,CUR07]",List streams,GET,/api/v1/curriculum/streams,Return seeded Biological/Physical Science streams.,Must,,To Do,Authenticated,
-MVP-02-002,Curriculum,"Streams and subject eligibility [CUR02,CUR03,CUR04,CUR07]",List eligible subjects,GET,/api/v1/curriculum/subjects,"Filter by stream, grade and supported medium.",Must,,To Do,Authenticated,
-MVP-02-003,Curriculum,Syllabus and topics [CUR06],List syllabus versions,GET,/api/v1/curriculum/syllabuses,Return available syllabus versions.,Must,,To Do,Authenticated,
-MVP-02-004,Curriculum,Syllabus and topics [CUR06],List syllabus topics,GET,/api/v1/curriculum/topics,Filter topics by subject and syllabus version.,Must,,To Do,Authenticated,
-MVP-02-005,Curriculum,"Academic profile selection [CUR01,CUR04,CUR05,CUR07]",Save student academic profile,PUT,/api/v1/students/me/academic-profile,"Validate grade, stream, medium, at least one eligible subject.",Must,,To Do,Student,
+MVP-02-001,Curriculum,"Streams and subject eligibility [CUR01,CUR02,CUR03,CUR07]",List streams,GET,/api/v1/curriculum/streams,Return seeded Biological/Physical Science streams.,Must,DEV_2,Done [✓],Authenticated,PR #curriculum (123 Tests)
+MVP-02-002,Curriculum,"Streams and subject eligibility [CUR02,CUR03,CUR04,CUR07]",List eligible subjects,GET,/api/v1/curriculum/subjects,"Filter by stream, grade and supported medium.",Must,DEV_2,Done [✓],Authenticated,PR #curriculum (123 Tests)
+MVP-02-003,Curriculum,Syllabus and topics [CUR06],List syllabus versions,GET,/api/v1/curriculum/syllabuses,Return available syllabus versions.,Must,DEV_2,Done [✓],Authenticated,PR #curriculum (123 Tests)
+MVP-02-004,Curriculum,Syllabus and topics [CUR06],List syllabus topics,GET,/api/v1/curriculum/topics,Filter topics by subject and syllabus version.,Must,DEV_2,Done [✓],Authenticated,PR #curriculum (123 Tests)
+MVP-02-005,Curriculum,"Academic profile selection [CUR01,CUR04,CUR05,CUR07]",Save student academic profile,PUT,/api/v1/students/me/academic-profile,"Validate grade, stream, medium, at least one eligible subject.",Must,DEV_2,Done [✓],Student,PR #curriculum (123 Tests)
 UR GURU  •  DISCOVERY,,,,,,,,,,,
 ,,,,,,,,,,,
 3 endpoints  •  grouped by Feature Area  •  project feature IDs included in column C,,,,,,,,,,,
@@ -226,11 +226,11 @@ MVP-01-010,Identity,Current user + RBAC [AUTH06],Get my identity,GET,/api/v1/use
 MVP-01-011,Identity,Student profiles [AUTH07],Update my student profile,PATCH,/api/v1/students/me/profile,Edit allowed student profile fields only.,Must,DEV_2,Done [✓],Student,PR #b739271 (113 Tests)
 MVP-01-012,Identity,Teacher profiles [AUTH08],Update my teacher profile,PATCH,/api/v1/teachers/me/profile,"Edit teacher bio, subjects/medium and profile data.",Must,DEV_2,Done [✓],Teacher,PR #b739271 (113 Tests)
 MVP-01-013,Identity,Teacher-only NIC [AUTH11],Submit teacher identity evidence,POST,/api/v1/teachers/me/identity-documents,"Validate format; private documents and manual review, not government lookup.",Must,DEV_2,Done [✓],Teacher,PR #b739271 (113 Tests)
-MVP-02-001,Curriculum,"Streams and subject eligibility [CUR01,CUR02,CUR03,CUR07]",List streams,GET,/api/v1/curriculum/streams,Return seeded Biological/Physical Science streams.,Must,,To Do,Authenticated,
-MVP-02-002,Curriculum,"Streams and subject eligibility [CUR02,CUR03,CUR04,CUR07]",List eligible subjects,GET,/api/v1/curriculum/subjects,"Filter by stream, grade and supported medium.",Must,,To Do,Authenticated,
-MVP-02-003,Curriculum,Syllabus and topics [CUR06],List syllabus versions,GET,/api/v1/curriculum/syllabuses,Return available syllabus versions.,Must,,To Do,Authenticated,
-MVP-02-004,Curriculum,Syllabus and topics [CUR06],List syllabus topics,GET,/api/v1/curriculum/topics,Filter topics by subject and syllabus version.,Must,,To Do,Authenticated,
-MVP-02-005,Curriculum,"Academic profile selection [CUR01,CUR04,CUR05,CUR07]",Save student academic profile,PUT,/api/v1/students/me/academic-profile,"Validate grade, stream, medium, at least one eligible subject.",Must,,To Do,Student,
+MVP-02-001,Curriculum,"Streams and subject eligibility [CUR01,CUR02,CUR03,CUR07]",List streams,GET,/api/v1/curriculum/streams,Return seeded Biological/Physical Science streams.,Must,DEV_2,Done [✓],Authenticated,PR #curriculum (123 Tests)
+MVP-02-002,Curriculum,"Streams and subject eligibility [CUR02,CUR03,CUR04,CUR07]",List eligible subjects,GET,/api/v1/curriculum/subjects,"Filter by stream, grade and supported medium.",Must,DEV_2,Done [✓],Authenticated,PR #curriculum (123 Tests)
+MVP-02-003,Curriculum,Syllabus and topics [CUR06],List syllabus versions,GET,/api/v1/curriculum/syllabuses,Return available syllabus versions.,Must,DEV_2,Done [✓],Authenticated,PR #curriculum (123 Tests)
+MVP-02-004,Curriculum,Syllabus and topics [CUR06],List syllabus topics,GET,/api/v1/curriculum/topics,Filter topics by subject and syllabus version.,Must,DEV_2,Done [✓],Authenticated,PR #curriculum (123 Tests)
+MVP-02-005,Curriculum,"Academic profile selection [CUR01,CUR04,CUR05,CUR07]",Save student academic profile,PUT,/api/v1/students/me/academic-profile,"Validate grade, stream, medium, at least one eligible subject.",Must,DEV_2,Done [✓],Student,PR #curriculum (123 Tests)
 MVP-03-001,Discovery,"Teacher browse / filters [TCH04,TCH05,TCH06,TCH07]",Find approved teachers,GET,/api/v1/teachers,"Search teachers; subject, medium, fee, schedule, demo filters.",Must,,To Do,Public,
 MVP-03-002,Discovery,"Public teacher profile [TCH03,TCH07]",View approved teacher,GET,/api/v1/teachers/{teacherId},Public profile only if approved/published/active.,Must,,To Do,Public,
 MVP-03-003,Discovery,Teacher class visibility [TCH07],View teacher published classes,GET,/api/v1/teachers/{teacherId}/classes,Only published classes of approved teacher.,Must,,To Do,Public,
@@ -335,11 +335,11 @@ MVP-01-010,Identity,Current user + RBAC [AUTH06],Get my identity,GET,/api/v1/use
 MVP-01-011,Identity,Student profiles [AUTH07],Update my student profile,PATCH,/api/v1/students/me/profile,Edit allowed student profile fields only.,Must,DEV_2,Done [✓],Student,PR #b739271 (113 Tests)
 MVP-01-012,Identity,Teacher profiles [AUTH08],Update my teacher profile,PATCH,/api/v1/teachers/me/profile,"Edit teacher bio, subjects/medium and profile data.",Must,DEV_2,Done [✓],Teacher,PR #b739271 (113 Tests)
 MVP-01-013,Identity,Teacher-only NIC [AUTH11],Submit teacher identity evidence,POST,/api/v1/teachers/me/identity-documents,"Validate format; private documents and manual review, not government lookup.",Must,DEV_2,Done [✓],Teacher,PR #b739271 (113 Tests)
-MVP-02-001,Curriculum,"Streams and subject eligibility [CUR01,CUR02,CUR03,CUR07]",List streams,GET,/api/v1/curriculum/streams,Return seeded Biological/Physical Science streams.,Must,,To Do,Authenticated,
-MVP-02-002,Curriculum,"Streams and subject eligibility [CUR02,CUR03,CUR04,CUR07]",List eligible subjects,GET,/api/v1/curriculum/subjects,"Filter by stream, grade and supported medium.",Must,,To Do,Authenticated,
-MVP-02-003,Curriculum,Syllabus and topics [CUR06],List syllabus versions,GET,/api/v1/curriculum/syllabuses,Return available syllabus versions.,Must,,To Do,Authenticated,
-MVP-02-004,Curriculum,Syllabus and topics [CUR06],List syllabus topics,GET,/api/v1/curriculum/topics,Filter topics by subject and syllabus version.,Must,,To Do,Authenticated,
-MVP-02-005,Curriculum,"Academic profile selection [CUR01,CUR04,CUR05,CUR07]",Save student academic profile,PUT,/api/v1/students/me/academic-profile,"Validate grade, stream, medium, at least one eligible subject.",Must,,To Do,Student,
+MVP-02-001,Curriculum,"Streams and subject eligibility [CUR01,CUR02,CUR03,CUR07]",List streams,GET,/api/v1/curriculum/streams,Return seeded Biological/Physical Science streams.,Must,DEV_2,Done [✓],Authenticated,PR #curriculum (123 Tests)
+MVP-02-002,Curriculum,"Streams and subject eligibility [CUR02,CUR03,CUR04,CUR07]",List eligible subjects,GET,/api/v1/curriculum/subjects,"Filter by stream, grade and supported medium.",Must,DEV_2,Done [✓],Authenticated,PR #curriculum (123 Tests)
+MVP-02-003,Curriculum,Syllabus and topics [CUR06],List syllabus versions,GET,/api/v1/curriculum/syllabuses,Return available syllabus versions.,Must,DEV_2,Done [✓],Authenticated,PR #curriculum (123 Tests)
+MVP-02-004,Curriculum,Syllabus and topics [CUR06],List syllabus topics,GET,/api/v1/curriculum/topics,Filter topics by subject and syllabus version.,Must,DEV_2,Done [✓],Authenticated,PR #curriculum (123 Tests)
+MVP-02-005,Curriculum,"Academic profile selection [CUR01,CUR04,CUR05,CUR07]",Save student academic profile,PUT,/api/v1/students/me/academic-profile,"Validate grade, stream, medium, at least one eligible subject.",Must,DEV_2,Done [✓],Student,PR #curriculum (123 Tests)
 MVP-03-001,Discovery,"Teacher browse / filters [TCH04,TCH05,TCH06,TCH07]",Find approved teachers,GET,/api/v1/teachers,"Search teachers; subject, medium, fee, schedule, demo filters.",Must,,To Do,Public,
 MVP-03-002,Discovery,"Public teacher profile [TCH03,TCH07]",View approved teacher,GET,/api/v1/teachers/{teacherId},Public profile only if approved/published/active.,Must,,To Do,Public,
 MVP-03-003,Discovery,Teacher class visibility [TCH07],View teacher published classes,GET,/api/v1/teachers/{teacherId}/classes,Only published classes of approved teacher.,Must,,To Do,Public,

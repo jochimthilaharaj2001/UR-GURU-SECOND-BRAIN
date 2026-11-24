@@ -1,8 +1,8 @@
 # UR GURU - MVP 104 API Implementation Tracker
 
-**Overall Progress:** 13/104 APIs Completed (12.5%)
+**Overall Progress:** 18/104 APIs Completed (17.3%)
 **Last Updated:** 2026-11-24
-**Primary Backend Dev:** DEV_2 (Identity & Profiles Module Owner)
+**Primary Backend Dev:** DEV_2 (Identity & Curriculum Modules Owner)
 
 ---
 
@@ -10,7 +10,7 @@
 | Module | Total APIs | Completed | Status |
 |---|---|---|---|
 | Identity | 13 | 13 | ✅ Done (100%) |
-| Curriculum | 5 | 0 | ⚪ Pending (0%) |
+| Curriculum | 5 | 5 | ✅ Done (100%) |
 | Discovery | 3 | 0 | ⚪ Pending (0%) |
 | Classes | 12 | 0 | ⚪ Pending (0%) |
 | Demo Videos | 4 | 0 | ⚪ Pending (0%) |
@@ -50,11 +50,11 @@
 
 | Status | API ID | Method | Endpoint | API Name / Feature | Access / Role | Assignee | Verification / PR |
 |---|---|---|---|---|---|---|---|
-| [ ] ⏳ Pending | **MVP-02-001** | `GET` | `/api/v1/curriculum/streams` | List streams (Streams and subject eligibility [CUR01,CUR02,CUR03,CUR07]) | Authenticated | Unassigned | Needs verification |
-| [ ] ⏳ Pending | **MVP-02-002** | `GET` | `/api/v1/curriculum/subjects` | List eligible subjects (Streams and subject eligibility [CUR02,CUR03,CUR04,CUR07]) | Authenticated | Unassigned | Needs verification |
-| [ ] ⏳ Pending | **MVP-02-003** | `GET` | `/api/v1/curriculum/syllabuses` | List syllabus versions (Syllabus and topics [CUR06]) | Authenticated | Unassigned | Needs verification |
-| [ ] ⏳ Pending | **MVP-02-004** | `GET` | `/api/v1/curriculum/topics` | List syllabus topics (Syllabus and topics [CUR06]) | Authenticated | Unassigned | Needs verification |
-| [ ] ⏳ Pending | **MVP-02-005** | `PUT` | `/api/v1/students/me/academic-profile` | Save student academic profile (Academic profile selection [CUR01,CUR04,CUR05,CUR07]) | Student | Unassigned | Needs verification |
+| [x] ✅ Done | **MVP-02-001** | `GET` | `/api/v1/curriculum/streams` | List streams (Streams and subject eligibility [CUR01,CUR02,CUR03,CUR07]) | Authenticated | DEV_2 | Verified (123 Tests) |
+| [x] ✅ Done | **MVP-02-002** | `GET` | `/api/v1/curriculum/subjects` | List eligible subjects (Streams and subject eligibility [CUR02,CUR03,CUR04,CUR07]) | Authenticated | DEV_2 | Verified (123 Tests) |
+| [x] ✅ Done | **MVP-02-003** | `GET` | `/api/v1/curriculum/syllabuses` | List syllabus versions (Syllabus and topics [CUR06]) | Authenticated | DEV_2 | Verified (123 Tests) |
+| [x] ✅ Done | **MVP-02-004** | `GET` | `/api/v1/curriculum/topics` | List syllabus topics (Syllabus and topics [CUR06]) | Authenticated | DEV_2 | Verified (123 Tests) |
+| [x] ✅ Done | **MVP-02-005** | `PUT` | `/api/v1/students/me/academic-profile` | Save student academic profile (Academic profile selection [CUR01,CUR04,CUR05,CUR07]) | Student | DEV_2 | Verified (123 Tests) |
 #### Module: Discovery
 
 | Status | API ID | Method | Endpoint | API Name / Feature | Access / Role | Assignee | Verification / PR |
