@@ -1,8 +1,8 @@
 # UR GURU - MVP 104 API Implementation Tracker
 
-**Overall Progress:** 18/104 APIs Completed (17.3%)
-**Last Updated:** 2026-11-24
-**Primary Backend Dev:** DEV_2 (Identity & Curriculum Modules Owner)
+**Overall Progress:** 30/104 APIs Completed (28.8%)
+**Last Updated:** 2026-11-25
+**Primary Backend Dev:** DEV_2 (Identity, Curriculum & Classes Modules Owner)
 
 ---
 
@@ -12,7 +12,7 @@
 | Identity | 13 | 13 | ✅ Done (100%) |
 | Curriculum | 5 | 5 | ✅ Done (100%) |
 | Discovery | 3 | 0 | ⚪ Pending (0%) |
-| Classes | 12 | 0 | ⚪ Pending (0%) |
+| Classes | 12 | 12 | ✅ Done (100%) |
 | Demo Videos | 4 | 0 | ⚪ Pending (0%) |
 | Live Classes | 7 | 0 | ⚪ Pending (0%) |
 | Payments | 13 | 0 | ⚪ Pending (0%) |
@@ -66,18 +66,18 @@
 
 | Status | API ID | Method | Endpoint | API Name / Feature | Access / Role | Assignee | Verification / PR |
 |---|---|---|---|---|---|---|---|
-| [ ] ⏳ Pending | **MVP-04-001** | `POST` | `/api/v1/teacher/classes` | Create class offering (Class offerings [CLS01]) | Teacher | Unassigned | Needs verification |
-| [ ] ⏳ Pending | **MVP-04-002** | `GET` | `/api/v1/teacher/classes` | List my class offerings (Class offerings [CLS01]) | Teacher | Unassigned | Needs verification |
-| [ ] ⏳ Pending | **MVP-04-003** | `PATCH` | `/api/v1/teacher/classes/{classId}` | Edit my class offering (Class offerings [CLS01]) | Teacher | Unassigned | Needs verification |
-| [ ] ⏳ Pending | **MVP-04-004** | `POST` | `/api/v1/teacher/classes/{classId}/batches` | Create batch (Batches and schedules [CLS02,CLS04]) | Teacher | Unassigned | Needs verification |
-| [ ] ⏳ Pending | **MVP-04-005** | `PATCH` | `/api/v1/teacher/batches/{batchId}` | Update batch / cancel (Batches and schedules [CLS02,CLS09]) | Teacher | Unassigned | Needs verification |
-| [ ] ⏳ Pending | **MVP-04-006** | `GET` | `/api/v1/classes` | Browse published classes (Class discovery [CLS03]) | Public | Unassigned | Needs verification |
-| [ ] ⏳ Pending | **MVP-04-007** | `GET` | `/api/v1/classes/{classId}` | Get class details (Class discovery [CLS03]) | Public | Unassigned | Needs verification |
-| [ ] ⏳ Pending | **MVP-04-008** | `GET` | `/api/v1/classes/{classId}/batches` | List class batches and availability (Batch selection + seats [CLS04,CLS05]) | Public | Unassigned | Needs verification |
-| [ ] ⏳ Pending | **MVP-04-009** | `GET` | `/api/v1/batches/{batchId}` | Get batch and calculated fee (Batch selection + seats [CLS04,CLS05]) | Public | Unassigned | Needs verification |
-| [ ] ⏳ Pending | **MVP-04-010** | `GET` | `/api/v1/students/me/enrollments` | List my enrollments (Enrollment access [CLS06,CLS07,CLS10]) | Student | Unassigned | Needs verification |
-| [ ] ⏳ Pending | **MVP-04-011** | `GET` | `/api/v1/teacher/batches/{batchId}/students` | List students in my batch (Batch roster [CLS08]) | Teacher | Unassigned | Needs verification |
-| [ ] ⏳ Pending | **MVP-04-012** | `POST` | `/api/v1/teacher/batches/{batchId}/reschedule` | Reschedule batch (Cancel or reschedule class [CLS09]) | Teacher | Unassigned | Needs verification |
+| [x] ✅ Done | **MVP-04-001** | `POST` | `/api/v1/teacher/classes` | Create class offering (Class offerings [CLS01]) | Teacher | DEV_2 | Verified (140 Tests) |
+| [x] ✅ Done | **MVP-04-002** | `GET` | `/api/v1/teacher/classes` | List my class offerings (Class offerings [CLS01]) | Teacher | DEV_2 | Verified (155 Tests) |
+| [x] ✅ Done | **MVP-04-003** | `PATCH` | `/api/v1/teacher/classes/{classId}` | Edit my class offering (Class offerings [CLS01]) | Teacher | DEV_2 | Verified (190 Tests) |
+| [x] ✅ Done | **MVP-04-004** | `POST` | `/api/v1/teacher/classes/{classId}/batches` | Create batch (Batches and schedules [CLS02,CLS04]) | Teacher | DEV_2 | Verified (208 Tests) |
+| [x] ✅ Done | **MVP-04-005** | `PATCH` | `/api/v1/teacher/batches/{batchId}` | Update batch / cancel (Batches and schedules [CLS02,CLS09]) | Teacher | DEV_2 | Verified (218 Tests) |
+| [x] ✅ Done | **MVP-04-006** | `GET` | `/api/v1/classes` | Browse published classes (Class discovery [CLS03]) | Public | DEV_2 | Verified (227 Tests) |
+| [x] ✅ Done | **MVP-04-007** | `GET` | `/api/v1/classes/{classId}` | Get class details (Class discovery [CLS03]) | Public | DEV_2 | Verified (235 Tests) |
+| [x] ✅ Done | **MVP-04-008** | `GET` | `/api/v1/classes/{classId}/batches` | List class batches and availability (Batch selection + seats [CLS04,CLS05]) | Public | DEV_2 | Verified (244 Tests) |
+| [x] ✅ Done | **MVP-04-009** | `GET` | `/api/v1/batches/{batchId}` | Get batch and calculated fee (Batch selection + seats [CLS04,CLS05]) | Public | DEV_2 | Verified (252 Tests) |
+| [x] ✅ Done | **MVP-04-010** | `GET` | `/api/v1/students/me/enrollments` | List my enrollments (Enrollment access [CLS06,CLS07,CLS10]) | Student | DEV_2 | Verified (261 Tests) |
+| [x] ✅ Done | **MVP-04-011** | `GET` | `/api/v1/teacher/batches/{batchId}/students` | List students in my batch (Batch roster [CLS08]) | Teacher | DEV_2 | Verified (277 Tests) |
+| [x] ✅ Done | **MVP-04-012** | `POST` | `/api/v1/teacher/batches/{batchId}/reschedule` | Reschedule batch (Cancel or reschedule class [CLS09]) | Teacher | DEV_2 | Verified (294 Tests) |
 #### Module: Demo Videos
 
 | Status | API ID | Method | Endpoint | API Name / Feature | Access / Role | Assignee | Verification / PR |

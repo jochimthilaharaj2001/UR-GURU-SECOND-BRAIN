@@ -70,18 +70,18 @@ UR GURU  •  CLASSES,,,,,,,,,,,
 12 endpoints  •  grouped by Feature Area  •  project feature IDs included in column C,,,,,,,,,,,
 ,,,,,,,,,,,
 API ID,Module,Feature Area,API Name,Method,API Endpoint,Short Description,Priority,Assignee,Status,Access / Role,Jira / PR
-MVP-04-001,Classes,Class offerings [CLS01],Create class offering,POST,/api/v1/teacher/classes,Create class without teacher-controlled rate.,Must,,To Do,Teacher,
-MVP-04-002,Classes,Class offerings [CLS01],List my class offerings,GET,/api/v1/teacher/classes,Teacher owned class list and statuses.,Must,,To Do,Teacher,
-MVP-04-003,Classes,Class offerings [CLS01],Edit my class offering,PATCH,/api/v1/teacher/classes/{classId},Update allowed class fields; cannot override price.,Must,,To Do,Teacher,
-MVP-04-004,Classes,"Batches and schedules [CLS02,CLS04]",Create batch,POST,/api/v1/teacher/classes/{classId}/batches,Create schedule with admin-enforced capacity <=20.,Must,,To Do,Teacher,
-MVP-04-005,Classes,"Batches and schedules [CLS02,CLS09]",Update batch / cancel,PATCH,/api/v1/teacher/batches/{batchId},Update schedule/status with cancellation rules.,Must,,To Do,Teacher,
-MVP-04-006,Classes,Class discovery [CLS03],Browse published classes,GET,/api/v1/classes,List approved/published searchable offerings.,Must,,To Do,Public,
-MVP-04-007,Classes,Class discovery [CLS03],Get class details,GET,/api/v1/classes/{classId},"Details, fixed pricing, approved demo references.",Must,,To Do,Public,
-MVP-04-008,Classes,"Batch selection + seats [CLS04,CLS05]",List class batches and availability,GET,/api/v1/classes/{classId}/batches,"Show schedules, confirmed + reserved seats, available seats.",Must,,To Do,Public,
-MVP-04-009,Classes,"Batch selection + seats [CLS04,CLS05]",Get batch and calculated fee,GET,/api/v1/batches/{batchId},Show selected batch details and backend price calculation.,Must,,To Do,Public,
-MVP-04-010,Classes,"Enrollment access [CLS06,CLS07,CLS10]",List my enrollments,GET,/api/v1/students/me/enrollments,Return paid verified active entitlements; permission checks reused.,Must,,To Do,Student,
-MVP-04-011,Classes,Batch roster [CLS08],List students in my batch,GET,/api/v1/teacher/batches/{batchId}/students,Owner teacher only; respect student data privacy.,Must,,To Do,Teacher,
-MVP-04-012,Classes,Cancel or reschedule class [CLS09],Reschedule batch,POST,/api/v1/teacher/batches/{batchId}/reschedule,Record schedule change; notify and handle paid-hour obligations.,Must,,To Do,Teacher,
+MVP-04-001,Classes,Class offerings [CLS01],Create class offering,POST,/api/v1/teacher/classes,Create class without teacher-controlled rate.,Must,DEV_2,Done [✓],Teacher,PR #classes-mvp-04-001 (140 Tests)
+MVP-04-002,Classes,Class offerings [CLS01],List my class offerings,GET,/api/v1/teacher/classes,Teacher owned class list and statuses.,Must,DEV_2,Done [✓],Teacher,PR #classes-mvp-04-002 (155 Tests)
+MVP-04-003,Classes,Class offerings [CLS01],Edit my class offering,PATCH,/api/v1/teacher/classes/{classId},Update allowed class fields; cannot override price.,Must,DEV_2,Done [✓],Teacher,PR #classes-mvp-04-003 (190 Tests)
+MVP-04-004,Classes,"Batches and schedules [CLS02,CLS04]",Create batch,POST,/api/v1/teacher/classes/{classId}/batches,Create schedule with admin-enforced capacity <=20.,Must,DEV_2,Done [✓],Teacher,PR #classes-mvp-04-004 (208 Tests)
+MVP-04-005,Classes,"Batches and schedules [CLS02,CLS09]",Update batch / cancel,PATCH,/api/v1/teacher/batches/{batchId},Update schedule/status with cancellation rules.,Must,DEV_2,Done [✓],Teacher,Verified (218 Tests)
+MVP-04-006,Classes,Class discovery [CLS03],Browse published classes,GET,/api/v1/classes,List approved/published searchable offerings.,Must,DEV_2,Done [✓],Public,Verified (227 Tests)
+MVP-04-007,Classes,Class discovery [CLS03],Get class details,GET,/api/v1/classes/{classId},"Details, fixed pricing, approved demo references.",Must,DEV_2,Done [✓],Public,Verified (235 Tests)
+MVP-04-008,Classes,"Batch selection + seats [CLS04,CLS05]",List class batches and availability,GET,/api/v1/classes/{classId}/batches,"Show schedules, confirmed + reserved seats, available seats.",Must,DEV_2,Done [✓],Public,Verified (244 Tests)
+MVP-04-009,Classes,"Batch selection + seats [CLS04,CLS05]",Get batch and calculated fee,GET,/api/v1/batches/{batchId},Show selected batch details and backend price calculation.,Must,DEV_2,Done [✓],Public,Verified (252 Tests)
+MVP-04-010,Classes,"Enrollment access [CLS06,CLS07,CLS10]",List my enrollments,GET,/api/v1/students/me/enrollments,Return paid verified active entitlements; permission checks reused.,Must,DEV_2,Done [✓],Student,Verified (261 Tests)
+MVP-04-011,Classes,Batch roster [CLS08],List students in my batch,GET,/api/v1/teacher/batches/{batchId}/students,Owner teacher only; respect student data privacy.,Must,DEV_2,Done [✓],Teacher,Verified (277 Tests)
+MVP-04-012,Classes,Cancel or reschedule class [CLS09],Reschedule batch,POST,/api/v1/teacher/batches/{batchId}/reschedule,Record schedule change; notify and handle paid-hour obligations.,Must,DEV_2,Done [✓],Teacher,Verified (294 Tests)
 UR GURU  •  DEMO VIDEOS,,,,,,,,,,,
 ,,,,,,,,,,,
 4 endpoints  •  grouped by Feature Area  •  project feature IDs included in column C,,,,,,,,,,,
@@ -234,18 +234,18 @@ MVP-02-005,Curriculum,"Academic profile selection [CUR01,CUR04,CUR05,CUR07]",Sav
 MVP-03-001,Discovery,"Teacher browse / filters [TCH04,TCH05,TCH06,TCH07]",Find approved teachers,GET,/api/v1/teachers,"Search teachers; subject, medium, fee, schedule, demo filters.",Must,,To Do,Public,
 MVP-03-002,Discovery,"Public teacher profile [TCH03,TCH07]",View approved teacher,GET,/api/v1/teachers/{teacherId},Public profile only if approved/published/active.,Must,,To Do,Public,
 MVP-03-003,Discovery,Teacher class visibility [TCH07],View teacher published classes,GET,/api/v1/teachers/{teacherId}/classes,Only published classes of approved teacher.,Must,,To Do,Public,
-MVP-04-001,Classes,Class offerings [CLS01],Create class offering,POST,/api/v1/teacher/classes,Create class without teacher-controlled rate.,Must,,To Do,Teacher,
-MVP-04-002,Classes,Class offerings [CLS01],List my class offerings,GET,/api/v1/teacher/classes,Teacher owned class list and statuses.,Must,,To Do,Teacher,
-MVP-04-003,Classes,Class offerings [CLS01],Edit my class offering,PATCH,/api/v1/teacher/classes/{classId},Update allowed class fields; cannot override price.,Must,,To Do,Teacher,
-MVP-04-004,Classes,"Batches and schedules [CLS02,CLS04]",Create batch,POST,/api/v1/teacher/classes/{classId}/batches,Create schedule with admin-enforced capacity <=20.,Must,,To Do,Teacher,
-MVP-04-005,Classes,"Batches and schedules [CLS02,CLS09]",Update batch / cancel,PATCH,/api/v1/teacher/batches/{batchId},Update schedule/status with cancellation rules.,Must,,To Do,Teacher,
-MVP-04-006,Classes,Class discovery [CLS03],Browse published classes,GET,/api/v1/classes,List approved/published searchable offerings.,Must,,To Do,Public,
-MVP-04-007,Classes,Class discovery [CLS03],Get class details,GET,/api/v1/classes/{classId},"Details, fixed pricing, approved demo references.",Must,,To Do,Public,
-MVP-04-008,Classes,"Batch selection + seats [CLS04,CLS05]",List class batches and availability,GET,/api/v1/classes/{classId}/batches,"Show schedules, confirmed + reserved seats, available seats.",Must,,To Do,Public,
-MVP-04-009,Classes,"Batch selection + seats [CLS04,CLS05]",Get batch and calculated fee,GET,/api/v1/batches/{batchId},Show selected batch details and backend price calculation.,Must,,To Do,Public,
-MVP-04-010,Classes,"Enrollment access [CLS06,CLS07,CLS10]",List my enrollments,GET,/api/v1/students/me/enrollments,Return paid verified active entitlements; permission checks reused.,Must,,To Do,Student,
-MVP-04-011,Classes,Batch roster [CLS08],List students in my batch,GET,/api/v1/teacher/batches/{batchId}/students,Owner teacher only; respect student data privacy.,Must,,To Do,Teacher,
-MVP-04-012,Classes,Cancel or reschedule class [CLS09],Reschedule batch,POST,/api/v1/teacher/batches/{batchId}/reschedule,Record schedule change; notify and handle paid-hour obligations.,Must,,To Do,Teacher,
+MVP-04-001,Classes,Class offerings [CLS01],Create class offering,POST,/api/v1/teacher/classes,Create class without teacher-controlled rate.,Must,DEV_2,Done [✓],Teacher,PR #classes-mvp-04-001 (140 Tests)
+MVP-04-002,Classes,Class offerings [CLS01],List my class offerings,GET,/api/v1/teacher/classes,Teacher owned class list and statuses.,Must,DEV_2,Done [✓],Teacher,PR #classes-mvp-04-002 (155 Tests)
+MVP-04-003,Classes,Class offerings [CLS01],Edit my class offering,PATCH,/api/v1/teacher/classes/{classId},Update allowed class fields; cannot override price.,Must,DEV_2,Done [✓],Teacher,PR #classes-mvp-04-003 (190 Tests)
+MVP-04-004,Classes,"Batches and schedules [CLS02,CLS04]",Create batch,POST,/api/v1/teacher/classes/{classId}/batches,Create schedule with admin-enforced capacity <=20.,Must,DEV_2,Done [✓],Teacher,PR #classes-mvp-04-004 (208 Tests)
+MVP-04-005,Classes,"Batches and schedules [CLS02,CLS09]",Update batch / cancel,PATCH,/api/v1/teacher/batches/{batchId},Update schedule/status with cancellation rules.,Must,DEV_2,Done [✓],Teacher,Verified (218 Tests)
+MVP-04-006,Classes,Class discovery [CLS03],Browse published classes,GET,/api/v1/classes,List approved/published searchable offerings.,Must,DEV_2,Done [✓],Public,Verified (227 Tests)
+MVP-04-007,Classes,Class discovery [CLS03],Get class details,GET,/api/v1/classes/{classId},"Details, fixed pricing, approved demo references.",Must,DEV_2,Done [✓],Public,Verified (235 Tests)
+MVP-04-008,Classes,"Batch selection + seats [CLS04,CLS05]",List class batches and availability,GET,/api/v1/classes/{classId}/batches,"Show schedules, confirmed + reserved seats, available seats.",Must,DEV_2,Done [✓],Public,Verified (244 Tests)
+MVP-04-009,Classes,"Batch selection + seats [CLS04,CLS05]",Get batch and calculated fee,GET,/api/v1/batches/{batchId},Show selected batch details and backend price calculation.,Must,DEV_2,Done [✓],Public,Verified (252 Tests)
+MVP-04-010,Classes,"Enrollment access [CLS06,CLS07,CLS10]",List my enrollments,GET,/api/v1/students/me/enrollments,Return paid verified active entitlements; permission checks reused.,Must,DEV_2,Done [✓],Student,Verified (261 Tests)
+MVP-04-011,Classes,Batch roster [CLS08],List students in my batch,GET,/api/v1/teacher/batches/{batchId}/students,Owner teacher only; respect student data privacy.,Must,DEV_2,Done [✓],Teacher,Verified (277 Tests)
+MVP-04-012,Classes,Cancel or reschedule class [CLS09],Reschedule batch,POST,/api/v1/teacher/batches/{batchId}/reschedule,Record schedule change; notify and handle paid-hour obligations.,Must,DEV_2,Done [✓],Teacher,Verified (294 Tests)
 MVP-05-001,Demo Videos,"Demo upload [DEM01,DEM02]",Create demo upload,POST,/api/v1/teacher/classes/{classId}/demos,Initiate private video upload; size/type/security validation.,Must,,To Do,Teacher,
 MVP-05-002,Demo Videos,"Demo upload [DEM01,DEM02]",Complete demo upload,POST,/api/v1/teacher/demos/{demoId}/complete-upload,Confirm provider asset ready and pending review.,Must,,To Do,Teacher,
 MVP-05-003,Demo Videos,"Approved demo discovery [DEM04,DEM06]",List approved demos,GET,/api/v1/classes/{classId}/demos,Public approved demos; optional to watch before enrolling.,Must,,To Do,Public,
@@ -343,15 +343,15 @@ MVP-02-005,Curriculum,"Academic profile selection [CUR01,CUR04,CUR05,CUR07]",Sav
 MVP-03-001,Discovery,"Teacher browse / filters [TCH04,TCH05,TCH06,TCH07]",Find approved teachers,GET,/api/v1/teachers,"Search teachers; subject, medium, fee, schedule, demo filters.",Must,,To Do,Public,
 MVP-03-002,Discovery,"Public teacher profile [TCH03,TCH07]",View approved teacher,GET,/api/v1/teachers/{teacherId},Public profile only if approved/published/active.,Must,,To Do,Public,
 MVP-03-003,Discovery,Teacher class visibility [TCH07],View teacher published classes,GET,/api/v1/teachers/{teacherId}/classes,Only published classes of approved teacher.,Must,,To Do,Public,
-MVP-04-001,Classes,Class offerings [CLS01],Create class offering,POST,/api/v1/teacher/classes,Create class without teacher-controlled rate.,Must,,To Do,Teacher,
-MVP-04-002,Classes,Class offerings [CLS01],List my class offerings,GET,/api/v1/teacher/classes,Teacher owned class list and statuses.,Must,,To Do,Teacher,
-MVP-04-003,Classes,Class offerings [CLS01],Edit my class offering,PATCH,/api/v1/teacher/classes/{classId},Update allowed class fields; cannot override price.,Must,,To Do,Teacher,
-MVP-04-004,Classes,"Batches and schedules [CLS02,CLS04]",Create batch,POST,/api/v1/teacher/classes/{classId}/batches,Create schedule with admin-enforced capacity <=20.,Must,,To Do,Teacher,
-MVP-04-005,Classes,"Batches and schedules [CLS02,CLS09]",Update batch / cancel,PATCH,/api/v1/teacher/batches/{batchId},Update schedule/status with cancellation rules.,Must,,To Do,Teacher,
-MVP-04-006,Classes,Class discovery [CLS03],Browse published classes,GET,/api/v1/classes,List approved/published searchable offerings.,Must,,To Do,Public,
-MVP-04-007,Classes,Class discovery [CLS03],Get class details,GET,/api/v1/classes/{classId},"Details, fixed pricing, approved demo references.",Must,,To Do,Public,
-MVP-04-008,Classes,"Batch selection + seats [CLS04,CLS05]",List class batches and availability,GET,/api/v1/classes/{classId}/batches,"Show schedules, confirmed + reserved seats, available seats.",Must,,To Do,Public,
-MVP-04-009,Classes,"Batch selection + seats [CLS04,CLS05]",Get batch and calculated fee,GET,/api/v1/batches/{batchId},Show selected batch details and backend price calculation.,Must,,To Do,Public,
+MVP-04-001,Classes,Class offerings [CLS01],Create class offering,POST,/api/v1/teacher/classes,Create class without teacher-controlled rate.,Must,DEV_2,Done [✓],Teacher,PR #classes-mvp-04-001 (140 Tests)
+MVP-04-002,Classes,Class offerings [CLS01],List my class offerings,GET,/api/v1/teacher/classes,Teacher owned class list and statuses.,Must,DEV_2,Done [✓],Teacher,PR #classes-mvp-04-002 (155 Tests)
+MVP-04-003,Classes,Class offerings [CLS01],Edit my class offering,PATCH,/api/v1/teacher/classes/{classId},Update allowed class fields; cannot override price.,Must,DEV_2,Done [✓],Teacher,PR #classes-mvp-04-003 (190 Tests)
+MVP-04-004,Classes,"Batches and schedules [CLS02,CLS04]",Create batch,POST,/api/v1/teacher/classes/{classId}/batches,Create schedule with admin-enforced capacity <=20.,Must,DEV_2,Done [✓],Teacher,PR #classes-mvp-04-004 (208 Tests)
+MVP-04-005,Classes,"Batches and schedules [CLS02,CLS09]",Update batch / cancel,PATCH,/api/v1/teacher/batches/{batchId},Update schedule/status with cancellation rules.,Must,DEV_2,Done [✓],Teacher,Verified (218 Tests)
+MVP-04-006,Classes,Class discovery [CLS03],Browse published classes,GET,/api/v1/classes,List approved/published searchable offerings.,Must,DEV_2,Done [✓],Public,Verified (227 Tests)
+MVP-04-007,Classes,Class discovery [CLS03],Get class details,GET,/api/v1/classes/{classId},"Details, fixed pricing, approved demo references.",Must,DEV_2,Done [✓],Public,Verified (235 Tests)
+MVP-04-008,Classes,"Batch selection + seats [CLS04,CLS05]",List class batches and availability,GET,/api/v1/classes/{classId}/batches,"Show schedules, confirmed + reserved seats, available seats.",Must,DEV_2,Done [✓],Public,Verified (244 Tests)
+MVP-04-009,Classes,"Batch selection + seats [CLS04,CLS05]",Get batch and calculated fee,GET,/api/v1/batches/{batchId},Show selected batch details and backend price calculation.,Must,DEV_2,Done [✓],Public,Verified (252 Tests)
 MVP-13-001,Admin,"Teacher review [TCH02,ADM02]",List pending teacher verifications,GET,/api/v1/admin/teachers/pending,Review queue of teacher-only NIC and credentials.,Must,,To Do,Admin,
 MVP-13-002,Admin,"Teacher review [TCH02,ADM02]",Get teacher verification evidence,GET,/api/v1/admin/teachers/{teacherId}/verification,Restricted teacher verification documents.,Must,,To Do,Admin,
 MVP-13-003,Admin,"Teacher review [TCH02,ADM02]",Approve or reject teacher,POST,/api/v1/admin/teachers/{teacherId}/decision,Record approval decision and audit log.,Must,,To Do,Admin,
@@ -359,8 +359,8 @@ MVP-13-004,Admin,"Publication control [TCH07,ADM04]",Set teacher publication sta
 MVP-13-005,Admin,"Publication control [TCH07,ADM04]",Set class publication status,PATCH,/api/v1/admin/classes/{classId}/publication,Show/hide compliant class offering.,Must,,To Do,Admin,
 MVP-13-008,Admin,Admin batch capacity [CLS04],Adjust batch capacity,PATCH,/api/v1/admin/batches/{batchId}/capacity,"Admin-only; platform hard maximum 20, never under confirmed seats.",Must,,To Do,Admin,
 MVP-13-012,Admin,"User suspension [AUTH09,ADM09]",Change user account status,PATCH,/api/v1/admin/users/{userId}/status,"Suspend/reactivate; revoke access sessions, audit.",Must,,To Do,Admin,
-MVP-04-010,Classes,"Enrollment access [CLS06,CLS07,CLS10]",List my enrollments,GET,/api/v1/students/me/enrollments,Return paid verified active entitlements; permission checks reused.,Must,,To Do,Student,
-MVP-04-011,Classes,Batch roster [CLS08],List students in my batch,GET,/api/v1/teacher/batches/{batchId}/students,Owner teacher only; respect student data privacy.,Must,,To Do,Teacher,
+MVP-04-010,Classes,"Enrollment access [CLS06,CLS07,CLS10]",List my enrollments,GET,/api/v1/students/me/enrollments,Return paid verified active entitlements; permission checks reused.,Must,DEV_2,Done [✓],Student,Verified (261 Tests)
+MVP-04-011,Classes,Batch roster [CLS08],List students in my batch,GET,/api/v1/teacher/batches/{batchId}/students,Owner teacher only; respect student data privacy.,Must,DEV_2,Done [✓],Teacher,Verified (277 Tests)
 MVP-07-001,Payments,"Checkout + seat reserve [PAY01,PAY02]",Create checkout order,POST,/api/v1/checkout/orders,Backend price snapshot + expiring seat hold; capacity concurrency.,Must,,To Do,Student,
 MVP-07-002,Payments,"Checkout + fee display [PAY01,PAY02]",Get order checkout details,GET,/api/v1/checkout/orders/{orderId},"Amount, currency, status, fee snapshot.",Must,,To Do,Order Owner,
 MVP-07-003,Payments,Payment gateway [PAY03],Initiate gateway payment,POST,/api/v1/payments/{orderId}/initiate,Start sandbox provider payment using verified order amount.,Must,,To Do,Order Owner,
@@ -368,7 +368,7 @@ MVP-07-004,Payments,"Verified payment [PAY04,PAY05]",Receive verified gateway we
 MVP-07-005,Payments,Payment status [PAY04],Get payment status,GET,/api/v1/payments/{paymentId}/status,Return authoritative payment state.,Must,,To Do,Owner / Admin,
 MVP-07-006,Payments,Payment history [PAY06],My payment history,GET,/api/v1/students/me/payments,List student order/payment history.,Must,,To Do,Student,
 MVP-07-007,Payments,Payment history [PAY06],View payment receipt,GET,/api/v1/payments/{paymentId}/receipt,Basic transaction receipt; no PDF generation required.,Must,,To Do,Owner / Admin,
-MVP-04-012,Classes,Cancel or reschedule class [CLS09],Reschedule batch,POST,/api/v1/teacher/batches/{batchId}/reschedule,Record schedule change; notify and handle paid-hour obligations.,Must,,To Do,Teacher,
+MVP-04-012,Classes,Cancel or reschedule class [CLS09],Reschedule batch,POST,/api/v1/teacher/batches/{batchId}/reschedule,Record schedule change; notify and handle paid-hour obligations.,Must,DEV_2,Done [✓],Teacher,Verified (294 Tests)
 MVP-05-001,Demo Videos,"Demo upload [DEM01,DEM02]",Create demo upload,POST,/api/v1/teacher/classes/{classId}/demos,Initiate private video upload; size/type/security validation.,Must,,To Do,Teacher,
 MVP-05-002,Demo Videos,"Demo upload [DEM01,DEM02]",Complete demo upload,POST,/api/v1/teacher/demos/{demoId}/complete-upload,Confirm provider asset ready and pending review.,Must,,To Do,Teacher,
 MVP-05-003,Demo Videos,"Approved demo discovery [DEM04,DEM06]",List approved demos,GET,/api/v1/classes/{classId}/demos,Public approved demos; optional to watch before enrolling.,Must,,To Do,Public,
